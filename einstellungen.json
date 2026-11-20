@@ -1,0 +1,36 @@
+{
+  "vault": "G:\\Meine Ablage\\Obsidian\\Aetherion Vault",
+
+  "ordner": {
+    "jsonDateien": "_Anhänge\\Foundry",
+    "gegner": "0_Daggerheart Mechaniken\\Adversary",
+    "umgebungen": "0_Daggerheart Mechaniken\\Environment"
+  },
+
+  "quelle": "json",
+
+  "gruppen": {
+    "Restlinge": "Restlinge",
+    "Gutters": "Gutters",
+    "Chimeras": "Chimären",
+    "Salvants": "Salvants",
+    "Syfter": "Syfter"
+  },
+  "umgebungsGruppe": "Umgebungen",
+
+  "hordenSchadenAutomatisch": true,
+
+  "varianten": [
+    {
+      "name": "Dreiklaue",
+      "basis": "Grubenbär",
+      "werte": { "HP": 10, "Stress": 4 },
+      "beschreibungZusatz": "The one the Syfter know by name: it is missing a claw, and its track shows three furrows where others leave four.",
+      "featuresVorne": [
+        "Relentless (2) - Passive: Dreiklaue can be spotlighted up to two times per GM turn. Spend a Fear as usual to spotlight it."
+      ]
+    }
+  ],
+
+  "github": "ichezzy/white-signal-gegner"
+}
