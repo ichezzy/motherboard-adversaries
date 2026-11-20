@@ -1,7 +1,7 @@
 {
-  "name": "white-signal-gegner",
+  "name": "motherboard-adversaries",
   "private": true,
-  "description": "Baut das Foundry-Modul „White Signal — Gegner“ (Daggerheart-Kompendium) aus den Obsidian-Notizen.",
+  "description": "Baut das Foundry-Modul „Motherboard: Adversaries“ (Daggerheart-Kompendium) aus den Obsidian-Notizen.",
   "type": "module",
   "scripts": {
     "bauen": "node werkzeug/bauen.mjs",

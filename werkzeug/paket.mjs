@@ -7,15 +7,15 @@ import path from "node:path";
 import { compilePack } from "@foundryvtt/foundryvtt-cli";
 import { zipSync } from "fflate";
 
-export const MODUL_ID = "white-signal-gegner";
-export const PACK_NAME = "gegner";
+export const MODUL_ID = "motherboard-adversaries";
+export const PACK_NAME = "adversaries";
 
 export function modulManifest(version, einst) {
   const repo = einst.github;
   const manifest = {
     id: MODUL_ID,
-    title: "White Signal — Gegner",
-    description: "Alle Gegner und Umgebungen der Daggerheart-Kampagne <em>White Signal</em> als Kompendium. Gebaut aus den Obsidian-Notizen.",
+    title: "Motherboard: Adversaries",
+    description: "All adversaries and environments of the Daggerheart campaign <em>White Signal</em> as a compendium, built from the Obsidian notes.",
     version,
     authors: [{ name: "Chezzy" }],
     compatibility: { minimum: "14", verified: "14.365" },
@@ -24,7 +24,7 @@ export function modulManifest(version, einst) {
     },
     packs: [{
       name: PACK_NAME,
-      label: "White Signal — Gegner",
+      label: "Motherboard: Adversaries",
       path: `packs/${PACK_NAME}`,
       type: "Actor",
       system: "daggerheart",

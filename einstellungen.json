@@ -12,14 +12,17 @@
   "gruppen": {
     "Restlinge": "Restlinge",
     "Gutters": "Gutters",
-    "Chimeras": "Chimären",
+    "Chimeras": "Chimeras",
     "Salvants": "Salvants",
     "Syfter": "Syfter"
   },
-  "umgebungsGruppe": "Umgebungen",
+  "umgebungsGruppe": "Environments",
 
   "hordenSchadenAutomatisch": true,
-  "umgebungsNotizenAusJson": true,
+
+  "umgebungsNotizen": {
+    "Junkarena": "texte\\Junkarena.notes.html"
+  },
 
   "gesinnungProGruppe": {
     "Syfter": "neutral"
@@ -42,5 +45,5 @@
     }
   ],
 
-  "github": "ichezzy/white-signal-gegner"
+  "github": "ichezzy/motherboard-adversaries"
 }

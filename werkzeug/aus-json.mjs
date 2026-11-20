@@ -35,8 +35,8 @@ export function ausJsonDateien(einst, notizen) {
     }
     let gruppe = actor.type === "environment" ? einst.umgebungsGruppe : gruppeFuer(name, notizen, einst.varianten);
     if (!gruppe) {
-      probleme.push({ wo: datei, was: "Keine passende Notiz mit Stat Block gefunden – liegt im Ordner „Ohne Gruppe“" });
-      gruppe = "Ohne Gruppe";
+      probleme.push({ wo: datei, was: "Keine passende Notiz mit Stat Block gefunden – liegt im Ordner „Ungrouped“" });
+      gruppe = "Ungrouped";
     }
     if (actor.name !== name) {
       hinweise.push({ wo: datei, was: `Name in der Datei ist „${actor.name}“, im Kompendium heißt er „${name}“ (wie Datei und Notiz)` });

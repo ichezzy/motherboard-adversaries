@@ -8,7 +8,7 @@ import { inlineHtml, klartext, normaleSchreibung } from "./markdown.mjs";
 import {
   gegnerVorlage, umgebungVorlage, featureVorlage, groesseFuer, REICHWEITEN, GEGNER_TYPEN, UMGEBUNG_TYPEN
 } from "./vorlagen.mjs";
-import { jsonName } from "./aus-json.mjs";
+import { PROJEKT } from "./einstellungen.mjs";
 
 const KOPF = /^>\s*\[!statblock\]\s*(.*)$/i;
 export const GESINNUNG = { feindlich: -1, neutral: 0, freundlich: 1 };
@@ -298,14 +298,13 @@ export function ausNotizen(einst, notizen) {
   const probleme = [];
   const hinweise = [];
 
-  // Notizen der Umgebungen bekommen ihre Tabellen (system.notes) aus der bestehenden JSON-Datei.
-  const jsonNotes = new Map();
-  if (einst.umgebungsNotizenAusJson !== false) {
-    for (const datei of fs.readdirSync(einst.pfade.jsonDateien).filter(f => f.toLowerCase().endsWith(".json"))) {
-      try {
-        const j = JSON.parse(fs.readFileSync(path.join(einst.pfade.jsonDateien, datei), "utf8"));
-        if (j.type === "environment" && j.system?.notes) jsonNotes.set(jsonName(datei), j.system.notes);
-      } catch { /* kaputte JSON-Dateien sind hier egal */ }
+  // Notizen-Reiter der Umgebungen (system.notes): HTML-Dateien im Projekt, siehe "umgebungsNotizen" in den Einstellungen.
+  const umgebungsNotizen = new Map();
+  for (const [name, datei] of Object.entries(einst.umgebungsNotizen ?? {})) {
+    try {
+      umgebungsNotizen.set(name, fs.readFileSync(path.resolve(PROJEKT, datei), "utf8").trim());
+    } catch {
+      probleme.push({ wo: "einstellungen.json", was: `Notizen-Datei für „${name}“ fehlt: ${datei}` });
     }
   }
 
@@ -316,7 +315,7 @@ export function ausNotizen(einst, notizen) {
       try {
         const { actor, hinweise: h, umgebung } = statblockZuActor(block, name);
         if (umgebung !== notiz.umgebung) h.push(umgebung ? "Sieht aus wie eine Umgebung, liegt aber bei den Gegnern" : "Sieht aus wie ein Gegner, liegt aber bei den Umgebungen");
-        if (umgebung && jsonNotes.has(name)) actor.system.notes = jsonNotes.get(name);
+        if (umgebung && umgebungsNotizen.has(name)) actor.system.notes = umgebungsNotizen.get(name);
         regelnAnwenden(actor, notiz.gruppe, einst);
         for (const was of h) hinweise.push({ wo: `${datei} → ${name}`, was });
         eintraege.push({ name, gruppe: notiz.gruppe, actor, herkunft: datei });

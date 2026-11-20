@@ -5,6 +5,7 @@
 import { createHash } from "node:crypto";
 
 const ZEICHEN = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+// Bleibt beim alten Projektnamen, damit die IDs seit Version 1.0 gleich bleiben.
 const NAMENSRAUM = "white-signal-gegner";
 
 export function festeId(...teile) {

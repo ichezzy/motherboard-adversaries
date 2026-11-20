@@ -1,5 +1,5 @@
 /**
- * Baut das Modul „White Signal — Gegner“.
+ * Baut das Modul „Motherboard: Adversaries“.
  *   node werkzeug/bauen.mjs
  * Liest nur aus dem Vault. Schreibt nur in den Ordner dist/ dieses Projekts.
  */
@@ -17,9 +17,9 @@ export const DIST = path.join(PROJEKT, "dist");
 
 function gruppenReihenfolge(einst, vorhanden) {
   const fest = Object.values(einst.gruppen);
-  const rest = [...vorhanden].filter(g => !fest.includes(g) && g !== einst.umgebungsGruppe && g !== "Ohne Gruppe")
+  const rest = [...vorhanden].filter(g => !fest.includes(g) && g !== einst.umgebungsGruppe && g !== "Ungrouped")
     .sort((a, b) => a.localeCompare(b, "de"));
-  return [...fest, ...rest, "Ohne Gruppe", einst.umgebungsGruppe].filter(g => vorhanden.has(g));
+  return [...fest, ...rest, "Ungrouped", einst.umgebungsGruppe].filter(g => vorhanden.has(g));
 }
 
 /**
@@ -81,7 +81,7 @@ export function zusammenfassung(r) {
   const z = [];
   const quelle = r.quelle === "json" ? `JSON-Dateien in ${r.einst.ordner.jsonDateien}` : `Notizen in ${r.einst.ordner.gegner} und ${r.einst.ordner.umgebungen}`;
   z.push("");
-  z.push(`=== White Signal — Gegner · Version ${r.version} ===`);
+  z.push(`=== Motherboard: Adversaries · Version ${r.version} ===`);
   z.push(`Quelle: ${quelle}`);
   z.push("");
   z.push("Im Kompendium:");

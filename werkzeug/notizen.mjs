@@ -30,9 +30,9 @@ export function findeNotizen(einst) {
   for (const datei of alleMarkdown(einst.pfade.gegner)) {
     const relativ = path.relative(einst.pfade.gegner, datei);
     const teile = relativ.split(path.sep);
-    // Gruppe = erster Unterordner; Notizen direkt im Adversary-Ordner landen unter „Ohne Gruppe“.
+    // Gruppe = erster Unterordner; Notizen direkt im Adversary-Ordner landen unter „Ungrouped“.
     const ordnerName = teile.length > 1 ? teile[0] : null;
-    const gruppe = ordnerName ? (einst.gruppen[ordnerName] ?? ordnerName) : "Ohne Gruppe";
+    const gruppe = ordnerName ? (einst.gruppen[ordnerName] ?? ordnerName) : "Ungrouped";
     const text = fs.readFileSync(datei, "utf8");
     notizen.push({ datei, name: notizName(datei), gruppe, umgebung: false, text, hatStatblock: STATBLOCK.test(text) });
   }

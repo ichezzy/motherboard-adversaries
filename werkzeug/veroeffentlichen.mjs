@@ -22,12 +22,13 @@ function befehl(prog, args, { leise = false } = {}) {
 
 function releaseText(r) {
   const v = r.vergleich;
-  const zeilen = [`${r.actors.length} Einträge: ` + r.proGruppe.map(([g, n]) => `${g} ${n}`).join(", ") + "."];
-  if (!r.letzte) zeilen.push("", "Erste Veröffentlichung.");
+  // Release-Text auf GitHub: Englisch, wie alles, was außerhalb dieses PCs zu sehen ist.
+  const zeilen = [`${r.actors.length} entries: ` + r.proGruppe.map(([g, n]) => `${g} ${n}`).join(", ") + "."];
+  if (!r.letzte) zeilen.push("", "First release.");
   else {
-    if (v.neu.length) zeilen.push("", "**Neu:** " + v.neu.join(", "));
-    if (v.geaendert.length) zeilen.push("", "**Geändert:** " + v.geaendert.map(g => g.name).join(", "));
-    if (v.entfernt.length) zeilen.push("", "**Entfernt:** " + v.entfernt.join(", "));
+    if (v.neu.length) zeilen.push("", "**New:** " + v.neu.join(", "));
+    if (v.geaendert.length) zeilen.push("", "**Changed:** " + v.geaendert.map(g => g.name).join(", "));
+    if (v.entfernt.length) zeilen.push("", "**Removed:** " + v.entfernt.join(", "));
   }
   return zeilen.join("\n");
 }
@@ -42,7 +43,7 @@ async function frage(text) {
 async function main() {
   const r = await bauen();
   console.log(zusammenfassung(r).replace(/\nNoch nichts hochgeladen.*$/, ""));
-  if (!r.einst.github) throw new Error("In einstellungen.json fehlt „github“ (z. B. \"ichezzy/white-signal-gegner\").");
+  if (!r.einst.github) throw new Error("In einstellungen.json fehlt „github“ (z. B. \"ichezzy/motherboard-adversaries\").");
 
   const v = r.vergleich;
   const nichtsNeu = r.letzte && !v.neu.length && !v.geaendert.length && !v.entfernt.length;
@@ -69,7 +70,7 @@ async function main() {
   ]);
   console.log("");
   console.log(`Fertig: Version ${r.version} ist veröffentlicht.`);
-  console.log("In Foundry: Setup → Add-on Modules → „Nach Updates suchen“ → bei White Signal — Gegner „Aktualisieren“.");
+  console.log("In Foundry: Setup → Add-on Modules → „Nach Updates suchen“ → bei „Motherboard: Adversaries“ auf „Aktualisieren“.");
 }
 
 try {
