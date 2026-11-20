@@ -8,6 +8,7 @@ import { pathToFileURL } from "node:url";
 import { ladeEinstellungen, PROJEKT } from "./einstellungen.mjs";
 import { findeNotizen } from "./notizen.mjs";
 import { ausJsonDateien } from "./aus-json.mjs";
+import { ausNotizen } from "./aus-notizen.mjs";
 import { fertigmachen, ordnerDokument } from "./fertigmachen.mjs";
 import { bauePaket } from "./paket.mjs";
 import { ladeStand, vergleiche, letzteVersion, naechsteVersion } from "./stand.mjs";
@@ -22,15 +23,14 @@ function gruppenReihenfolge(einst, vorhanden) {
 }
 
 /**
- * @returns {Promise<object>} alles, was die Zusammenfassung und das Veröffentlichen brauchen
+ * Liest alle Gegner aus der gewählten Quelle („notizen“ oder „json“) und macht sie fertig fürs Kompendium.
  */
-export async function bauen({ version } = {}) {
-  const einst = ladeEinstellungen();
+export function sammeln(einst, quelle = einst.quelle) {
   const notizen = findeNotizen(einst);
-
   let gelesen;
-  if (einst.quelle === "json") gelesen = ausJsonDateien(einst, notizen);
-  else throw new Error(`Die Quelle „${einst.quelle}“ kann ich noch nicht lesen (Stufe 2 folgt). Setze in einstellungen.json "quelle": "json".`);
+  if (quelle === "json") gelesen = ausJsonDateien(einst, notizen);
+  else if (quelle === "notizen") gelesen = ausNotizen(einst, notizen);
+  else throw new Error(`In einstellungen.json steht "quelle": "${quelle}" – erlaubt sind "notizen" oder "json".`);
   const { probleme, hinweise } = gelesen;
 
   // Doppelte Namen: der erste gewinnt, der zweite wird gemeldet.
@@ -42,9 +42,10 @@ export async function bauen({ version } = {}) {
     eintraege.push(e);
   }
 
-  // Notizen mit Stat Block, die (noch) keinen Eintrag haben
-  for (const n of notizen.filter(n => n.hatStatblock && !namen.has(n.name))) {
-    hinweise.push({ wo: path.basename(n.datei), was: "Notiz hat einen Stat Block, aber keine JSON-Datei – kommt mit Stufe 2 dazu" });
+  if (quelle === "json") {
+    for (const n of notizen.filter(n => n.hatStatblock && !namen.has(n.name))) {
+      hinweise.push({ wo: path.basename(n.datei), was: "Notiz hat einen Stat Block, aber keine JSON-Datei" });
+    }
   }
 
   const gruppen = gruppenReihenfolge(einst, new Set(eintraege.map(e => e.gruppe)));
@@ -59,19 +60,26 @@ export async function bauen({ version } = {}) {
     actors.push(actor);
     for (const was of h) hinweise.push({ wo: e.name, was });
   }
+  const proGruppe = gruppen.map(g => [g, eintraege.filter(e => e.gruppe === g).length]);
+  return { quelle, actors, ordner, proGruppe, probleme, hinweise };
+}
 
+/**
+ * @returns {Promise<object>} alles, was die Zusammenfassung und das Veröffentlichen brauchen
+ */
+export async function bauen({ version } = {}) {
+  const einst = ladeEinstellungen();
+  const s = sammeln(einst);
   const letzte = letzteVersion();
   const neueVersion = version ?? naechsteVersion(letzte);
-  const vergleich = vergleiche(ladeStand(), actors);
-  const paket = await bauePaket({ dokumente: [...ordner, ...actors], version: neueVersion, einst, ziel: DIST });
-
-  const proGruppe = gruppen.map(g => [g, eintraege.filter(e => e.gruppe === g).length]);
-  return { einst, actors, ordner, proGruppe, vergleich, probleme, hinweise, letzte, version: neueVersion, paket };
+  const vergleich = vergleiche(ladeStand(), s.actors);
+  const paket = await bauePaket({ dokumente: [...s.ordner, ...s.actors], version: neueVersion, einst, ziel: DIST });
+  return { einst, ...s, vergleich, letzte, version: neueVersion, paket };
 }
 
 export function zusammenfassung(r) {
   const z = [];
-  const quelle = r.einst.quelle === "json" ? `JSON-Dateien in ${r.einst.ordner.jsonDateien}` : "Notizen";
+  const quelle = r.quelle === "json" ? `JSON-Dateien in ${r.einst.ordner.jsonDateien}` : `Notizen in ${r.einst.ordner.gegner} und ${r.einst.ordner.umgebungen}`;
   z.push("");
   z.push(`=== White Signal — Gegner · Version ${r.version} ===`);
   z.push(`Quelle: ${quelle}`);
@@ -95,7 +103,7 @@ export function zusammenfassung(r) {
   z.push("");
 
   if (r.probleme.length) {
-    z.push(`NICHT GELESEN oder FEHLERHAFT (${r.probleme.length}):`);
+    z.push(`NICHT GELESEN oder FEHLERHAFT (${r.probleme.length}) – alle anderen sind trotzdem gebaut:`);
     for (const p of r.probleme) z.push(`  ! ${p.wo}: ${p.was}`);
     z.push("");
   }
@@ -110,7 +118,7 @@ export function zusammenfassung(r) {
   return z.join("\n");
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   try {
     const r = await bauen();
     console.log(zusammenfassung(r));

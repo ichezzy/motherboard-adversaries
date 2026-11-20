@@ -7,7 +7,7 @@
     "umgebungen": "0_Daggerheart Mechaniken\\Environment"
   },
 
-  "quelle": "json",
+  "quelle": "notizen",
 
   "gruppen": {
     "Restlinge": "Restlinge",
@@ -19,6 +19,16 @@
   "umgebungsGruppe": "Umgebungen",
 
   "hordenSchadenAutomatisch": true,
+  "umgebungsNotizenAusJson": true,
+
+  "gesinnungProGruppe": {
+    "Syfter": "neutral"
+  },
+
+  "ausnahmen": {
+    "Syfter Bulwark": { "groesse": "medium" },
+    "Syfter Bulwark — Tier 2": { "groesse": "medium" }
+  },
 
   "varianten": [
     {
@@ -27,7 +37,7 @@
       "werte": { "HP": 10, "Stress": 4 },
       "beschreibungZusatz": "The one the Syfter know by name: it is missing a claw, and its track shows three furrows where others leave four.",
       "featuresVorne": [
-        "Relentless (2) - Passive: Dreiklaue can be spotlighted up to two times per GM turn. Spend a Fear as usual to spotlight it."
+        "Relentless (2) - Passive: Dreiklaue can be spotlighted up to two times per GM turn. **Spend a Fear** as usual to spotlight it."
       ]
     }
   ],
