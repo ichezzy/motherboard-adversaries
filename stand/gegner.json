@@ -4459,7 +4459,7 @@
       "default": 0
     },
     "_id": "pmXteJAiC7GFlouA",
-    "folder": "vHtKFdJEseQYu8QZ",
+    "folder": "HDajgFznXNoSukFc",
     "sort": 0,
     "_key": "!actors!pmXteJAiC7GFlouA"
   },
@@ -4644,7 +4644,7 @@
       "default": 0
     },
     "_id": "UAVnVndQoKOiuhmk",
-    "folder": "qCkqYHNGyASm0xIa",
+    "folder": "97nU2sObI2c5ks8z",
     "sort": 0,
     "_key": "!actors!UAVnVndQoKOiuhmk"
   },
@@ -4909,7 +4909,7 @@
       "default": 0
     },
     "_id": "ghxGSattxehUQNQl",
-    "folder": "vHtKFdJEseQYu8QZ",
+    "folder": "HDajgFznXNoSukFc",
     "sort": 0,
     "_key": "!actors!ghxGSattxehUQNQl"
   },
@@ -5237,7 +5237,7 @@
       "default": 0
     },
     "_id": "rE4NOrJ1Qf0Mrupr",
-    "folder": "vHtKFdJEseQYu8QZ",
+    "folder": "HDajgFznXNoSukFc",
     "sort": 0,
     "_key": "!actors!rE4NOrJ1Qf0Mrupr"
   },
@@ -5502,7 +5502,7 @@
       "default": 0
     },
     "_id": "9mMPdtatdHfZrBm6",
-    "folder": "vHtKFdJEseQYu8QZ",
+    "folder": "HDajgFznXNoSukFc",
     "sort": 0,
     "_key": "!actors!9mMPdtatdHfZrBm6"
   },
@@ -5835,7 +5835,7 @@
       "default": 0
     },
     "_id": "E35857F4uoxAbyCt",
-    "folder": "vHtKFdJEseQYu8QZ",
+    "folder": "HDajgFznXNoSukFc",
     "sort": 0,
     "_key": "!actors!E35857F4uoxAbyCt"
   },
@@ -5870,7 +5870,7 @@
           "adversaries": []
         }
       },
-      "notes": "<h3>Wenn ein Abteil auslöst (alle Würfe 14)</h3><table><tr><th>Abteil</th><th>Was passiert</th><th>Ausweichen</th><th>Gegen die Gegner</th></tr><tr><td><strong>Säure</strong></td><td>Säure schießt aus den Rohren. Wer nicht auf einem Stein steht: <strong>1d6+2</strong> phy und eine Armor Slot markieren — die Säure frisst die Rüstung.</td><td>auf die <strong>Steine</strong></td><td>frisst auch die Panzerung der Restlinge · aus einem verstopften Rohr kommen keine Rohrmolche mehr</td></tr><tr><td><strong>Dornen</strong></td><td>Stacheln fahren aus den Gruben — nur die braunen <strong>oder</strong> nur die schwarzen, abwechselnd. Agility Reaction Roll; Fehlschlag: <strong>1d8+2</strong> phy und <em>Restrained</em>, bis man sich mit einem Strength Roll losreißt.</td><td>aufs andere Farbfeld</td><td>Restlinge kennen das Muster nicht: einen Gegner aufs falsche Feld locken oder stoßen — Gegner im Feld nehmen denselben Schaden</td></tr><tr><td><strong>Feuer</strong></td><td>Die Öfen gehen auf, das Feuer läuft die heißen Bahnen entlang. Wer in einer heißen Bahn steht: Agility Reaction Roll; Fehlschlag <strong>1d8+3</strong> phy, Erfolg die Hälfte.</td><td>in eine kalte Bahn — die Brandspuren zeigen, welche heiß ist · ein umgestoßenes <strong>Wasserfass</strong> löscht eine Bahn bis zum nächsten Auslösen</td><td>einen Gegner in eine heiße Bahn stoßen · eine <strong>Fackel</strong> am Ofen anzünden — die Chimären der CTC sind Tiere und fürchten Feuer</td></tr><tr><td><strong>Strom</strong></td><td>Alles Metall steht unter Strom, Cyware und Karnex stottern. Wer auf Metall steht: Instinct Reaction Roll; Fehlschlag: eine Hope verlieren.</td><td>auf <strong>Paletten</strong> oder alte <strong>Reifen</strong> — Inseln, die nicht leiten</td><td><strong>Restlinge auf dem Metall sind <em>Vulnerable</strong></em> bis zu ihrem nächsten Spotlight · ein umgestoßenes Wasserfass macht eine Pfütze, die mitleitet</td></tr></table><h3>Abschalten</h3><table><tr><th>Abteil</th><th>Not-Aus — kurz, kein Wurf</th><th>Stelle 1</th><th>Stelle 2</th><th>Würfe (Beispiele)</th></tr><tr><td><strong>Säure</strong></td><td>tief im Abteil 《Platz auf der Karte》</td><td>das Ventil an der Nordwand</td><td>das Ventil an der Westwand</td><td>Strength — rostig und festgefressen · oder ein Rohr verstopfen (Strength)</td></tr><tr><td><strong>Dornen</strong></td><td>tief im Abteil 《Platz auf der Karte》</td><td>die Luke über der <strong>braunen</strong> Welle</td><td>die Luke über der <strong>schwarzen</strong> Welle</td><td>Finesse — ein Rohr ins Zahnrad klemmen; wer keins hat, opfert seine Waffe bis nach dem Kampf</td></tr><tr><td><strong>Feuer</strong></td><td>tief im Abteil 《Platz auf der Karte》</td><td>die Ofenreihe an der Ostwand</td><td>die Ofenreihe an der Südwand</td><td>Strength — ein Wasserfass hineinwerfen · oder ein Sprengfass vor die Rohre stellen (Finesse)</td></tr><tr><td><strong>Strom</strong></td><td>tief im Abteil 《Platz auf der Karte》</td><td>die Batterien — alle vier an einem Strang</td><td>die Konsole an der Südwand</td><td>Batterien: Angriff oder Strength · Konsole: hacken (Knowledge) oder zerschlagen (Strength)</td></tr></table><h3>Spickzettel</h3><table><tr><th>Würfel</th><th>Start</th><th>Tickt bei</th><th>Bei 0</th></tr><tr><td><strong>Show</strong></td><td>3 · Showtime 4 · nach den Buhrufen 2</td><td>jedem Action Roll der Spieler</td><td>alle scharfen Abteile lösen aus, neu starten</td></tr><tr><td><strong>Jubel</strong></td><td>6</td><td>Erfolg fürs Publikum, Spektakel (Crit: 2) — je Tick wirft die Menge etwas</td><td>jede Figur +1 Hope · keine Showtime mehr · Buhrufe enden</td></tr><tr><td><strong>Buhrufe</strong></td><td>6</td><td>ein scharfes Abteil löst aus, und niemand ist drin · Failure with Fear fürs Publikum</td><td><em>The Show</em> startet ab jetzt bei 2 · Jubel endet</td></tr><tr><td><strong>Kronenbrecher</strong></td><td>6, ab dem Erwachen</td><td>jedem Action Roll der Spieler · Seil gekappt: +2</td><td>die Krone platzt: Agility Reaction, <strong>2d8+2</strong> phy, Erfolg die Hälfte → Flucht</td></tr></table><p><strong>Fear:</strong> ein Abteil scharf 1 · jedes weitere gleichzeitig +1 · Showtime 3, einmal pro Welle · Schock im Mast 1.</p><p><strong>Stellen:</strong> Säure ☐☐ · Dornen ☐☐ · Feuer ☐☐ · Strom ☐☐ — beide voll: Abteil tot, Kristall dunkel.</p><p><strong>Drei Enden:</strong> Welle 3 beginnt → er erwacht · jemand erreicht die Krone (2 × Agility) → er erwacht · der vierte Kristall wird dunkel → Kuppel fällt, er trinkt in Ruhe, keine Explosion.</p><p><strong>Was das Publikum wirft</strong> (d6): 1 ein halber Pressling · 2 ein Rohr, gut zum Zuschlagen · 3 ein NeuroStim · 4 ein Kabel · 5 ein Stück Scrap (ein Shard) · 6 eine Flasche, die beim Aufprall zerbricht — und ein Pfiff, der aus der Menge zurückpfeift.</p>",
+      "notes": "<h3>When a Pit Fires (all rolls 14)</h3><table><tr><th>Pit</th><th>What happens</th><th>Dodge</th><th>Against the adversaries</th></tr><tr><td><strong>Acid</strong></td><td>Acid sprays from the pipes. Anyone not standing on a stone: <strong>1d6+2</strong> phy and mark an Armor Slot — the acid eats the armor.</td><td>onto the <strong>stones</strong></td><td>also eats the Restlinge's plating · no more Rohrmolch crawl out of a clogged pipe</td></tr><tr><td><strong>Spikes</strong></td><td>Spikes shoot up from the pits — only the brown <strong>or</strong> only the black ones, alternating. Agility Reaction Roll; on a failure: <strong>1d8+2</strong> phy and <em>Restrained</em> until they tear free with a Strength Roll.</td><td>onto the other color</td><td>Restlinge don't know the pattern: lure or push an adversary onto the wrong color — adversaries in the pit take the same damage</td></tr><tr><td><strong>Fire</strong></td><td>The furnaces open and fire runs along the hot lanes. Anyone standing in a hot lane: Agility Reaction Roll; on a failure <strong>1d8+3</strong> phy, on a success half.</td><td>into a cold lane — the scorch marks show which one is hot · a knocked-over <strong>water barrel</strong> douses a lane until the pit fires again</td><td>push an adversary into a hot lane · light a <strong>torch</strong> at the furnace — the CTC's Chimären are animals and fear fire</td></tr><tr><td><strong>Current</strong></td><td>All metal goes live, Cyware and Karnex stutter. Anyone standing on metal: Instinct Reaction Roll; on a failure: lose a Hope.</td><td>onto <strong>pallets</strong> or old <strong>tires</strong> — islands that don't conduct</td><td><strong>Restlinge on the metal are <em>Vulnerable</em></strong> until their next spotlight · a knocked-over water barrel makes a puddle that conducts too</td></tr></table><h3>Shutting a Pit Down</h3><table><tr><th>Pit</th><th>Kill switch — quick, no roll</th><th>Station 1</th><th>Station 2</th><th>Rolls (examples)</th></tr><tr><td><strong>Acid</strong></td><td>deep inside the pit 《spot on the map》</td><td>the valve on the north wall</td><td>the valve on the west wall</td><td>Strength — rusted and seized · or clog a pipe (Strength)</td></tr><tr><td><strong>Spikes</strong></td><td>deep inside the pit 《spot on the map》</td><td>the hatch above the <strong>brown</strong> shaft</td><td>the hatch above the <strong>black</strong> shaft</td><td>Finesse — jam a pipe into the gear; whoever has none gives up their weapon until after the fight</td></tr><tr><td><strong>Fire</strong></td><td>deep inside the pit 《spot on the map》</td><td>the row of furnaces on the east wall</td><td>the row of furnaces on the south wall</td><td>Strength — throw a water barrel in · or set a blast barrel in front of the pipes (Finesse)</td></tr><tr><td><strong>Current</strong></td><td>deep inside the pit 《spot on the map》</td><td>the batteries — all four on one line</td><td>the console on the south wall</td><td>Batteries: attack or Strength · Console: hack (Knowledge) or smash (Strength)</td></tr></table><h3>Cheat Sheet</h3><table><tr><th>Countdown</th><th>Start</th><th>Ticks when</th><th>At 0</th></tr><tr><td><strong>Show</strong></td><td>3 · Showtime 4 · after the Boos 2</td><td>a PC makes an action roll</td><td>all armed pits fire, start again</td></tr><tr><td><strong>Cheers</strong></td><td>6</td><td>success playing to the crowd, something spectacular (crit: 2) — each tick, the crowd throws something</td><td>each PC +1 Hope · no more Showtime · Boos end</td></tr><tr><td><strong>Boos</strong></td><td>6</td><td>an armed pit fires with nobody inside · Failure with Fear playing to the crowd</td><td><em>The Show</em> starts at 2 from now on · Cheers end</td></tr><tr><td><strong>Kronenbrecher</strong></td><td>6, once he wakes</td><td>a PC makes an action roll · rope cut: +2</td><td>the crown bursts: Agility Reaction, <strong>2d8+2</strong> phy, half on a success → escape</td></tr></table><p><strong>Fear:</strong> arm one pit 1 · each additional pit at the same time +1 · Showtime 3, once per wave · Shock the Pillar 1.</p><p><strong>Stations:</strong> Acid ☐☐ · Spikes ☐☐ · Fire ☐☐ · Current ☐☐ — both marked: pit dead, crystal dark.</p><p><strong>Three endings:</strong> Wave 3 begins → he wakes · someone reaches the crown (2 × Agility) → he wakes · the fourth crystal goes dark → the dome falls, he drinks in peace, no explosion.</p><p><strong>What the Crowd Throws</strong> (d6): 1 half a Pressling · 2 a pipe, good for hitting things · 3 a NeuroStim · 4 a cable · 5 a piece of scrap (one Shard) · 6 a bottle that shatters on impact — and a whistle that someone in the crowd answers.</p>",
       "difficulty": 14,
       "tier": 1,
       "description": "<p>Junker's show beneath the city: a square pit under a dome of light, four pits that wake one by one, and a crowd that pays to watch you sweat.</p>",
@@ -6098,7 +6098,7 @@
       "default": 0
     },
     "_id": "EgWRCcsHAzS6i6ZT",
-    "folder": "qCkqYHNGyASm0xIa",
+    "folder": "97nU2sObI2c5ks8z",
     "sort": 0,
     "_key": "!actors!EgWRCcsHAzS6i6ZT"
   },
@@ -6567,7 +6567,79 @@
         "system": {
           "description": "<p><strong>Mark a Stress</strong>. All PCs within Close range of a point within Far range must succeed on an Instinct Reaction Roll (12) or lose a Hope and <strong>mark a Stress</strong>.</p>",
           "resource": null,
-          "actions": {},
+          "actions": {
+            "wFBSnTLkdTP433So": {
+              "type": "attack",
+              "_id": "wFBSnTLkdTP433So",
+              "systemPath": "actions",
+              "description": "",
+              "chatDisplay": true,
+              "actionType": "action",
+              "cost": [
+                {
+                  "scalable": false,
+                  "key": "stress",
+                  "value": 1,
+                  "step": null,
+                  "itemId": null,
+                  "consumeOnSuccess": false
+                }
+              ],
+              "uses": {
+                "value": null,
+                "max": "",
+                "recovery": null,
+                "consumeOnSuccess": false
+              },
+              "target": {
+                "type": "any",
+                "amount": null
+              },
+              "effects": [],
+              "name": "Mark Stress",
+              "img": "icons/svg/aura.svg",
+              "range": "far",
+              "areas": [
+                {
+                  "name": "Feedback Howl",
+                  "type": "placed",
+                  "shape": "emanation",
+                  "size": "close",
+                  "effects": [],
+                  "hasHole": false
+                }
+              ],
+              "baseAction": false,
+              "originItem": {
+                "type": "itemCollection"
+              },
+              "triggers": [],
+              "damage": {
+                "main": null,
+                "resources": {}
+              },
+              "roll": {
+                "type": null,
+                "trait": null,
+                "difficulty": null,
+                "bonus": null,
+                "advState": "neutral",
+                "diceRolling": {
+                  "multiplier": "prof",
+                  "flatMultiplier": 1,
+                  "dice": "d6",
+                  "compare": null,
+                  "treshold": null
+                },
+                "useDefault": false
+              },
+              "save": {
+                "trait": "instinct",
+                "difficulty": 12,
+                "damageMod": "none"
+              }
+            }
+          },
           "attribution": {},
           "gmNotes": "",
           "featureForm": "action",
@@ -6596,7 +6668,46 @@
         "system": {
           "description": "<p><strong>Spend a Fear</strong> to call nearby Restlinge: summon one Nahtjäger horde at Far range, or tick down the scene's Consequence Countdown by 2.</p>",
           "resource": null,
-          "actions": {},
+          "actions": {
+            "p9hZg8I8HqTn0kRk": {
+              "type": "effect",
+              "_id": "p9hZg8I8HqTn0kRk",
+              "systemPath": "actions",
+              "description": "",
+              "chatDisplay": true,
+              "actionType": "action",
+              "cost": [
+                {
+                  "scalable": false,
+                  "key": "fear",
+                  "value": 1,
+                  "step": null,
+                  "itemId": null,
+                  "consumeOnSuccess": false
+                }
+              ],
+              "uses": {
+                "value": null,
+                "max": "",
+                "recovery": null,
+                "consumeOnSuccess": false
+              },
+              "target": {
+                "type": "any",
+                "amount": null
+              },
+              "effects": [],
+              "name": "Spend Fear",
+              "img": "icons/svg/aura.svg",
+              "range": "",
+              "areas": [],
+              "baseAction": false,
+              "originItem": {
+                "type": "itemCollection"
+              },
+              "triggers": []
+            }
+          },
           "attribution": {},
           "gmNotes": "",
           "featureForm": "action",
@@ -8052,7 +8163,46 @@
         "system": {
           "description": "<p><strong>Mark a Stress</strong> to become <em>Hidden</em> until after the Nachrufer's next attack. While <em>Hidden</em>, its voice can come from any point within Far range. Attacks made while <em>Hidden</em> this way have advantage.</p>",
           "resource": null,
-          "actions": {},
+          "actions": {
+            "zdDBEsBcyJuGGf9o": {
+              "type": "effect",
+              "_id": "zdDBEsBcyJuGGf9o",
+              "systemPath": "actions",
+              "description": "",
+              "chatDisplay": true,
+              "actionType": "action",
+              "cost": [
+                {
+                  "scalable": false,
+                  "key": "stress",
+                  "value": 1,
+                  "step": null,
+                  "itemId": null,
+                  "consumeOnSuccess": false
+                }
+              ],
+              "uses": {
+                "value": null,
+                "max": "",
+                "recovery": null,
+                "consumeOnSuccess": false
+              },
+              "target": {
+                "type": "any",
+                "amount": null
+              },
+              "effects": [],
+              "name": "Mark Stress",
+              "img": "icons/svg/aura.svg",
+              "range": "",
+              "areas": [],
+              "baseAction": false,
+              "originItem": {
+                "type": "itemCollection"
+              },
+              "triggers": []
+            }
+          },
           "attribution": {},
           "gmNotes": "",
           "featureForm": "action",
@@ -8081,7 +8231,70 @@
         "system": {
           "description": "<p><strong>Mark a Stress</strong> to call to a PC within Far range in the voice of someone they trust — a friend, a lost crewmate, another PC who is out of sight. The PC must succeed on an Instinct Reaction Roll (18) or move up to Far range toward the voice, away from their allies, and become <em>Vulnerable</em> until they next act. A PC who asks the voice something only the real person could answer makes this roll with advantage.</p>",
           "resource": null,
-          "actions": {},
+          "actions": {
+            "suVFb11rXvAOLmUB": {
+              "type": "attack",
+              "_id": "suVFb11rXvAOLmUB",
+              "systemPath": "actions",
+              "description": "",
+              "chatDisplay": true,
+              "actionType": "action",
+              "cost": [
+                {
+                  "scalable": false,
+                  "key": "stress",
+                  "value": 1,
+                  "step": null,
+                  "itemId": null,
+                  "consumeOnSuccess": false
+                }
+              ],
+              "uses": {
+                "value": null,
+                "max": "",
+                "recovery": null,
+                "consumeOnSuccess": false
+              },
+              "target": {
+                "type": "any",
+                "amount": null
+              },
+              "effects": [],
+              "name": "Mark Stress",
+              "img": "icons/svg/aura.svg",
+              "range": "far",
+              "areas": [],
+              "baseAction": false,
+              "originItem": {
+                "type": "itemCollection"
+              },
+              "triggers": [],
+              "damage": {
+                "main": null,
+                "resources": {}
+              },
+              "roll": {
+                "type": null,
+                "trait": null,
+                "difficulty": null,
+                "bonus": null,
+                "advState": "neutral",
+                "diceRolling": {
+                  "multiplier": "prof",
+                  "flatMultiplier": 1,
+                  "dice": "d6",
+                  "compare": null,
+                  "treshold": null
+                },
+                "useDefault": false
+              },
+              "save": {
+                "trait": "instinct",
+                "difficulty": 18,
+                "damageMod": "none"
+              }
+            }
+          },
           "attribution": {},
           "gmNotes": "",
           "featureForm": "action",
@@ -8110,7 +8323,70 @@
         "system": {
           "description": "<p><strong>Mark a Stress</strong> to sing the exact pitch of a PC's Karnex, armor or weapon within Far range. The PC must succeed on a Strength Reaction Roll (18) or mark an Armor Slot without receiving its benefit (if they can't, they mark a Stress instead) and their metal rings so loudly that they can't become <em>Hidden</em> until the end of the scene.</p>",
           "resource": null,
-          "actions": {},
+          "actions": {
+            "F9MiHaNh37F9TACn": {
+              "type": "attack",
+              "_id": "F9MiHaNh37F9TACn",
+              "systemPath": "actions",
+              "description": "",
+              "chatDisplay": true,
+              "actionType": "action",
+              "cost": [
+                {
+                  "scalable": false,
+                  "key": "stress",
+                  "value": 1,
+                  "step": null,
+                  "itemId": null,
+                  "consumeOnSuccess": false
+                }
+              ],
+              "uses": {
+                "value": null,
+                "max": "",
+                "recovery": null,
+                "consumeOnSuccess": false
+              },
+              "target": {
+                "type": "any",
+                "amount": null
+              },
+              "effects": [],
+              "name": "Mark Stress",
+              "img": "icons/svg/aura.svg",
+              "range": "far",
+              "areas": [],
+              "baseAction": false,
+              "originItem": {
+                "type": "itemCollection"
+              },
+              "triggers": [],
+              "damage": {
+                "main": null,
+                "resources": {}
+              },
+              "roll": {
+                "type": null,
+                "trait": null,
+                "difficulty": null,
+                "bonus": null,
+                "advState": "neutral",
+                "diceRolling": {
+                  "multiplier": "prof",
+                  "flatMultiplier": 1,
+                  "dice": "d6",
+                  "compare": null,
+                  "treshold": null
+                },
+                "useDefault": false
+              },
+              "save": {
+                "trait": "strength",
+                "difficulty": 18,
+                "damageMod": "none"
+              }
+            }
+          },
           "attribution": {},
           "gmNotes": "",
           "featureForm": "action",
@@ -8433,7 +8709,102 @@
         "system": {
           "description": "<p><strong>Spend a Fear</strong> to scream on every frequency at once. All PCs within Close range of a point within Far range must make an Instinct Reaction Roll (18). Targets who fail take <strong>3d8+3</strong> magic damage, lose a Hope and <strong>mark a Stress</strong>. Targets who succeed take half damage.</p>",
           "resource": null,
-          "actions": {},
+          "actions": {
+            "VcpocqwMnm27wNan": {
+              "type": "attack",
+              "_id": "VcpocqwMnm27wNan",
+              "systemPath": "actions",
+              "description": "",
+              "chatDisplay": true,
+              "actionType": "action",
+              "cost": [
+                {
+                  "scalable": false,
+                  "key": "fear",
+                  "value": 1,
+                  "step": null,
+                  "itemId": null,
+                  "consumeOnSuccess": false
+                }
+              ],
+              "uses": {
+                "value": null,
+                "max": "",
+                "recovery": null,
+                "consumeOnSuccess": false
+              },
+              "target": {
+                "type": "any",
+                "amount": null
+              },
+              "effects": [],
+              "name": "Spend Fear",
+              "img": "icons/svg/aura.svg",
+              "range": "far",
+              "areas": [
+                {
+                  "name": "Feedback Scream",
+                  "type": "placed",
+                  "shape": "emanation",
+                  "size": "close",
+                  "effects": [],
+                  "hasHole": false
+                }
+              ],
+              "baseAction": false,
+              "originItem": {
+                "type": "itemCollection"
+              },
+              "triggers": [],
+              "damage": {
+                "main": {
+                  "value": {
+                    "custom": {
+                      "enabled": false,
+                      "formula": ""
+                    },
+                    "flatMultiplier": 3,
+                    "dice": "d8",
+                    "bonus": 3,
+                    "multiplier": "flat"
+                  },
+                  "applyTo": "hitPoints",
+                  "type": [
+                    "magical"
+                  ],
+                  "base": false,
+                  "resultBased": false,
+                  "valueAlt": null,
+                  "includeBase": false,
+                  "direct": false,
+                  "groupAttack": "",
+                  "fullRestore": false,
+                  "itemId": null
+                },
+                "resources": {}
+              },
+              "roll": {
+                "type": null,
+                "trait": null,
+                "difficulty": null,
+                "bonus": null,
+                "advState": "neutral",
+                "diceRolling": {
+                  "multiplier": "prof",
+                  "flatMultiplier": 1,
+                  "dice": "d6",
+                  "compare": null,
+                  "treshold": null
+                },
+                "useDefault": false
+              },
+              "save": {
+                "trait": "instinct",
+                "difficulty": 18,
+                "damageMod": "half"
+              }
+            }
+          },
           "attribution": {},
           "gmNotes": "",
           "featureForm": "action",
@@ -8462,7 +8833,79 @@
         "system": {
           "description": "<p><strong>Mark a Stress</strong>: every voice it ever stole speaks at once — names, last words, calls for help. Each PC within Far range must succeed on a Presence Reaction Roll (18) or lose a Hope. Gain a Fear for each PC who fails.</p>",
           "resource": null,
-          "actions": {},
+          "actions": {
+            "An4rmuqoZnzOGCwB": {
+              "type": "attack",
+              "_id": "An4rmuqoZnzOGCwB",
+              "systemPath": "actions",
+              "description": "",
+              "chatDisplay": true,
+              "actionType": "action",
+              "cost": [
+                {
+                  "scalable": false,
+                  "key": "stress",
+                  "value": 1,
+                  "step": null,
+                  "itemId": null,
+                  "consumeOnSuccess": false
+                }
+              ],
+              "uses": {
+                "value": null,
+                "max": "",
+                "recovery": null,
+                "consumeOnSuccess": false
+              },
+              "target": {
+                "type": "any",
+                "amount": null
+              },
+              "effects": [],
+              "name": "Mark Stress",
+              "img": "icons/svg/aura.svg",
+              "range": "far",
+              "areas": [
+                {
+                  "name": "Chorus of the Dead",
+                  "type": "placed",
+                  "shape": "emanation",
+                  "size": "far",
+                  "effects": [],
+                  "hasHole": false
+                }
+              ],
+              "baseAction": false,
+              "originItem": {
+                "type": "itemCollection"
+              },
+              "triggers": [],
+              "damage": {
+                "main": null,
+                "resources": {}
+              },
+              "roll": {
+                "type": null,
+                "trait": null,
+                "difficulty": null,
+                "bonus": null,
+                "advState": "neutral",
+                "diceRolling": {
+                  "multiplier": "prof",
+                  "flatMultiplier": 1,
+                  "dice": "d6",
+                  "compare": null,
+                  "treshold": null
+                },
+                "useDefault": false
+              },
+              "save": {
+                "trait": "presence",
+                "difficulty": 18,
+                "damageMod": "none"
+              }
+            }
+          },
           "attribution": {},
           "gmNotes": "",
           "featureForm": "action",
@@ -9099,7 +9542,7 @@
       "default": 0
     },
     "_id": "BtDl6rQPcABSLBPW",
-    "folder": "qCkqYHNGyASm0xIa",
+    "folder": "97nU2sObI2c5ks8z",
     "sort": 0,
     "_key": "!actors!BtDl6rQPcABSLBPW"
   },
@@ -12082,7 +12525,7 @@
       "default": 0
     },
     "_id": "cPiwsRXFH3yjqdMa",
-    "folder": "vHtKFdJEseQYu8QZ",
+    "folder": "HDajgFznXNoSukFc",
     "sort": 0,
     "_key": "!actors!cPiwsRXFH3yjqdMa"
   },
@@ -12325,7 +12768,7 @@
       "default": 0
     },
     "_id": "hko1hPk5FBN99P68",
-    "folder": "qCkqYHNGyASm0xIa",
+    "folder": "97nU2sObI2c5ks8z",
     "sort": 0,
     "_key": "!actors!hko1hPk5FBN99P68"
   },
@@ -15546,7 +15989,7 @@
       "default": 0
     },
     "_id": "A4VhoPsYX7ojPtab",
-    "folder": "qCkqYHNGyASm0xIa",
+    "folder": "97nU2sObI2c5ks8z",
     "sort": 0,
     "_key": "!actors!A4VhoPsYX7ojPtab"
   },
@@ -16341,7 +16784,7 @@
       "default": 0
     },
     "_id": "H7w3L9IBTx4UT7CS",
-    "folder": "vHtKFdJEseQYu8QZ",
+    "folder": "HDajgFznXNoSukFc",
     "sort": 0,
     "_key": "!actors!H7w3L9IBTx4UT7CS"
   },
@@ -16606,7 +17049,7 @@
       "default": 0
     },
     "_id": "z2AOdtlx6ruRHTW1",
-    "folder": "vHtKFdJEseQYu8QZ",
+    "folder": "HDajgFznXNoSukFc",
     "sort": 0,
     "_key": "!actors!z2AOdtlx6ruRHTW1"
   },
@@ -16929,7 +17372,7 @@
       "default": 0
     },
     "_id": "ua7Fi178G8trrgZK",
-    "folder": "vHtKFdJEseQYu8QZ",
+    "folder": "HDajgFznXNoSukFc",
     "sort": 0,
     "_key": "!actors!ua7Fi178G8trrgZK"
   },
@@ -17114,7 +17557,7 @@
       "default": 0
     },
     "_id": "GihEwISnG64aisR4",
-    "folder": "qCkqYHNGyASm0xIa",
+    "folder": "97nU2sObI2c5ks8z",
     "sort": 0,
     "_key": "!actors!GihEwISnG64aisR4"
   },
@@ -17476,7 +17919,7 @@
       "default": 0
     },
     "_id": "tR3RNTfSkJl0RQQF",
-    "folder": "vHtKFdJEseQYu8QZ",
+    "folder": "HDajgFznXNoSukFc",
     "sort": 0,
     "_key": "!actors!tR3RNTfSkJl0RQQF"
   },
@@ -17748,7 +18191,7 @@
       "default": 0
     },
     "_id": "Dqb9DmG97o4lVL0j",
-    "folder": "qCkqYHNGyASm0xIa",
+    "folder": "97nU2sObI2c5ks8z",
     "sort": 0,
     "_key": "!actors!Dqb9DmG97o4lVL0j"
   },
