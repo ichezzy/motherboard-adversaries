@@ -1203,7 +1203,13 @@
         "effects": [],
         "folder": null,
         "sort": 200000,
-        "flags": {},
+        "flags": {
+          "motherboard-adversaries": {
+            "onFailedSave": {
+              "stress": 1
+            }
+          }
+        },
         "_stats": {
           "coreVersion": "14.365",
           "systemId": "daggerheart",
@@ -8268,7 +8274,14 @@
         "effects": [],
         "folder": null,
         "sort": 100000,
-        "flags": {},
+        "flags": {
+          "motherboard-adversaries": {
+            "onFailedSave": {
+              "hope": 1,
+              "stress": 1
+            }
+          }
+        },
         "_stats": {
           "coreVersion": "14.365",
           "systemId": "daggerheart",
@@ -9264,7 +9277,13 @@
         "effects": [],
         "folder": null,
         "sort": 200000,
-        "flags": {},
+        "flags": {
+          "motherboard-adversaries": {
+            "onSuccessfulSave": {
+              "stress": 1
+            }
+          }
+        },
         "_stats": {
           "coreVersion": "14.365",
           "systemId": "daggerheart",
@@ -10941,7 +10960,14 @@
         "effects": [],
         "folder": null,
         "sort": 300000,
-        "flags": {},
+        "flags": {
+          "motherboard-adversaries": {
+            "onFailedSave": {
+              "hope": 1,
+              "stress": 1
+            }
+          }
+        },
         "_stats": {
           "coreVersion": "14.365",
           "systemId": "daggerheart",
@@ -11042,7 +11068,14 @@
         "effects": [],
         "folder": null,
         "sort": 400000,
-        "flags": {},
+        "flags": {
+          "motherboard-adversaries": {
+            "onFailedSave": {
+              "hope": 1,
+              "fear": 1
+            }
+          }
+        },
         "_stats": {
           "coreVersion": "14.365",
           "systemId": "daggerheart",
@@ -11467,7 +11500,13 @@
         "effects": [],
         "folder": null,
         "sort": 200000,
-        "flags": {},
+        "flags": {
+          "motherboard-adversaries": {
+            "onFailedSave": {
+              "stress": 1
+            }
+          }
+        },
         "_stats": {
           "coreVersion": "14.365",
           "systemId": "daggerheart",
@@ -13514,7 +13553,13 @@
         "effects": [],
         "folder": null,
         "sort": 100000,
-        "flags": {},
+        "flags": {
+          "motherboard-adversaries": {
+            "onFailedSave": {
+              "stress": 1
+            }
+          }
+        },
         "_stats": {
           "coreVersion": "14.365",
           "systemId": "daggerheart",
@@ -15909,7 +15954,13 @@
         "effects": [],
         "folder": null,
         "sort": 400000,
-        "flags": {},
+        "flags": {
+          "motherboard-adversaries": {
+            "onSuccessfulSave": {
+              "stress": 1
+            }
+          }
+        },
         "_stats": {
           "coreVersion": "14.365",
           "systemId": "daggerheart",
@@ -16024,7 +16075,13 @@
         "effects": [],
         "folder": null,
         "sort": 500000,
-        "flags": {},
+        "flags": {
+          "motherboard-adversaries": {
+            "onSuccessfulSave": {
+              "stress": 1
+            }
+          }
+        },
         "_stats": {
           "coreVersion": "14.365",
           "systemId": "daggerheart",
@@ -19872,7 +19929,16 @@
         "effects": [],
         "folder": null,
         "sort": 200000,
-        "flags": {},
+        "flags": {
+          "motherboard-adversaries": {
+            "onFailedSave": {
+              "stress": 2
+            },
+            "onSuccessfulSave": {
+              "stress": 1
+            }
+          }
+        },
         "_stats": {
           "coreVersion": "14.365",
           "systemId": "daggerheart",
@@ -20178,7 +20244,13 @@
         "effects": [],
         "folder": null,
         "sort": 500000,
-        "flags": {},
+        "flags": {
+          "motherboard-adversaries": {
+            "onSuccessfulSave": {
+              "stress": 1
+            }
+          }
+        },
         "_stats": {
           "coreVersion": "14.365",
           "systemId": "daggerheart",
@@ -23109,7 +23181,13 @@
         "effects": [],
         "folder": null,
         "sort": 500000,
-        "flags": {},
+        "flags": {
+          "motherboard-adversaries": {
+            "onSuccessfulSave": {
+              "stress": 1
+            }
+          }
+        },
         "_stats": {
           "coreVersion": "14.365",
           "systemId": "daggerheart",
