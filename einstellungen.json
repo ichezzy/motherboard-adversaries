@@ -21,8 +21,7 @@
   "hordenSchadenAutomatisch": true,
 
   "automatik": {
-    "an": true,
-    "nurFuer": ["Kreischer", "Nachrufer", "Nachrufer — Sirene"]
+    "an": true
   },
 
   "umgebungsNotizen": {

@@ -46,3 +46,10 @@ test("Zwei mögliche Werte: kein Save, nur Hinweis", () => {
   assert.equal(aktion, null);
   assert.equal(hinweise.length, 1);
 });
+
+test("Schaden auch bei „taking … on a failure or half on a success“", () => {
+  const { aktion } = aktionFuer(f("Everyone still in the arena makes an Agility Reaction Roll (14), taking **2d8+2** physical damage on a failure or half on a success.", "reaction"));
+  assert.equal(aktion.damage.main.value.dice, "d8");
+  assert.equal(aktion.save.damageMod, "half");
+  assert.equal(aktion.cost.length, 0);
+});

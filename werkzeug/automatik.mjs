@@ -123,7 +123,7 @@ export function aktionFuer(f, bild = "icons/svg/aura.svg") {
     aktion.save = { trait: s.save.trait, difficulty: s.save.difficulty, damageMod: "none" };
     teile.push(`Save ${s.save.trait[0].toUpperCase() + s.save.trait.slice(1)}${s.save.difficulty ? ` (${s.save.difficulty})` : ""}`);
     const folge = plain.slice(s.ende);
-    const sch = folge.match(/take (\d*d\d+(?:\s*[+−–-]\s*\d+)?|\d+) (magic|magical|physical) damage/i);
+    const sch = folge.match(/\btak(?:e|es|ing) (\d*d\d+(?:\s*[+−–-]\s*\d+)?|\d+) (magic|magical|physical) damage/i);
     if (sch) {
       const wert = wurfWert(sch[1]);
       if (wert) {
