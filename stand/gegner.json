@@ -4463,6 +4463,191 @@
     "sort": 0,
     "_key": "!actors!pmXteJAiC7GFlouA"
   },
+  "Hotspot": {
+    "name": "Hotspot",
+    "img": "systems/daggerheart/assets/icons/documents/actors/forest.svg",
+    "type": "environment",
+    "system": {
+      "potentialAdversaries": {
+        "bQGZ6cG0Bf7407B7": {
+          "label": "Restlinge in animal form, Gutters (Gutter-Crews), the keepers of the Hotspot (no stat block yet)",
+          "adversaries": []
+        }
+      },
+      "notes": "",
+      "difficulty": 14,
+      "tier": 2,
+      "description": "<p>A hollow in the grey steppe where Äther wells up and pools. Everything charges here on its own — gear, vehicles, people. It is rarer than anything else in the Deadband, and someone usually got here first.</p>",
+      "type": "exploration",
+      "impulses": "Restore whoever rests, draw whoever needs it, hide from those who would sell it",
+      "attribution": {
+        "source": "White Signal (Homebrew)",
+        "page": null,
+        "artist": ""
+      }
+    },
+    "flags": {},
+    "items": [
+      {
+        "name": "Living Äther",
+        "type": "feature",
+        "_id": "nFnwTlVR374vPy40",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p>Everything within the green charges without a connection: gear, Arx, Cyware, a vehicle's buffer. The PCs can take a short or long rest here, and when they do, each PC clears an additional Stress.</p><section id=\"secret-Da5eeKFDAjHx3fvY\" class=\"secret\"><p><em>What does the Äther feel like on the skin? Who rested here before them?</em></p></section>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "passive",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 0,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!UAVnVndQoKOiuhmk.nFnwTlVR374vPy40"
+      },
+      {
+        "name": "Bloom",
+        "type": "feature",
+        "_id": "wirrPWTjDFYYzYI1",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p>Something grows here. A PC who searches the hollow can make an Instinct Roll. On a success, they find something worth taking: something edible, a plant the Banders would trade for, or what the last camp left behind.</p><section id=\"secret-jfsogVMdpASFMW0b\" class=\"secret\"><p><em>What is the first green thing the PCs have seen in days?</em></p></section>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "passive",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 100000,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!UAVnVndQoKOiuhmk.wirrPWTjDFYYzYI1"
+      },
+      {
+        "name": "The Keepers",
+        "type": "feature",
+        "_id": "kxvkDh1CFjFMer1j",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p><strong>Spend a Fear</strong> to have the keepers of the Hotspot show themselves. They want something before the PCs may stay: a price, a promise, or every Bake switched off.</p><section id=\"secret-g90qt9dc5AQ8sHtT\" class=\"secret\"><p><em>Who are they? What happened to the last ones who refused?</em></p></section>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "action",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 200000,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!UAVnVndQoKOiuhmk.kxvkDh1CFjFMer1j"
+      },
+      {
+        "name": "Come to Drink",
+        "type": "feature",
+        "_id": "1ej4tdlIEN9dWjZk",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p><strong>Spend a Fear</strong> while the PCs rest here: Restlinge in animal form come to the Hotspot, or another crew that knows the way.</p><section id=\"secret-hXT5z3Ul6NG1pJsC\" class=\"secret\"><p><em>Do they come to fight, or only to drink?</em></p></section>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "action",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 300000,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!UAVnVndQoKOiuhmk.1ej4tdlIEN9dWjZk"
+      },
+      {
+        "name": "Betrayed",
+        "type": "feature",
+        "_id": "9MBormholoPg5Yn0",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p>When a PC makes an action roll that uses a Bake or Funk here and rolls with Fear, someone marks the location. The next time the PCs come here, it is no longer a secret.</p><section id=\"secret-wpNKrnr5s6wi8SNL\" class=\"secret\"><p><em>Who bought the location? What will they do with it?</em></p></section>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "reaction",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 400000,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!UAVnVndQoKOiuhmk.9MBormholoPg5Yn0"
+      }
+    ],
+    "effects": [],
+    "_stats": {
+      "coreVersion": "14.365",
+      "systemId": "daggerheart",
+      "systemVersion": "2.12.9"
+    },
+    "ownership": {
+      "default": 0
+    },
+    "_id": "UAVnVndQoKOiuhmk",
+    "folder": "qCkqYHNGyASm0xIa",
+    "sort": 0,
+    "_key": "!actors!UAVnVndQoKOiuhmk"
+  },
   "Hyänen-Brecher": {
     "name": "Hyänen-Brecher",
     "img": "systems/daggerheart/assets/icons/documents/actors/dragon-head.svg",
@@ -5660,24 +5845,28 @@
     "type": "environment",
     "system": {
       "potentialAdversaries": {
-        "lJWzpw3bq2XdZhyZ": {
-          "label": "Welle 1 — Rohrmolch, Rassler, Mustang",
+        "gDb9lHCmoMmrlXOA": {
+          "label": "Rohrmolch, Rassler, Mustang",
           "adversaries": []
         },
-        "hXBcivqytz0wfcPz": {
-          "label": "Welle 2 — Heuler, Spiegelpuma, Probenstecher",
+        "t57ghxb8lAbsqNJO": {
+          "label": "Heuler, Spiegelpuma, Probenstecher",
           "adversaries": []
         },
-        "rbBznmxIDnjWzWgL": {
-          "label": "Welle 3 — Dreiklaue, Heuler",
+        "DcCL66vipZHDBVyX": {
+          "label": "Dreiklaue (Grubenbär)",
           "adversaries": []
         },
-        "F4dZH0lDzKxKRkCT": {
-          "label": "Die Säule — Kronenbrecher",
+        "lRcF4mz9DtdkSlHs": {
+          "label": "Kronenbrecher",
           "adversaries": []
         },
-        "DkEh5m6wXS245wDR": {
-          "label": "Außerhalb — Arena-Treiberin, Sable (Verbündete)",
+        "pILpGGz39GWH9lJd": {
+          "label": "außerhalb der Kuppel: Arena-Treiberin",
+          "adversaries": []
+        },
+        "CTWv3L0s3Tkeo1Vk": {
+          "label": "auf eurer Seite: Sable",
           "adversaries": []
         }
       },
@@ -8671,6 +8860,249 @@
     "sort": 0,
     "_key": "!actors!lJV744fKKR3oT6xx"
   },
+  "Netzpfeiler": {
+    "name": "Netzpfeiler",
+    "img": "systems/daggerheart/assets/icons/documents/actors/forest.svg",
+    "type": "environment",
+    "system": {
+      "potentialAdversaries": {
+        "0ER2Lb7xAj2FspRm": {
+          "label": "Restlinge (Nahtjäger, Kreischer, Taktgeber, Mastfäller), Scratchlings (Kratzdrohne), Gutters (Gutter-Crews, Gutter Netrat)",
+          "adversaries": []
+        }
+      },
+      "notes": "",
+      "difficulty": 14,
+      "tier": 2,
+      "description": "<p>A lattice mast of the old world on a stepped base half-sunk in the dust. Äther gathers around it, and its crown hums; its struts carry the Äther down, and a Leech hooked into them charges your gear. At its foot sits a terminal older than anyone alive, and no one knows how to use it. Everything that runs on Äther comes here sooner or later.</p>",
+      "type": "exploration",
+      "impulses": "Draw everything that runs on Äther, give power at a price, broadcast and listen, remember who passed",
+      "attribution": {
+        "source": "White Signal (Homebrew)",
+        "page": null,
+        "artist": ""
+      }
+    },
+    "flags": {},
+    "items": [
+      {
+        "name": "Charging Station",
+        "type": "feature",
+        "_id": "WXrT82ULB5sMqra2",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p>With a Leech hooked into the struts, the PCs can charge their gear and take a short or long rest. Out in the Deadband, a rest needs a connection like this one — or a Hotspot (Hotspot).</p><section id=\"secret-dOILxLcceZcxtHXD\" class=\"secret\"><p><em>Who charged here before them? What did they leave behind?</em></p></section>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "passive",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 0,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!BtDl6rQPcABSLBPW.WXrT82ULB5sMqra2"
+      },
+      {
+        "name": "Clear Reception",
+        "type": "feature",
+        "_id": "GNJX7jDan07jGxqu",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p>A Gain clamped to the struts carries a crew's Funk to its Reso. Rolls to find, filter or send a signal here are made with advantage.</p><section id=\"secret-wrDJI9dDFLSa1yUR\" class=\"secret\"><p><em>What else is on the frequencies here?</em></p></section>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "passive",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 100000,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!BtDl6rQPcABSLBPW.GNJX7jDan07jGxqu"
+      },
+      {
+        "name": "The Log",
+        "type": "feature",
+        "_id": "Vl948P3Eua4lpYFS",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p>Everything that passes through the mast leaves a trace in its Takt. With an Extraktor, or if they can read Cordex, a PC can read it at the terminal with a Knowledge Roll. On a success, they learn one thing that recently passed here — a signal, a Kennung, a crew. On a roll with Fear, something on the other end notices.</p><section id=\"secret-4YzmyWNFRsELOn1j\" class=\"secret\"><p><em>Who else reads this log?</em></p></section>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "passive",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 200000,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!BtDl6rQPcABSLBPW.Vl948P3Eua4lpYFS"
+      },
+      {
+        "name": "Learned Gestures",
+        "type": "feature",
+        "_id": "eYWBK8dqltJTIZSW",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p>The PCs know two or three things the terminal does when you touch it the right way — passed on among Syfter, learned by trial. Everything else it can do is closed to anyone who can't read Cordex.</p><section id=\"secret-83vFx6mVw38iTGmh\" class=\"secret\"><p><em>Who taught them? Which of the gestures they were told is wrong?</em></p></section>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "passive",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 300000,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!BtDl6rQPcABSLBPW.eYWBK8dqltJTIZSW"
+      },
+      {
+        "name": "Self-Defense",
+        "type": "feature",
+        "_id": "2y6ajvfFwWlQTGu7",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p>When a PC tries anything at the terminal beyond the gestures they know and rolls a failure, the mast defends itself. They must succeed on an Agility Reaction Roll or take <strong>2d10+2</strong> magic damage.</p><section id=\"secret-4c166g0rcDjmmkhT\" class=\"secret\"><p><em>Whose scorch marks are already on the base?</em></p></section>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "reaction",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 400000,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!BtDl6rQPcABSLBPW.2y6ajvfFwWlQTGu7"
+      },
+      {
+        "name": "Watering Hole",
+        "type": "feature",
+        "_id": "JcYcD1gHpdjPAiVH",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p><strong>Spend a Fear</strong> while the PCs rest or charge here: something else comes to drink. Choose Restlinge in animal form, a Kratzdrohne on its last order, or another crew — Syfter or Gutters.</p><section id=\"secret-Aw3RPYxbHHt2YaGX\" class=\"secret\"><p><em>What arrives first: the sound, the light, or the smell of hot metal?</em></p></section>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "action",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 500000,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!BtDl6rQPcABSLBPW.JcYcD1gHpdjPAiVH"
+      },
+      {
+        "name": "Surge",
+        "type": "feature",
+        "_id": "RkVFkPvY9k08gP7y",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p>When a PC hooked to the mast rolls a failure with Fear, the mast pushes back. They take <strong>2d6+3</strong> magic damage, and every device on that Leech loses its charge.</p><section id=\"secret-OFAjyrOiED9YurB7\" class=\"secret\"><p><em>What did the mast mistake them for?</em></p></section>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "reaction",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 600000,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!BtDl6rQPcABSLBPW.RkVFkPvY9k08gP7y"
+      }
+    ],
+    "effects": [],
+    "_stats": {
+      "coreVersion": "14.365",
+      "systemId": "daggerheart",
+      "systemVersion": "2.12.9"
+    },
+    "ownership": {
+      "default": 0
+    },
+    "_id": "BtDl6rQPcABSLBPW",
+    "folder": "qCkqYHNGyASm0xIa",
+    "sort": 0,
+    "_key": "!actors!BtDl6rQPcABSLBPW"
+  },
   "Nietenschwarm": {
     "name": "Nietenschwarm",
     "img": "systems/daggerheart/assets/icons/documents/actors/dragon-head.svg",
@@ -11654,6 +12086,249 @@
     "sort": 0,
     "_key": "!actors!cPiwsRXFH3yjqdMa"
   },
+  "Squall": {
+    "name": "Squall",
+    "img": "systems/daggerheart/assets/icons/documents/actors/forest.svg",
+    "type": "environment",
+    "system": {
+      "potentialAdversaries": {
+        "zHQmQuurmWoNIfMG": {
+          "label": "Restlinge in frenzy (Nahtjäger, Walze, Schlepper, Kreischer)",
+          "adversaries": []
+        }
+      },
+      "notes": "",
+      "difficulty": 17,
+      "tier": 3,
+      "description": "<p>A small Äther storm, out of nowhere: a grey-white front with violet veins, an hour of wind, light and noise. Not the Whiteout — but enough to strand a convoy.</p>",
+      "type": "event",
+      "impulses": "Strike without warning, scatter the convoy, wake the Restlinge, drown out every signal",
+      "attribution": {
+        "source": "White Signal (Homebrew)",
+        "page": null,
+        "artist": ""
+      }
+    },
+    "flags": {},
+    "items": [
+      {
+        "name": "The Front",
+        "type": "feature",
+        "_id": "lopV06x7wO6ecexk",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p>Countdown (5). When the squall hits, activate the countdown. It ticks down when a PC rolls with Hope. When it triggers, the squall has passed.</p><section id=\"secret-2H6KyGYYeSYinmZj\" class=\"secret\"><p><em>Who saw it coming? Why didn't the instruments?</em></p></section>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "passive",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 0,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!hko1hPk5FBN99P68.lopV06x7wO6ecexk"
+      },
+      {
+        "name": "Grey-Out",
+        "type": "feature",
+        "_id": "K3nPEcAvYxpSgZB7",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p>Light and Äther in the air blind everyone. PCs can't see beyond Close range.</p><section id=\"secret-SXIvqH0NOmu770PZ\" class=\"secret\"><p><em>What moves at the edge of sight? Whose voice is suddenly on the Funk?</em></p></section>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "passive",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 100000,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!hko1hPk5FBN99P68.K3nPEcAvYxpSgZB7"
+      },
+      {
+        "name": "Static",
+        "type": "feature",
+        "_id": "vACt6xxxqcarCiyB",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p>Every signal is loud. Before a PC uses an Arx, Cyware, Funk, a Bake or any other technology, they make a fate roll with their Fear Die: on a 6 or lower, it fails or does something else of the GM's choosing.</p><section id=\"secret-xHDpClClMqDHRKKH\" class=\"secret\"><p><em>Which device fails first? What does it pick up instead?</em></p></section>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "passive",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 200000,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!hko1hPk5FBN99P68.vACt6xxxqcarCiyB"
+      },
+      {
+        "name": "Storm-Driven",
+        "type": "feature",
+        "_id": "GJJsbZR9wOXv2d4o",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p>Every Restling in the squall makes all its rolls with advantage.</p><section id=\"secret-A98pHSg0IJ5rIPlU\" class=\"secret\"><p><em>What does the storm tell it?</em></p></section>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "passive",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 300000,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!hko1hPk5FBN99P68.GJJsbZR9wOXv2d4o"
+      },
+      {
+        "name": "Äther Gust",
+        "type": "feature",
+        "_id": "DvQqTOvP1Z7V4L8n",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p><strong>Spend a Fear</strong> to drive a gust of visible Äther through a point within Far range. Each target within Very Close range of that point must succeed on a Strength Reaction Roll or take <strong>3d8+3</strong> magic damage and be pushed back to Close range. Targets who succeed must <strong>mark a Stress</strong>.</p><section id=\"secret-UcPyiMwAeJ3gnLcG\" class=\"secret\"><p><em>What does it tear loose? What lands where it passed?</em></p></section>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "action",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 400000,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!hko1hPk5FBN99P68.DvQqTOvP1Z7V4L8n"
+      },
+      {
+        "name": "Arc",
+        "type": "feature",
+        "_id": "pSLWvxqz2I5TQgPv",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p><strong>Spend a Fear</strong> to choose a PC who carries a charged Arx, a Bake or Cyware. They must succeed on a Knowledge Reaction Roll or take <strong>3d10+1</strong> magic damage as the device arcs. On a success, they must <strong>mark a Stress</strong>.</p><section id=\"secret-V5EHBNqGLK7hcQqw\" class=\"secret\"><p><em>What smells like burning? What does the arc light up for a moment?</em></p></section>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "action",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 500000,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!hko1hPk5FBN99P68.pSLWvxqz2I5TQgPv"
+      },
+      {
+        "name": "Scattered",
+        "type": "feature",
+        "_id": "AcgQvkCD72Tt9wqA",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p>When a PC rolls a failure with Fear in the squall, they lose sight of the others and are separated until another PC finds them with a successful action roll.</p><section id=\"secret-uNfJMu7IgG3VhsDp\" class=\"secret\"><p><em>Where does the PC end up? What are they suddenly alone with?</em></p></section>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "reaction",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 600000,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!hko1hPk5FBN99P68.AcgQvkCD72Tt9wqA"
+      }
+    ],
+    "effects": [],
+    "_stats": {
+      "coreVersion": "14.365",
+      "systemId": "daggerheart",
+      "systemVersion": "2.12.9"
+    },
+    "ownership": {
+      "default": 0
+    },
+    "_id": "hko1hPk5FBN99P68",
+    "folder": "qCkqYHNGyASm0xIa",
+    "sort": 0,
+    "_key": "!actors!hko1hPk5FBN99P68"
+  },
   "Syfter Bulwark": {
     "name": "Syfter Bulwark",
     "img": "systems/daggerheart/assets/icons/documents/actors/dragon-head.svg",
@@ -14516,6 +15191,365 @@
     "sort": 0,
     "_key": "!actors!UZYUvTnHlZ6xTAa9"
   },
+  "The Deadbands": {
+    "name": "The Deadbands",
+    "img": "systems/daggerheart/assets/icons/documents/actors/forest.svg",
+    "type": "environment",
+    "system": {
+      "potentialAdversaries": {
+        "sbO2WeavPQuOEDQf": {
+          "label": "Restlinge (Nahtjäger, Walze, Schlepper, Kreischer, Mastfäller, Taktgeber, Pflöcker, Nietenschwarm), Scratchlings (Kratzdrohne), Gutters (Gutter-Crews, Gutter Netrat)",
+          "adversaries": []
+        }
+      },
+      "notes": "",
+      "difficulty": 15,
+      "tier": 2,
+      "description": "<p>Flat, cracked grey steppe under a smog sky, littered with half-buried machines of the old world. Beyond a kilometer, everything drowns in a wall of smog, Äther and dust; the only things to follow are the cables strung from mast to mast — and the fields no one can see.</p>",
+      "type": "traversal",
+      "impulses": "Drain the unready, hide old dangers under the dust, cut travelers off, punish those who go without a guide",
+      "attribution": {
+        "source": "White Signal (Homebrew)",
+        "page": null,
+        "artist": ""
+      }
+    },
+    "flags": {},
+    "items": [
+      {
+        "name": "Field Lines",
+        "type": "feature",
+        "_id": "zayreECLh3bPGIck",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p>Vehicles such as the Spuler float only where a magnetic field carries them. Crossing to a destination uses a Progress Countdown (6).</p><section id=\"secret-bcpHR7IXBMfDkpz8\" class=\"secret\"><p><em>What does the MAVIS show? Who taught the PCs to drive the field lines?</em></p></section>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "passive",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 0,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!A4VhoPsYX7ojPtab.zayreECLh3bPGIck"
+      },
+      {
+        "name": "Running Blind",
+        "type": "feature",
+        "_id": "03qmfVWbnYEl3AsB",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p>A party without a Peiler — neither riding along nor guiding them by Funk from a Reso — makes all action rolls and reaction rolls here with disadvantage. A party guided by Funk gets its next leg at each mast; it runs blind the moment it strays from that leg.</p><section id=\"secret-88x0AY9uEohMAs1T\" class=\"secret\"><p><em>Who should be watching the PCs on the Schirm? Who went out blind before them and never came back?</em></p></section>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "passive",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 100000,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!A4VhoPsYX7ojPtab.03qmfVWbnYEl3AsB"
+      },
+      {
+        "name": "Running Dry",
+        "type": "feature",
+        "_id": "szYLZiEGgH2I4OUa",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p>Most Scratch gear holds about four hours. When the PCs leave a mast or a Hotspot, start a Countdown (4); it ticks down with every action roll they make out here. When it triggers, their Scratch gear and vehicles go dark — no Tuner, no MAVIS, and the Spuler sinks into the dust. They're stranded until they hook a Leech into a mast or reach a Hotspot. Cordex and small Karnex keep running.</p><section id=\"secret-Q3Xiu8PPrV7dLlAf\" class=\"secret\"><p><em>What dies first? How far is the next mast — and who else is walking there in the dark?</em></p></section>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "passive",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 200000,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!A4VhoPsYX7ojPtab.szYLZiEGgH2I4OUa"
+      },
+      {
+        "name": "Dead Corner",
+        "type": "feature",
+        "_id": "t8gXglwGNn7fIeC6",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p>In the shadow of a toppled mast or deep in a shaft, the Blaurausch can't reach. A Restling lured there stops attacking until it is spotlighted outside it again — and it may try to speak, in Cordex.</p><section id=\"secret-iudMKsoq4YesfHMS\" class=\"secret\"><p><em>What does it say? Does anyone here understand a word of it?</em></p></section>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "passive",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 300000,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!A4VhoPsYX7ojPtab.t8gXglwGNn7fIeC6"
+      },
+      {
+        "name": "Old Lines",
+        "type": "feature",
+        "_id": "B0vPALxtNsEWE5eV",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p>Thick cables hang from crown to crown, linking every Netzpfeiler to the next mast or to the Six Spires; on the ground run only the great hoses and pipes of the Lumenwerke. A party that is Running Blind but follows a line overhead doesn't make its rolls to find the way with disadvantage. No one can see more than a kilometer out here, though: when the party sets off along a line, a player makes a fate roll with their Hope Die, and only the GM knows what it means — 1–4: the next mast is six hours away, 5–8: three hours, 9–12: one hour.</p><section id=\"secret-uoMv7rF26k0QNbx7\" class=\"secret\"><p><em>Where does this line lead? What still flows through it — and what is it that keeps repairing it?</em></p></section>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "passive",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 400000,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!A4VhoPsYX7ojPtab.B0vPALxtNsEWE5eV"
+      },
+      {
+        "name": "Feldloch",
+        "type": "feature",
+        "_id": "bLR4GAvRUYUxcJPT",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p><strong>Spend a Fear</strong> to make the field give out beneath a vehicle. Its driver must succeed on an Instinct Reaction Roll. On a failure, the vehicle sinks into the dust and stalls; freeing it takes a Strength Roll, and the scene's Consequence Countdown ticks down 1. On a success, the driver catches the edge of the field but must <strong>mark a Stress</strong>.</p><section id=\"secret-kkPgWaoJsjAowW4d\" class=\"secret\"><p><em>What lies in the dust where the field died? Who else got stranded here?</em></p></section>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "action",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 500000,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!A4VhoPsYX7ojPtab.bLR4GAvRUYUxcJPT"
+      },
+      {
+        "name": "Funkloch",
+        "type": "feature",
+        "_id": "8NvmpLPmaBxEIw5n",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p><strong>Spend a Fear</strong> to drop the party into a Funkloch. Until the Progress Countdown ticks down again, no Funk reaches them — not even from a mast: the party can't get its next leg, and no one can call for help.</p><section id=\"secret-6rC3xuL816LmSgxD\" class=\"secret\"><p><em>What was the last thing the Peiler said? What does the silence sound like?</em></p></section>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "action",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 600000,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!A4VhoPsYX7ojPtab.8NvmpLPmaBxEIw5n"
+      },
+      {
+        "name": "Sog",
+        "type": "feature",
+        "_id": "uy2dJT9EGPvgs0i7",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p><strong>Spend a Fear</strong> to let a Sog drift over the party. Until the Progress Countdown ticks down again, before a PC relies on an Arx, Cyware or a vehicle, they make a fate roll with their Fear Die: on a 4 or lower, it fails or does something else of the GM's choosing.</p><section id=\"secret-ZBW80Kf2SohcDidG\" class=\"secret\"><p><em>Which pump is pulling? What dies first — the MAVIS, the vehicle, or the PCs' own Cyware?</em></p></section>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "action",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 700000,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!A4VhoPsYX7ojPtab.uy2dJT9EGPvgs0i7"
+      },
+      {
+        "name": "Tracked",
+        "type": "feature",
+        "_id": "vJVD2Sc7PCcrDCsT",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p><strong>Spend a Fear</strong> if the PCs travel with a Bake. A Gutter Netrat has hacked into its signal and knows where they are: at the next stage, a Gutter crew is waiting for them (Gutter-Crews, e.g. <em>Die Bakenjäger</em>).</p><section id=\"secret-mb1qtj5eUVbiCrGh\" class=\"secret\"><p><em>What did the Netrat see on the PCs' Bake? Who else bought that data?</em></p></section>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "action",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 800000,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!A4VhoPsYX7ojPtab.vJVD2Sc7PCcrDCsT"
+      },
+      {
+        "name": "Smog Front",
+        "type": "feature",
+        "_id": "G6fqfkd86atJDqNQ",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p><strong>Spend a Fear</strong> to roll a wall of smog over the steppe. Until the scene changes, the PCs can't see beyond Close range, and attacks against targets beyond Close range are made with disadvantage.</p><section id=\"secret-dQNN2COKAqxzIDwX\" class=\"secret\"><p><em>What does the smog smell like? What silhouette looms in it for a moment?</em></p></section>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "action",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 900000,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!A4VhoPsYX7ojPtab.G6fqfkd86atJDqNQ"
+      },
+      {
+        "name": "Buried Machines",
+        "type": "feature",
+        "_id": "eSRL63lregYHnN6u",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p>When a PC rolls a failure with Fear while crossing, the ground gives way over something old. Choose one: they uncover salvage worth taking, or something under the dust wakes (a Schlepper, a Nahtjäger horde or a Nietenschwarm).</p><section id=\"secret-lP8VfXWbx11OkLkj\" class=\"secret\"><p><em>What did the old world bury here? Who would pay for it in Rostgrund?</em></p></section>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "reaction",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 1000000,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!A4VhoPsYX7ojPtab.eSRL63lregYHnN6u"
+      }
+    ],
+    "effects": [],
+    "_stats": {
+      "coreVersion": "14.365",
+      "systemId": "daggerheart",
+      "systemVersion": "2.12.9"
+    },
+    "ownership": {
+      "default": 0
+    },
+    "_id": "A4VhoPsYX7ojPtab",
+    "folder": "qCkqYHNGyASm0xIa",
+    "sort": 0,
+    "_key": "!actors!A4VhoPsYX7ojPtab"
+  },
   "Wächter": {
     "name": "Wächter",
     "img": "systems/daggerheart/assets/icons/documents/actors/dragon-head.svg",
@@ -15899,6 +16933,191 @@
     "sort": 0,
     "_key": "!actors!ua7Fi178G8trrgZK"
   },
+  "Wespennest": {
+    "name": "Wespennest",
+    "img": "systems/daggerheart/assets/icons/documents/actors/forest.svg",
+    "type": "environment",
+    "system": {
+      "potentialAdversaries": {
+        "5qRxvCIw7fGkfX5N": {
+          "label": "Wespen-Späherin, Wespenschwarm, Wespen-Arbeiterin, Wespenkönigin, Gutters who came for the scrap (Gutter-Crews)",
+          "adversaries": []
+        }
+      },
+      "notes": "",
+      "difficulty": 14,
+      "tier": 2,
+      "description": "<p>A wreck the wasps have rebuilt from everything they ever stole — combs of scrap, warm and humming. The richest place in the Deadband, as long as it stays asleep.</p>",
+      "type": "exploration",
+      "impulses": "Hoard the metal, wake the swarm, hide the queen deep inside",
+      "attribution": {
+        "source": "White Signal (Homebrew)",
+        "page": null,
+        "artist": ""
+      }
+    },
+    "flags": {},
+    "items": [
+      {
+        "name": "Walls of Loot",
+        "type": "feature",
+        "_id": "VTHbPhgqBr5uw1q9",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p>The nest is built from stolen Scrap. When the PCs collect Scrap here, each PC rolls one additional Shard and one additional Metal — and each roll ticks down <em>Sleeping Nest</em>.</p><section id=\"secret-HidJRC4T4pd29UvD\" class=\"secret\"><p><em>Whose crew's colors are still on the walls? What did they die for?</em></p></section>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "passive",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 0,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!GihEwISnG64aisR4.VTHbPhgqBr5uw1q9"
+      },
+      {
+        "name": "Sleeping Nest",
+        "type": "feature",
+        "_id": "y2xij8VjgPJsWPRh",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p>When the PCs enter, start a Consequence Countdown (6). It ticks down when a PC rolls for Scrap, makes a loud noise, or fails an action roll. When it triggers, the nest wakes: a Wespenschwarm and a Wespen-Arbeiterin pour out within Close range, and the Königin wakes in her chamber.</p><section id=\"secret-BEaOnoFTMYQaLxx5\" class=\"secret\"><p><em>What do the PCs hear first — the hum getting louder, or stopping?</em></p></section>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "passive",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 100000,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!GihEwISnG64aisR4.y2xij8VjgPJsWPRh"
+      },
+      {
+        "name": "The Hum",
+        "type": "feature",
+        "_id": "zhHC8RWR3lR7lxcL",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p>The nest hums on one frequency. A PC with a Tuner can make a Knowledge Roll to read it. On a success, they learn how close <em>Sleeping Nest</em> is to triggering and where the queen lies.</p><section id=\"secret-RGQRugPYxb3JDYN3\" class=\"secret\"><p><em>What does the hum sound like when it counts down?</em></p></section>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "passive",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 200000,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!GihEwISnG64aisR4.zhHC8RWR3lR7lxcL"
+      },
+      {
+        "name": "Swarm Pours Out",
+        "type": "feature",
+        "_id": "Ni4RPhXDdsx3EAIk",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p><strong>Spend a Fear</strong> to have a Wespenschwarm pour out of a wall within Close range of a PC. Spotlight it immediately.</p><section id=\"secret-JB2ga3IqKy2zm0CE\" class=\"secret\"><p><em>Which wall — and what does it drop as it opens?</em></p></section>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "action",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 300000,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!GihEwISnG64aisR4.Ni4RPhXDdsx3EAIk"
+      },
+      {
+        "name": "Collapse",
+        "type": "feature",
+        "_id": "HLnmzfr708sYo52E",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p>When a PC tears Scrap out of a wall or the hoard and rolls with Fear, part of the comb gives way. All targets within Very Close range must succeed on an Agility Reaction Roll (14) or take <strong>2d8</strong> physical damage and be <em>Restrained</em> under the scrap until they dig free with a successful Strength Roll.</p><section id=\"secret-22W6nC1s4HqyM0b9\" class=\"secret\"><p><em>What falls out of the wall with the scrap?</em></p></section>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "reaction",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 400000,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!GihEwISnG64aisR4.HLnmzfr708sYo52E"
+      }
+    ],
+    "effects": [],
+    "_stats": {
+      "coreVersion": "14.365",
+      "systemId": "daggerheart",
+      "systemVersion": "2.12.9"
+    },
+    "ownership": {
+      "default": 0
+    },
+    "_id": "GihEwISnG64aisR4",
+    "folder": "qCkqYHNGyASm0xIa",
+    "sort": 0,
+    "_key": "!actors!GihEwISnG64aisR4"
+  },
   "Wespenschwarm": {
     "name": "Wespenschwarm",
     "img": "systems/daggerheart/assets/icons/documents/actors/dragon-head.svg",
@@ -16260,6 +17479,278 @@
     "folder": "vHtKFdJEseQYu8QZ",
     "sort": 0,
     "_key": "!actors!tR3RNTfSkJl0RQQF"
+  },
+  "Whiteout": {
+    "name": "Whiteout",
+    "img": "systems/daggerheart/assets/icons/documents/actors/forest.svg",
+    "type": "environment",
+    "system": {
+      "potentialAdversaries": {
+        "V4eglIiNYhvQgtAH": {
+          "label": "Restlinge in frenzy (Walze, Kreischer, Nahtjäger)",
+          "adversaries": []
+        }
+      },
+      "notes": "",
+      "difficulty": 20,
+      "tier": 4,
+      "description": "<p>The great storm rolls in from the edge on every side at once — a wall of white-gold light shot through with dark violet streaks. Everything the Lumenwerke pumped out comes back, and the Motherboard turns every signal up.</p>",
+      "type": "event",
+      "impulses": "Return what was taken, overwrite every signal, drive the Restlinge mad, bury the unprepared",
+      "attribution": {
+        "source": "White Signal (Homebrew)",
+        "page": null,
+        "artist": ""
+      }
+    },
+    "flags": {},
+    "items": [
+      {
+        "name": "The Wall",
+        "type": "feature",
+        "_id": "1Si1FDRVxBxJGXbJ",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p>Countdown (8). When the storm arrives, activate the countdown. It ticks down when a PC rolls with Hope. When it triggers, the storm has passed over.</p><section id=\"secret-6GMUDjl1FOy0d41Y\" class=\"secret\"><p><em>Where is the nearest shelter? What did the PCs leave outside?</em></p></section>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "passive",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 0,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!Dqb9DmG97o4lVL0j.1Si1FDRVxBxJGXbJ"
+      },
+      {
+        "name": "White Blind",
+        "type": "feature",
+        "_id": "7VLWpz2tsTbwjyrk",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p>The light and the Äther in the air blind everyone. PCs can't see beyond Close range, and they can't move as part of an action roll without succeeding on an Agility Reaction Roll.</p><section id=\"secret-GIZ6xLNKFM7c3vJc\" class=\"secret\"><p><em>What shapes move in the light? Whose voice calls from inside it?</em></p></section>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "passive",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 100000,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!Dqb9DmG97o4lVL0j.7VLWpz2tsTbwjyrk"
+      },
+      {
+        "name": "Overwrite",
+        "type": "feature",
+        "_id": "w2CM4EiSRerEaLpF",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p>Every signal is loud, and every signal overwrites the others. No technology works in the storm: Funk, Bake and Schirm are dead, an Arx won't fire, Cyware goes silent, and vehicles drop out of the field.</p><section id=\"secret-4Dynr7SBE0gCzv4f\" class=\"secret\"><p><em>What does the PC hear in the noise? What do they do without the thing they always relied on?</em></p></section>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "passive",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 200000,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!Dqb9DmG97o4lVL0j.w2CM4EiSRerEaLpF"
+      },
+      {
+        "name": "Storm-Driven",
+        "type": "feature",
+        "_id": "gsVX6BsbjF4skhe8",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p>Every Restling in the storm makes all its rolls with advantage.</p><section id=\"secret-lS4HyZkN2E6BNe3P\" class=\"secret\"><p><em>What was this Restling waiting for? What does the storm tell it?</em></p></section>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "passive",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 300000,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!Dqb9DmG97o4lVL0j.gsVX6BsbjF4skhe8"
+      },
+      {
+        "name": "Laid Bare",
+        "type": "feature",
+        "_id": "MT79uF8XIkwhVIvb",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p>When the countdown triggers, the storm has torn the dust open. Reveal one thing that wasn't there before: an old cable or pipe no one knew about, a buried machine, or the wreck of someone who didn't reach shelter. Then a player makes a fate roll with their Hope Die: on a 7 or higher, the storm has uncovered old technology the PCs can salvage — roll Scrap as for a standard fight against pure technology (3 Shards · 2 Metals · 2 Components). On a 12, it is something rare: a Steuerkern in Cordex, a Relikt, or something no one has a name for.</p><section id=\"secret-03GCcPLFJAnmox17\" class=\"secret\"><p><em>Where does the new old line lead? Who else saw it come up?</em></p></section>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "passive",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 400000,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!Dqb9DmG97o4lVL0j.MT79uF8XIkwhVIvb"
+      },
+      {
+        "name": "Äther Gust",
+        "type": "feature",
+        "_id": "rfjNgNVs646H8Hcg",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p><strong>Spend a Fear</strong> to drive a gust of visible Äther through a point within Far range. Each target within Close range of that point must succeed on a Strength Reaction Roll or take <strong>4d8+8</strong> magic damage and be thrown up to Far range. Targets who succeed must <strong>mark a Stress</strong>.</p><section id=\"secret-tA7gjNr2Xf1I2yob\" class=\"secret\"><p><em>What does the Äther feel like on the skin? What does it tear loose?</em></p></section>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "action",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 500000,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!Dqb9DmG97o4lVL0j.rfjNgNVs646H8Hcg"
+      },
+      {
+        "name": "Overload",
+        "type": "feature",
+        "_id": "NuPu57EM5ZaVK9o2",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p><strong>Spend a Fear</strong> to choose a PC who carries a charged Arx, a Bake or Cyware. The dead device overloads: they must succeed on a Knowledge Reaction Roll or take <strong>4d10+8</strong> magic damage as it burns out. On a success, they tear it loose in time, but it is ruined until repaired.</p><section id=\"secret-gPSKFFWwKsGu3PpV\" class=\"secret\"><p><em>What smells like burning? What will this repair cost in Rostgrund?</em></p></section>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "action",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 600000,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!Dqb9DmG97o4lVL0j.NuPu57EM5ZaVK9o2"
+      },
+      {
+        "name": "Frenzy",
+        "type": "feature",
+        "_id": "JhUPaSYRXB0wAX9F",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p>When a PC outside shelter rolls a failure with Fear, a Restling in frenzy appears within Far range of them and immediately takes the spotlight.</p><section id=\"secret-dwruVqvcLI5BK7EU\" class=\"secret\"><p><em>What was this Restling built for? Why does it hate them in particular?</em></p></section>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "reaction",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 700000,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!Dqb9DmG97o4lVL0j.JhUPaSYRXB0wAX9F"
+      }
+    ],
+    "effects": [],
+    "_stats": {
+      "coreVersion": "14.365",
+      "systemId": "daggerheart",
+      "systemVersion": "2.12.9"
+    },
+    "ownership": {
+      "default": 0
+    },
+    "_id": "Dqb9DmG97o4lVL0j",
+    "folder": "qCkqYHNGyASm0xIa",
+    "sort": 0,
+    "_key": "!actors!Dqb9DmG97o4lVL0j"
   },
   "Wurm": {
     "name": "Wurm",
