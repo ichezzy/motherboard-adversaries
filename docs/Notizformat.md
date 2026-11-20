@@ -101,8 +101,13 @@ Der Build macht aus **Action**- und **Reaction**-Features eine Aktion des Dagger
 | `a PC` / `a target within <Reichweite> range` | ein Ziel (mit T markieren) |
 | nach der Reaction Roll: `take **3d8+3** magic damage` oder `taking **2d8+2** physical damage` | Schaden bei Fehlschlag |
 | `Targets who succeed take half damage` / `half on a success` | halber Schaden bei Erfolg; sonst kein Schaden bei Erfolg |
+| nach der Reaction Roll: `or lose a Hope`, `or **mark a Stress**`, `or **mark 2 Stress**` | wer den Save **nicht** schafft, verliert die Hope bzw. markiert den Stress (macht der Helfer im Modul) |
+| `Targets who succeed must **mark a Stress**` / `On a success, they **mark a Stress**` — im selben Satz wie „succeed“ | wer den Save **schafft**, markiert den Stress |
+| `Gain a Fear for each PC who fails` | du bekommst die Fear je gescheitertem Save |
 
-**Bleibt Text** (die Spielleitung handelt selbst): *lose a Hope* und *mark a Stress* bei den Zielen, Zustände (*Vulnerable* …), Armor Slots, Spotlight, Beschwören, Fear gewinnen, Angriffswürfe („make an attack“ — automatisiert wird dann nur die Kosten).
+Was **nur ersatzweise** gilt („if they can't, they mark a Stress **instead**“), bleibt Text.
+
+**Bleibt Text** (die Spielleitung handelt selbst): Zustände (*Vulnerable* …), Armor Slots, Spotlight, Beschwören, Fear außerhalb von „for each PC who fails“, Angriffswürfe („make an attack“ — automatisiert werden dann nur die Kosten).
 
 **Nicht automatisch:** `Agility or Strength Reaction Roll` (zwei Traits) — das System kann nur einen. Wer die Automatik will, schreibt einen Trait.
 

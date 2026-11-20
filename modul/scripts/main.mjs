@@ -8,6 +8,8 @@
  *
  * Uses only what the system's own buttons use: TargetField.formatTarget, message.system.getContext
  * and the action's "save" workflow (same as "Reaction Roll All Targets").
+ *
+ * Second part (further down): Hope/Stress/Fear consequences of failed Reaction Rolls.
  */
 
 const MODULE_ID = "motherboard-adversaries";
@@ -33,6 +35,74 @@ Hooks.once("init", () => {
     type: Boolean,
     default: true
   });
+  game.settings.register(MODULE_ID, "applyOnFail", {
+    name: "Apply Hope, Stress and Fear after Reaction Rolls",
+    hint: "For Motherboard features like \"…or lose a Hope and mark a Stress\": every target that fails its Reaction Roll loses the Hope and marks the Stress, and \"gain a Fear for each PC who fails\" adds the Fear. Lines like \"Targets who succeed must mark a Stress\" apply to targets who succeed.",
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: true
+  });
+});
+
+/* -------------------------------------------- */
+/*  Consequences of Reaction Rolls               */
+/* -------------------------------------------- */
+
+/**
+ * Daggerheart 2.12.9 applies Hope/Stress parts of an action to every target, saved or not.
+ * So Motherboard features carry these consequences as flags on the feature item:
+ *   flags["motherboard-adversaries"].onFailedSave     = { hope, stress, fear }  ("…or lose a Hope")
+ *   flags["motherboard-adversaries"].onSuccessfulSave = { hope, stress }        ("Targets who succeed must mark a Stress")
+ * This hook applies them once per target as soon as its Reaction Roll is in, using the system's
+ * own Actor#modifyResource.
+ */
+const inProgress = new Set();
+
+Hooks.on("updateChatMessage", async (message, changes) => {
+  if (game.users.activeGM?.id !== game.user.id) return;
+  const changed = Object.keys(foundry.utils.flattenObject(changes ?? {}));
+  if (!changed.some(key => key.startsWith("system.targetSaves"))) return;
+  if (!game.settings.get(MODULE_ID, "applyOnFail")) return;
+
+  const system = message.system;
+  const onFail = system?.item?.getFlag?.(MODULE_ID, "onFailedSave");
+  const onSuccess = system?.item?.getFlag?.(MODULE_ID, "onSuccessfulSave");
+  if ((!onFail && !onSuccess) || system.targeting?.usingSelect) return;
+
+  const applied = new Set(message.getFlag(MODULE_ID, "applied") ?? []);
+  const open = system._getCurrentTargets().filter(t =>
+    t.saveResult && !applied.has(t.id) && !inProgress.has(`${message.id}.${t.id}`)
+  );
+  if (!open.length) return;
+
+  const feature = system.item.name;
+  try {
+    for (const target of open) {
+      inProgress.add(`${message.id}.${target.id}`);
+      const failed = target.saveResult.success === false;
+      const folgen = (failed ? onFail : onSuccess) ?? {};
+      const actor = foundry.utils.fromUuidSync(target.actorId);
+      const resources = [];
+      if (folgen.hope) resources.push({ key: "hope", value: -folgen.hope });
+      if (folgen.stress) resources.push({ key: "stress", value: folgen.stress });
+      if (actor && resources.length) await actor.modifyResource(resources);
+      if (failed && folgen.fear) await (system.actionActor ?? actor)?.modifyResource([{ key: "fear", value: folgen.fear }]);
+      applied.add(target.id);
+
+      const parts = [];
+      if (folgen.hope) parts.push(`loses ${folgen.hope} Hope`);
+      if (folgen.stress) parts.push(`marks ${folgen.stress} Stress`);
+      if (failed && folgen.fear) parts.push(`you gain ${folgen.fear} Fear`);
+      if (parts.length) ui.notifications.info(`${feature}: ${target.name} ${failed ? "failed" : "succeeded"} — ${parts.join(", ")}.`);
+    }
+    await message.setFlag(MODULE_ID, "applied", [...applied]);
+  } catch (error) {
+    console.error(`${MODULE_ID} | applying consequences failed`, error);
+    ui.notifications.warn(`${feature}: could not apply Hope/Stress automatically. Apply it by hand.`);
+  } finally {
+    for (const target of open) inProgress.delete(`${message.id}.${target.id}`);
+  }
 });
 
 Hooks.on("renderChatMessageHTML", (message, html) => {

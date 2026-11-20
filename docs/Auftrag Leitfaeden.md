@@ -4,13 +4,13 @@
 
 ## Worum es geht
 
-Mein Foundry-Modul **„Motherboard: Adversaries“** baut alle Gegner, Umgebungen und Roll Tables **direkt aus den Notizen** in `0_Daggerheart Mechaniken/` — per Doppelklick auf `C:\dev\motherboard-adversaries\Gegner bauen.bat`. Damit das ohne Nacharbeit klappt, müssen Stat Blocks und Tabellen ein festes Format haben. Das Format steht in **`C:\dev\motherboard-adversaries\docs\Notizformat.md`**. Diese Datei ist die Quelle der Wahrheit: Sie beschreibt genau, was der Build liest. Übernimm sie, ändere sie nicht.
+Mein Foundry-Modul **„Motherboard: Adversaries“** baut alle Gegner, Umgebungen und Roll Tables **direkt aus den Notizen** in `0_Daggerheart Mechaniken/` — per Doppelklick auf `E:\01_Dev\motherboard-adversaries\Gegner bauen.bat`. Damit das ohne Nacharbeit klappt, müssen Stat Blocks und Tabellen ein festes Format haben. Das Format steht in **`E:\01_Dev\motherboard-adversaries\docs\Notizformat.md`**. Diese Datei ist die Quelle der Wahrheit: Sie beschreibt genau, was der Build liest. Übernimm sie, ändere sie nicht.
 
 **Ziel:** Jeder künftige Chat, der in diesem Vault einen Gegner, eine Umgebung oder eine Tabelle schreibt, hält das Format von selbst ein — weil es in den Leitfäden, Vorlagen und Prüflisten steht, die er ohnehin liest.
 
 ## Aufgaben
 
-1. **Lesen:** `C:\dev\motherboard-adversaries\docs\Notizformat.md` vollständig. Dann `0_Daggerheart Mechaniken/Adversaries bauen (DH).md`, `0_Daggerheart Mechaniken/Über diesen Ordner.md`, `_Vorlagen/Daggerheart Adversary.md`, `_Vorlagen/Daggerheart Environment.md` und in `_System/Konventionen.md` den Abschnitt zu Dateinamen und Mechanik.
+1. **Lesen:** `E:\01_Dev\motherboard-adversaries\docs\Notizformat.md` vollständig. Dann `0_Daggerheart Mechaniken/Adversaries bauen (DH).md`, `0_Daggerheart Mechaniken/Über diesen Ordner.md`, `_Vorlagen/Daggerheart Adversary.md`, `_Vorlagen/Daggerheart Environment.md` und in `_System/Konventionen.md` den Abschnitt zu Dateinamen und Mechanik.
 2. **Neue Leitfaden-Notiz** `0_Daggerheart Mechaniken/Foundry-Format (DH).md`: der Inhalt von `Notizformat.md`, eingekleidet nach den Vault-Konventionen (Frontmatter wie beim Adversary-Leitfaden, Tags `mechanik`, `daggerheart`, `dh/leitfaden`, Callout „Auf einen Blick“). Inhaltlich nichts ändern. Dazu ein Satz: *Quelle ist `docs/Notizformat.md` im Modul-Repo; bei Abweichung gilt das Repo.*
 3. **Verweise setzen:**
    - *Adversaries bauen (DH)*, Schritt 6 „Features schreiben“: kurz die Satzbau-Regel für Foundry ergänzen — Kosten fett und vorn (`**Mark a Stress**`), Reaction Roll mit **einem** Trait und Zahl, Reichweite ausgeschrieben, Schaden als `take **2d8+2** physical damage`, halber Schaden ausdrücklich. Mit Verweis auf Abschnitt 4 der neuen Notiz. Der Leitfaden erlaubt bisher Reaction Rolls „zur Wahl“ (*Agility or Instinct*); ergänze, dass Foundry diese nicht automatisieren kann — erlaubt bleibt es, empfohlen ist ein Trait.
@@ -23,7 +23,7 @@ Mein Foundry-Modul **„Motherboard: Adversaries“** baut alle Gegner, Umgebung
 ## Grenzen
 
 - **Keine Werte und keine Feature-Texte ändern** — nur auf mein ausdrückliches Ja.
-- Nichts in `C:\dev\motherboard-adversaries` ändern.
+- Nichts in `E:\01_Dev\motherboard-adversaries` ändern.
 - Neue Regeln sind `entwurf`; ✅ erst nach meinem Ja, wie im Vault üblich.
 
 ## Fertig, wenn

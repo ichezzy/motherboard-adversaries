@@ -6,7 +6,9 @@
  *   - „within Close range of a point within Far range“   → Reichweite Far, Kreis „Close“ zum Platzieren
  *   - „All PCs within Far range“                          → Kreis „Far“ zum Platzieren
  *   - „take **3d8+3** magic damage … half damage“         → Schaden bei Fehlschlag, halb bei Erfolg
- * Alles andere bleibt Text (auch „lose a Hope“ beim Ziel). Ist etwas unklar, gibt es keine Aktion, sondern einen Hinweis.
+ *   - „or lose a Hope and mark a Stress“, „Gain a Fear for each PC who fails“ → Flag am Feature;
+ *     der Helfer im Modul (modul/scripts/main.mjs) wendet das nur bei gescheitertem Save an
+ * Alles andere bleibt Text. Ist etwas unklar, gibt es keine Aktion, sondern einen Hinweis.
  */
 import { REICHWEITEN } from "./vorlagen.mjs";
 
@@ -105,6 +107,8 @@ export function aktionFuer(f, bild = "icons/svg/aura.svg") {
   if (s.hinweis) hinweise.push(s.hinweis);
   if (!k && !s.save) return { aktion: null, zusammenfassung: null, hinweise };
 
+  let beiFehlschlag = null;
+  let beiErfolg = null;
   const name = k ? (k.key === "stress" ? "Mark Stress" : "Spend Fear") : "Roll Save";
   const aktion = grundgeruest(s.save ? "attack" : "effect", name, bild);
   const teile = [];
@@ -139,13 +143,55 @@ export function aktionFuer(f, bild = "icons/svg/aura.svg") {
         teile.push("halb bei Erfolg");
       }
     }
-    // „lose a Hope“ / „mark a Stress“ beim Ziel bleiben Text: Das System (2.12.9) zieht solche
-    // Ressourcen auch bei geschafftem Save ab – nur der Haupt-Schaden richtet sich nach dem Save.
-    if (/\blose (a|an|one|two|three|\d+) Hope\b|\bmark (a|an|one|two|three|\d+) Stress\b/i.test(folge)) {
-      hinweise.push("Hope/Stress-Verlust beim Ziel bleibt Text (das System würde ihn auch bei geschafftem Save abziehen)");
-    }
+    // Hope/Stress/Fear bei gescheitertem Save: nicht über das System (2.12.9 würde sie auch bei
+    // geschafftem Save abziehen), sondern als Flag – der Helfer im Modul wendet sie nur bei Fehlschlag an.
+    beiFehlschlag = folgenBeiFehlschlag(folge);
+    beiErfolg = folgenBeiErfolg(folge);
+    const beschreiben = (f, wann) => {
+      const t = [];
+      if (f.hope) t.push(`−${f.hope} Hope`);
+      if (f.stress) t.push(`+${f.stress} Stress`);
+      if (f.fear) t.push(`+${f.fear} Fear je Fehlschlag`);
+      teile.push(`${wann} ${t.join(", ")}`);
+    };
+    if (beiFehlschlag) beschreiben(beiFehlschlag, "bei Fehlschlag");
+    if (beiErfolg) beschreiben(beiErfolg, "bei Erfolg");
   }
   if (b.flaeche) teile.push(`Kreis ${b.flaeche}${b.range !== b.flaeche ? ` in ${b.range}` : ""}`);
   else if (b.range) teile.push(`Ziel in ${b.range}`);
-  return { aktion, zusammenfassung: teile.join(", "), hinweise };
+  return { aktion, zusammenfassung: teile.join(", "), hinweise, beiFehlschlag, beiErfolg };
+}
+
+const ERFOLG = /\b(?:targets?|PCs?|those|anyone|a PC|they) who succeeds?\b|\bon a success\b|\bif they succeed\b/i;
+
+/** Hope/Stress, die ein Ziel bei **geschafftem** Save trotzdem verliert („Targets who succeed must mark a Stress“). */
+export function folgenBeiErfolg(folge) {
+  const start = folge.search(ERFOLG);
+  if (start < 0) return null;
+  const satz = folge.slice(start).split(/(?<=\.)\s/)[0];
+  const ergebnis = {};
+  const hope = satz.match(/\blose (a|an|one|two|three|\d+) Hope\b/i);
+  if (hope) ergebnis.hope = zahl(hope[1]);
+  const stress = satz.match(/\bmarks? (a|an|one|two|three|\d+) Stress\b(?!\s+instead)/i);
+  if (stress) ergebnis.stress = zahl(stress[1]);
+  return Object.keys(ergebnis).length ? ergebnis : null;
+}
+
+/**
+ * Was ein Ziel bei gescheitertem Save verliert oder markiert – nur aus dem Teil vor
+ * „Targets who succeed …“ / „On a success …“, und nicht, wenn es nur ersatzweise gilt („… instead“).
+ * @returns {{hope?: number, stress?: number, fear?: number} | null}
+ */
+export function folgenBeiFehlschlag(folge) {
+  const ende = folge.search(ERFOLG);
+  const fehl = ende >= 0 ? folge.slice(0, ende) : folge;
+  const ergebnis = {};
+  const hope = fehl.match(/\blose (a|an|one|two|three|\d+) Hope\b/i);
+  if (hope) ergebnis.hope = zahl(hope[1]);
+  const stress = fehl.match(/\bmarks? (a|an|one|two|three|\d+) Stress\b(?!\s+instead)/i);
+  if (stress) ergebnis.stress = zahl(stress[1]);
+  const fear = fehl.match(/\bgain (a|an|one|two|\d+) Fear for each (?:\w+ )?(?:PC|target|one|character)s? (?:who|that) fails?\b/i)
+    ?? folge.match(/\bgain (a|an|one|two|\d+) Fear for each (?:\w+ )?(?:PC|target|one|character)s? (?:who|that) fails?\b/i);
+  if (fear) ergebnis.fear = zahl(fear[1]);
+  return Object.keys(ergebnis).length ? ergebnis : null;
 }

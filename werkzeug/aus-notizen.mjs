@@ -11,6 +11,8 @@ import {
 import { PROJEKT } from "./einstellungen.mjs";
 import { aktionFuer } from "./automatik.mjs";
 
+const MODUL_FLAG = "motherboard-adversaries";
+
 const KOPF = /^>\s*\[!statblock\]\s*(.*)$/i;
 export const GESINNUNG = { feindlich: -1, neutral: 0, freundlich: 1 };
 const GROESSEN = { medium: 1, large: 2, huge: 3, gargantuan: 4, small: 1, tiny: 1 };
@@ -252,9 +254,16 @@ function automatikAnwenden(actor, einst, protokoll) {
   for (const item of actor.items) {
     const roh = ROHTEXT.get(item);
     if (!roh) continue;
-    const { aktion, zusammenfassung, hinweise } = aktionFuer(roh, item.img);
+    const { aktion, zusammenfassung, hinweise, beiFehlschlag, beiErfolg } = aktionFuer(roh, item.img);
     if (aktion) {
       item.system.actions = { "#0": aktion };
+      // Folgen eines Saves wendet der Helfer im Modul an (modul/scripts/main.mjs)
+      if (beiFehlschlag || beiErfolg) {
+        const flag = {};
+        if (beiFehlschlag) flag.onFailedSave = beiFehlschlag;
+        if (beiErfolg) flag.onSuccessfulSave = beiErfolg;
+        item.flags = { ...item.flags, [MODUL_FLAG]: flag };
+      }
       protokoll.push({ gegner: actor.name, feature: item.name, was: zusammenfassung });
     }
     for (const h of hinweise) protokoll.push({ gegner: actor.name, feature: item.name, was: `Hinweis: ${h}`, hinweis: true });

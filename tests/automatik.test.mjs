@@ -12,14 +12,26 @@ test("Kosten nur am Anfang bzw. vor dem Save, nicht als Folge", () => {
 });
 
 test("Kreischer: Stress, Save, Kreis Close in Far", () => {
-  const { aktion } = aktionFuer(f("**Mark a Stress**. All PCs within Close range of a point within Far range must succeed on an Instinct Reaction Roll (12) or lose a Hope and **mark a Stress**."));
+  const { aktion, beiFehlschlag } = aktionFuer(f("**Mark a Stress**. All PCs within Close range of a point within Far range must succeed on an Instinct Reaction Roll (12) or lose a Hope and **mark a Stress**."));
   assert.equal(aktion.type, "attack");
   assert.deepEqual(aktion.cost.map(c => [c.key, c.value]), [["stress", 1]]);
   assert.deepEqual(aktion.save, { trait: "instinct", difficulty: 12, damageMod: "none" });
   assert.equal(aktion.range, "far");
   assert.equal(aktion.areas[0].size, "close");
   assert.equal(aktion.areas[0].type, "placed");
-  assert.deepEqual(aktion.damage.resources, {}, "Hope/Stress beim Ziel bleiben Text");
+  assert.deepEqual(aktion.damage.resources, {}, "nicht über das System – das würde auch bei Erfolg abziehen");
+  assert.deepEqual(beiFehlschlag, { hope: 1, stress: 1 });
+});
+
+test("Folgen nur bei Fehlschlag: nicht aus dem Erfolgs-Teil, nicht „instead“, Fear je Fehlschlag", () => {
+  const scream = aktionFuer(f("**Spend a Fear**. All PCs within Far range must make an Instinct Reaction Roll (18). Targets who fail take **3d8+3** magic damage, lose a Hope and **mark a Stress**. Targets who succeed take half damage and must mark a Stress."));
+  assert.deepEqual(scream.beiFehlschlag, { hope: 1, stress: 1 });
+  const chorus = aktionFuer(f("**Mark a Stress**: Each PC within Far range must succeed on a Presence Reaction Roll (18) or lose a Hope. Gain a Fear for each PC who fails."));
+  assert.deepEqual(chorus.beiFehlschlag, { hope: 1, fear: 1 });
+  const resonance = aktionFuer(f("**Mark a Stress** to sing. The PC must succeed on a Strength Reaction Roll (18) or mark an Armor Slot (if they can't, they mark a Stress instead)."));
+  assert.equal(resonance.beiFehlschlag, null);
+  const zwei = aktionFuer(f("All targets within Very Close range must succeed on an Agility Reaction Roll (12) or mark 2 Stress."));
+  assert.deepEqual(zwei.beiFehlschlag, { stress: 2 });
 });
 
 test("Schaden mit halbem Schaden bei Erfolg", () => {
@@ -52,4 +64,14 @@ test("Schaden auch bei „taking … on a failure or half on a success“", () =
   assert.equal(aktion.damage.main.value.dice, "d8");
   assert.equal(aktion.save.damageMod, "half");
   assert.equal(aktion.cost.length, 0);
+});
+
+test("Folgen bei Erfolg: „Targets who succeed must mark a Stress“", () => {
+  const gust = aktionFuer(f("**Spend a Fear** to drive a gust through a point within Far range. Each target within Close range of that point must succeed on a Strength Reaction Roll or take **4d8+8** magic damage. Targets who succeed must **mark a Stress**."));
+  assert.equal(gust.beiFehlschlag, null);
+  assert.deepEqual(gust.beiErfolg, { stress: 1 });
+  const arc = aktionFuer(f("**Spend a Fear** to choose a PC. They must succeed on a Knowledge Reaction Roll or take **3d10+1** magic damage. On a success, they must **mark a Stress**."));
+  assert.deepEqual(arc.beiErfolg, { stress: 1 });
+  const scream = aktionFuer(f("All PCs within Far range must make an Instinct Reaction Roll (18). Targets who fail lose a Hope. Targets who succeed take half damage."));
+  assert.equal(scream.beiErfolg, null);
 });
