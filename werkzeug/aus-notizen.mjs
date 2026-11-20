@@ -9,6 +9,7 @@ import {
   gegnerVorlage, umgebungVorlage, featureVorlage, groesseFuer, REICHWEITEN, GEGNER_TYPEN, UMGEBUNG_TYPEN
 } from "./vorlagen.mjs";
 import { PROJEKT } from "./einstellungen.mjs";
+import { aktionFuer } from "./automatik.mjs";
 
 const KOPF = /^>\s*\[!statblock\]\s*(.*)$/i;
 export const GESINNUNG = { feindlich: -1, neutral: 0, freundlich: 1 };
@@ -221,7 +222,7 @@ export function statblockZuActor(block, name) {
     } else if (frage) aktuell.stuecke.push({ art: "frage", text: roh });
     else aktuell.stuecke.push({ art: "absatz", text: roh });
   }
-  actor.items = features.map(f => featureVorlage(f.name, f.form, featureHtml(f, umgebung)));
+  actor.items = features.map(f => mitRohtext(featureVorlage(f.name, f.form, featureHtml(f, umgebung)), f));
 
   if (!umgebung && s.type === "horde") {
     const horde = features.find(f => /^Horde\b/i.test(f.name));
@@ -230,6 +231,31 @@ export function statblockZuActor(block, name) {
     else hinweise.push("Horde ohne Feature „Horde (Würfel)“ – Horden-Schaden fehlt");
   }
   return { actor, hinweise, umgebung };
+}
+
+/** Der Markdown-Text jedes Features, damit die Automatik ihn später lesen kann (landet nicht im Kompendium). */
+const ROHTEXT = new WeakMap();
+function mitRohtext(item, f) {
+  const text = f.stuecke.filter(s => s.art !== "frage").map(s => s.art === "liste" ? s.punkte.join(" ") : s.text).join(" ");
+  ROHTEXT.set(item, { name: f.name, form: f.form, text });
+  return item;
+}
+
+/** Hängt an passende Features eine Aktion des Systems (Kosten, Save, Schaden). */
+function automatikAnwenden(actor, einst, protokoll) {
+  const a = einst.automatik ?? {};
+  if (!a.an) return;
+  if (Array.isArray(a.nurFuer) && !a.nurFuer.includes(actor.name)) return;
+  for (const item of actor.items) {
+    const roh = ROHTEXT.get(item);
+    if (!roh) continue;
+    const { aktion, zusammenfassung, hinweise } = aktionFuer(roh, item.img);
+    if (aktion) {
+      item.system.actions = { "#0": aktion };
+      protokoll.push({ gegner: actor.name, feature: item.name, was: zusammenfassung });
+    }
+    for (const h of hinweise) protokoll.push({ gegner: actor.name, feature: item.name, was: `Hinweis: ${h}`, hinweis: true });
+  }
 }
 
 /** Name eines Stat Blocks: der erste heißt wie die Notiz, weitere bekommen den Zusatz nach dem Gedankenstrich. */
@@ -281,10 +307,12 @@ function varianteBauen(basis, v) {
     const zusatz = inlineHtml(v.beschreibungZusatz);
     s.description = s.description.endsWith("</p>") ? s.description.slice(0, -4) + " " + zusatz + "</p>" : s.description + `<p>${zusatz}</p>`;
   }
+  // structuredClone verliert die Rohtexte – wieder zuordnen
+  basis.items.forEach((item, i) => { const r = ROHTEXT.get(item); if (r) ROHTEXT.set(a.items[i], r); });
   const neu = (liste) => (liste ?? []).map(z => {
     const f = featureAusZeile(z);
     if (!f) throw new StatblockFehler(`Variante „${v.name}“: Feature nicht verstanden: „${z}“ (erwartet „Name - Passive: Text“)`);
-    return featureVorlage(f.name, f.form, featureHtml(f, false));
+    return mitRohtext(featureVorlage(f.name, f.form, featureHtml(f, false)), f);
   });
   a.items = [...neu(v.featuresVorne), ...a.items, ...neu(v.featuresHinten)];
   return a;
@@ -341,5 +369,12 @@ export function ausNotizen(einst, notizen) {
   for (const name of Object.keys(einst.ausnahmen ?? {})) {
     if (!eintraege.some(e => e.name === name)) hinweise.push({ wo: "einstellungen.json", was: `Ausnahme für „${name}“, aber diesen Gegner gibt es nicht` });
   }
-  return { eintraege, probleme, hinweise };
+
+  // Automatik erst am Ende, damit Varianten sie genauso bekommen wie ihre Basis
+  const automatik = [];
+  for (const e of eintraege) automatikAnwenden(e.actor, einst, automatik);
+  for (const name of einst.automatik?.nurFuer ?? []) {
+    if (!eintraege.some(e => e.name === name)) hinweise.push({ wo: "einstellungen.json", was: `Automatik für „${name}“, aber diesen Gegner gibt es nicht` });
+  }
+  return { eintraege, probleme, hinweise, automatik };
 }

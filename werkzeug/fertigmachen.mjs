@@ -108,6 +108,13 @@ export function fertigmachen(actor, { name, ordnerId, hordenSchadenAutomatisch =
       _key: `!actors.items!${actorId}.${itemId}`
     };
     i.system = { ...item.system, description: geheimIds(item.system?.description ?? "", name, item.name) };
+    // Aktionen (Automatik): feste IDs, Schlüssel = _id
+    if (item.system?.actions && Object.keys(item.system.actions).length) {
+      i.system.actions = Object.fromEntries(Object.values(item.system.actions).map((akt, n) => {
+        const aktId = festeId("aktion", name, item.name, n);
+        return [aktId, { ...akt, _id: aktId }];
+      }));
+    }
     i.effects = (item.effects ?? []).map((eff, n) => {
       const effId = festeId("effekt", name, item.name, n);
       return { ...eff, _id: effId, _stats: stats(), _key: `!actors.items.effects!${actorId}.${itemId}.${effId}` };

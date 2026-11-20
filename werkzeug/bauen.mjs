@@ -3,6 +3,7 @@
  *   node werkzeug/bauen.mjs
  * Liest nur aus dem Vault. Schreibt nur in den Ordner dist/ dieses Projekts.
  */
+import fs from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { ladeEinstellungen, PROJEKT } from "./einstellungen.mjs";
@@ -61,7 +62,7 @@ export function sammeln(einst, quelle = einst.quelle) {
     for (const was of h) hinweise.push({ wo: e.name, was });
   }
   const proGruppe = gruppen.map(g => [g, eintraege.filter(e => e.gruppe === g).length]);
-  return { quelle, actors, ordner, proGruppe, probleme, hinweise };
+  return { quelle, actors, ordner, proGruppe, probleme, hinweise, automatik: gelesen.automatik ?? [] };
 }
 
 /**
@@ -74,6 +75,9 @@ export async function bauen({ version } = {}) {
   const neueVersion = version ?? naechsteVersion(letzte);
   const vergleich = vergleiche(ladeStand(), s.actors);
   const paket = await bauePaket({ dokumente: [...s.ordner, ...s.actors], version: neueVersion, einst, ziel: DIST });
+  // Liste aller automatisierten Features zum Nachlesen
+  const liste = s.automatik.map(a => `${a.gegner} → ${a.feature}: ${a.was}`).join("\n");
+  fs.writeFileSync(path.join(DIST, "automatik.txt"), liste + "\n", "utf8");
   return { einst, ...s, vergleich, letzte, version: neueVersion, paket };
 }
 
@@ -110,6 +114,13 @@ export function zusammenfassung(r) {
   if (r.hinweise.length) {
     z.push(`Hinweise (${r.hinweise.length}):`);
     for (const h of r.hinweise) z.push(`  · ${h.wo}: ${h.was}`);
+    z.push("");
+  }
+  const mitAktion = r.automatik.filter(a => !a.hinweis);
+  if (r.automatik.length) {
+    const gegner = new Set(mitAktion.map(a => a.gegner)).size;
+    z.push(`Automatik: ${mitAktion.length} Features bei ${gegner} Gegnern bekommen eine Aktion.`);
+    z.push(`  Liste mit allen Details: ${path.join(DIST, "automatik.txt")}`);
     z.push("");
   }
   z.push(`Modul gebaut: ${r.paket.modul}`);

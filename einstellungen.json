@@ -20,6 +20,11 @@
 
   "hordenSchadenAutomatisch": true,
 
+  "automatik": {
+    "an": true,
+    "nurFuer": ["Kreischer", "Nachrufer", "Nachrufer — Sirene"]
+  },
+
   "umgebungsNotizen": {
     "Junkarena": "texte\\Junkarena.notes.html"
   },
