@@ -29,7 +29,8 @@ export function ladeEinstellungen(datei = path.join(PROJEKT, "einstellungen.json
   const pfade = {
     jsonDateien: path.join(e.vault, e.ordner.jsonDateien),
     gegner: path.join(e.vault, e.ordner.gegner),
-    umgebungen: path.join(e.vault, e.ordner.umgebungen)
+    umgebungen: path.join(e.vault, e.ordner.umgebungen),
+    tabellen: path.join(e.vault, e.ordner.tabellen ?? "0_Daggerheart Mechaniken")
   };
   for (const [name, p] of Object.entries(pfade)) {
     if (!fs.existsSync(p)) throw new Error(`Den Ordner „${name}“ finde ich nicht: ${p}`);

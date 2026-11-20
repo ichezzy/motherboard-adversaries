@@ -4,7 +4,8 @@
   "ordner": {
     "jsonDateien": "_Anhänge\\Foundry",
     "gegner": "0_Daggerheart Mechaniken\\Adversary",
-    "umgebungen": "0_Daggerheart Mechaniken\\Environment"
+    "umgebungen": "0_Daggerheart Mechaniken\\Environment",
+    "tabellen": "0_Daggerheart Mechaniken"
   },
 
   "quelle": "notizen",

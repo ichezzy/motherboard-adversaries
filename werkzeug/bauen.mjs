@@ -11,7 +11,8 @@ import { findeNotizen } from "./notizen.mjs";
 import { ausJsonDateien } from "./aus-json.mjs";
 import { ausNotizen } from "./aus-notizen.mjs";
 import { fertigmachen, ordnerDokument } from "./fertigmachen.mjs";
-import { bauePaket } from "./paket.mjs";
+import { bauePaket, MODUL_ID, TABELLEN_PACK } from "./paket.mjs";
+import { findeTabellen, tabellenVerlinken } from "./tabellen.mjs";
 import { ladeStand, vergleiche, letzteVersion, naechsteVersion } from "./stand.mjs";
 
 export const DIST = path.join(PROJEKT, "dist");
@@ -62,7 +63,20 @@ export function sammeln(einst, quelle = einst.quelle) {
     for (const was of h) hinweise.push({ wo: e.name, was });
   }
   const proGruppe = gruppen.map(g => [g, eintraege.filter(e => e.gruppe === g).length]);
-  return { quelle, actors, ordner, proGruppe, probleme, hinweise, automatik: gelesen.automatik ?? [] };
+
+  // Roll Tables ([!rolltable]) – und ihre Namen in Feature-Texten werden zu Links
+  let tabellen = [];
+  let links = 0;
+  if (quelle === "notizen") {
+    const t = findeTabellen(einst);
+    tabellen = t.dokumente;
+    probleme.push(...t.probleme);
+    hinweise.push(...t.hinweise);
+    links = tabellenVerlinken(actors, tabellen, `${MODUL_ID}.${TABELLEN_PACK}`);
+  }
+  // Für Vergleich und Stand: Gegner und Tabellen gemeinsam (Tabellen mit Vorsilbe, damit Namen nicht kollidieren)
+  const alles = [...actors, ...tabellen.map(t => ({ ...t, name: `Roll Table: ${t.name}` }))];
+  return { quelle, actors, ordner, proGruppe, probleme, hinweise, automatik: gelesen.automatik ?? [], tabellen, links, alles };
 }
 
 /**
@@ -73,8 +87,8 @@ export async function bauen({ version } = {}) {
   const s = sammeln(einst);
   const letzte = letzteVersion();
   const neueVersion = version ?? naechsteVersion(letzte);
-  const vergleich = vergleiche(ladeStand(), s.actors);
-  const paket = await bauePaket({ dokumente: [...s.ordner, ...s.actors], version: neueVersion, einst, ziel: DIST });
+  const vergleich = vergleiche(ladeStand(), s.alles);
+  const paket = await bauePaket({ dokumente: [...s.ordner, ...s.actors], tabellen: s.tabellen, version: neueVersion, einst, ziel: DIST });
   // Liste aller automatisierten Features zum Nachlesen
   const liste = s.automatik.map(a => `${a.gegner} → ${a.feature}: ${a.was}`).join("\n");
   fs.writeFileSync(path.join(DIST, "automatik.txt"), liste + "\n", "utf8");
@@ -93,6 +107,10 @@ export function zusammenfassung(r) {
   for (const [g, n] of r.proGruppe) z.push(`  ${g.padEnd(breite)}  ${String(n).padStart(3)}`);
   z.push(`  ${"Gesamt".padEnd(breite)}  ${String(r.actors.length).padStart(3)}`);
   z.push("");
+  if (r.tabellen.length) {
+    z.push(`Roll Tables: ${r.tabellen.map(t => t.name).join(", ")} (${r.links} Verweise in Features verlinkt)`);
+    z.push("");
+  }
 
   const v = r.vergleich;
   if (!r.letzte) {

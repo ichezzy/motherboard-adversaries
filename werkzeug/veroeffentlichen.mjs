@@ -56,7 +56,7 @@ async function main() {
   }
 
   fs.writeFileSync(VERSION_DATEI, r.version + "\n", "utf8");
-  speichereStand(r.actors);
+  speichereStand(r.alles);
   befehl("git", ["add", "-A"]);
   befehl("git", ["commit", "-q", "-m", `Version ${r.version}`]);
   console.log("Lade hoch …");

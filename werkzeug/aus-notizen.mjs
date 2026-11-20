@@ -18,17 +18,20 @@ const FEATURE = /^\*\*\*(.+)\s+[-–—]\s+(Passive|Action|Reaction):\*\*\*\s*(.
 
 class StatblockFehler extends Error {}
 
-/** Zerlegt eine Notiz in ihre Stat-Block-Callouts. Jede Zeile ohne die führenden „>“. */
-export function findeStatblocks(text) {
+/** Zerlegt eine Notiz in ihre Callouts eines Typs (statblock, rolltable). Jede Zeile ohne die führenden „>“. */
+export function findeStatblocks(text, typ = "statblock") {
+  const muster = typ === "statblock" ? KOPF : new RegExp(`^>\\s*\\[!${typ}\\]\\s*(.*)$`, "i");
   const bloecke = [];
   let aktuell = null;
   for (const roh of text.split(/\r?\n/)) {
-    const kopf = roh.match(KOPF);
+    const kopf = roh.match(muster);
     if (kopf) {
       aktuell = { kopf: kopf[1].trim(), zeilen: [] };
       bloecke.push(aktuell);
       continue;
     }
+    // Ein anderer Callout direkt dahinter beendet den aktuellen
+    if (/^>\s*\[![\w-]+\]/.test(roh)) { aktuell = null; continue; }
     if (!aktuell) continue;
     if (!/^\s*>/.test(roh)) { aktuell = null; continue; }
     const tiefe = (roh.match(/^(\s*>\s?)+/)[0].match(/>/g) || []).length;
