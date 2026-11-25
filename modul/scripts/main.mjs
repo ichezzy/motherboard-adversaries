@@ -9,7 +9,8 @@
  * Uses only what the system's own buttons use: TargetField.formatTarget, message.system.getContext
  * and the action's "save" workflow (same as "Reaction Roll All Targets").
  *
- * Second part (further down): Hope/Stress/Fear consequences of failed Reaction Rolls.
+ * Further down: Hope/Stress/Fear consequences of Reaction Rolls, and removing the area once
+ * every target has rolled.
  */
 
 const MODULE_ID = "motherboard-adversaries";
@@ -30,6 +31,14 @@ Hooks.once("init", () => {
   game.settings.register(MODULE_ID, "autoSave", {
     name: "Request Reaction Rolls for those targets",
     hint: "After targeting, ask every target for its Reaction Roll right away (like \"Reaction Roll All Targets\").",
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: true
+  });
+  game.settings.register(MODULE_ID, "removeArea", {
+    name: "Remove the area when the attack is over",
+    hint: "The area placed with the crosshair button disappears as soon as every target's Reaction Roll is in (or right away if nobody stands inside it).",
     scope: "world",
     config: true,
     type: Boolean,
@@ -63,6 +72,11 @@ Hooks.on("updateChatMessage", async (message, changes) => {
   if (game.users.activeGM?.id !== game.user.id) return;
   const changed = Object.keys(foundry.utils.flattenObject(changes ?? {}));
   if (!changed.some(key => key.startsWith("system.targetSaves"))) return;
+  await applyConsequences(message);
+  await removeAreaWhenDone(message);
+});
+
+async function applyConsequences(message) {
   if (!game.settings.get(MODULE_ID, "applyOnFail")) return;
 
   const system = message.system;
@@ -103,7 +117,33 @@ Hooks.on("updateChatMessage", async (message, changes) => {
   } finally {
     for (const target of open) inProgress.delete(`${message.id}.${target.id}`);
   }
-});
+}
+
+/* -------------------------------------------- */
+/*  Removing the area                            */
+/* -------------------------------------------- */
+
+/** The area (Region) this helper targeted from is remembered on the chat card as a flag. */
+async function removeArea(message, delay = 1500) {
+  const uuid = message.getFlag(MODULE_ID, "area");
+  if (!uuid || !game.settings.get(MODULE_ID, "removeArea")) return;
+  await message.unsetFlag(MODULE_ID, "area");
+  setTimeout(async () => {
+    try {
+      const region = await foundry.utils.fromUuid(uuid);
+      await region?.delete();
+    } catch (error) {
+      console.error(`${MODULE_ID} | removing the area failed`, error);
+    }
+  }, delay);
+}
+
+/** As soon as every target of the card has its Reaction Roll, the attack is over. */
+async function removeAreaWhenDone(message) {
+  if (!message.getFlag(MODULE_ID, "area")) return;
+  const targets = message.system?._getCurrentTargets?.() ?? [];
+  if (targets.length && targets.every(t => t.saveResult)) await removeArea(message);
+}
 
 Hooks.on("renderChatMessageHTML", (message, html) => {
   if (!game.user.isGM) return;
@@ -122,9 +162,12 @@ Hooks.on("createRegion", async (region, _options, userId) => {
   if (!message || !game.settings.get(MODULE_ID, "autoTarget")) return;
 
   try {
+    // Remember the area on the card so it can be removed when the attack is over
+    await message.setFlag(MODULE_ID, "area", region.uuid);
     const tokens = tokensInRegion(region, message);
     if (!tokens.length) {
       ui.notifications.info(`${region.name}: no tokens inside the area.`);
+      await removeArea(message, 3000);
       return;
     }
 
