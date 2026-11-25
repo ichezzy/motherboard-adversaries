@@ -57,3 +57,15 @@ test("Beispiele in Codeblöcken und %% Kommentaren zählen nicht", () => {
   const bloecke = findeStatblocks(leitfaden, "rolltable");
   assert.deepEqual(bloecke.map(b => b.kopf), ["REAL"]);
 });
+
+import { bildSchluessel, bildFuer } from "../werkzeug/bilder.mjs";
+
+test("Bilder: Umlaute, Zusatz, Tier 2 erbt das Bild der Notiz", () => {
+  assert.equal(bildSchluessel("Grubenbär"), "grubenbaer");
+  assert.equal(bildSchluessel("Wächter"), "waechter");
+  const bilder = { nachName: new Map([["grubenbaer", "MB_Restling_Grubenbaer.jpg"], ["dreiklaue", "MB_Restling_Dreiklaue.jpg"], ["syfterbulwark", "MB_Syfter_Bulwark.jpg"]]) };
+  assert.equal(bildFuer(bilder, { name: "Grubenbär", schluessel: "Grubenbär", notizName: "Grubenbär" }), "MB_Restling_Grubenbaer.jpg");
+  assert.equal(bildFuer(bilder, { name: "Grubenbär — Dreiklaue", schluessel: "Grubenbär — Dreiklaue", notizName: "Grubenbär" }), "MB_Restling_Dreiklaue.jpg");
+  assert.equal(bildFuer(bilder, { name: "Syfter Bulwark — Tier 2", schluessel: "Syfter Bulwark — Tier 2", notizName: "Syfter Bulwark" }), "MB_Syfter_Bulwark.jpg");
+  assert.equal(bildFuer(bilder, { name: "Screecher", schluessel: "Kreischer", notizName: "Kreischer" }), null);
+});

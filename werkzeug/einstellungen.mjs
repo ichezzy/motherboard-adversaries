@@ -35,6 +35,8 @@ export function ladeEinstellungen(datei = path.join(PROJEKT, "einstellungen.json
   for (const [name, p] of Object.entries(pfade)) {
     if (!fs.existsSync(p)) throw new Error(`Den Ordner „${name}“ finde ich nicht: ${p}`);
   }
+  // Bilder sind freiwillig: fehlt der Ordner, bleibt es bei den Standard-Symbolen
+  pfade.artwork = path.join(e.vault, e.ordner.artwork ?? path.join("_Anhänge", "Artwork"));
   return {
     ...e,
     pfade,

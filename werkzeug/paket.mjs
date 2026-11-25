@@ -78,7 +78,7 @@ async function packen(dokumente, quelle, ziel) {
  * @param {object}   p.einst
  * @param {string}   p.ziel       dist-Ordner (wird komplett neu geschrieben)
  */
-export async function bauePaket({ dokumente, tabellen = [], version, einst, ziel }) {
+export async function bauePaket({ dokumente, tabellen = [], bilder = new Map(), version, einst, ziel }) {
   fs.rmSync(ziel, { recursive: true, force: true });
   const quelle = path.join(ziel, "quelle", PACK_NAME);
   const modul = path.join(ziel, MODUL_ID);
@@ -89,6 +89,11 @@ export async function bauePaket({ dokumente, tabellen = [], version, einst, ziel
     await packen(tabellen, path.join(ziel, "quelle", TABELLEN_PACK), path.join(modul, "packs", TABELLEN_PACK));
   }
   fs.cpSync(CODE, modul, { recursive: true });
+  if (bilder.size) {
+    const ordner = path.join(modul, "assets", "artwork");
+    fs.mkdirSync(ordner, { recursive: true });
+    for (const [datei, herkunft] of bilder) fs.copyFileSync(herkunft, path.join(ordner, datei));
+  }
 
   const manifest = JSON.stringify(modulManifest(version, einst, { mitTabellen: tabellen.length > 0 }), null, 2) + "\n";
   fs.writeFileSync(path.join(modul, "module.json"), manifest, "utf8");

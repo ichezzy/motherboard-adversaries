@@ -5,10 +5,15 @@
     "jsonDateien": "_Anhänge\\Foundry",
     "gegner": "0_Daggerheart Mechaniken\\Adversary",
     "umgebungen": "0_Daggerheart Mechaniken\\Environment",
-    "tabellen": "0_Daggerheart Mechaniken"
+    "tabellen": "0_Daggerheart Mechaniken",
+    "artwork": "_Anhänge\\Artwork"
   },
 
   "quelle": "notizen",
+
+  "bilder": {
+    "token": "standard"
+  },
 
   "gruppen": {
     "Restlinge": "Rustlings",
