@@ -35,21 +35,21 @@ const FRAKTIONEN = [
   },
   {
     datei: "Chimeras", titel: "Chimeras (Chimären)",
-    warum: "Ultraviolett-Magenta nach Labor und Experiment; Chrom und Kabelsehnen, Nähte, Probengläser — die Versuchstiere der CTC.",
-    text: `Faction: the Chimeras — lab-grown animal hybrids of chrome and living tissue, escaped from a corporate laboratory. Main color: ultraviolet magenta (around #FF00C8). Material: chrome plating fused with sinewy organic cables, stitched surgical seams, specimen tags, small glass vials with glowing magenta fluid set into the rim, claw scratches.`,
-    marker: "small magenta vial lights", markerEins: "small magenta vial light"
+    warum: "Magenta als leuchtende Adern unter der Haut statt in Phiolen; Chrom, das mit Sehnen, Knochen und Fell verwachsen ist, saubere OP-Nähte, Krallenspuren — mehr Raubtier als Labor. Einziger Hinweis auf die Herkunft: eine kleine Ohrmarke. Marker: leuchtende Krallenspuren. (Überarbeitet 25.11.2026: keine Phiolen, keine DNA.)",
+    text: `Faction: the Chimeras — escaped experiments, animals rebuilt from chrome and living tissue; more beast than machine. Main color: ultraviolet magenta (around #FF00C8), glowing as bioluminescent veins under thin skin and along the seams. Material: grafted chrome plates fused with sinew, bone ridges and patches of coarse fur, neat surgical stitches, deep claw scars in the metal, and one small riveted ear tag as the only hint of where they came from. Organic, predatory, subtle. No vials, no test tubes, no syringes, no DNA symbols, no laboratory glassware.`,
+    marker: "glowing magenta claw slashes", markerEins: "glowing magenta claw slash"
   },
   {
-    datei: "Salvants", titel: "Salvants (VSG)",
-    warum: "Signalgelb mit Schwarz wie Absperrung und Miliz; Schablonenschrift-Flächen, Panzerplatten, Scheinwerfer — die käufliche Ordnungsmacht.",
-    text: `Faction: the Salvants — the city's paid militia, officially protectors, in truth for hire. Main colors: signal yellow (around #FFD400) and black. Material: bolted armor segments with stencil-painted panels (no readable letters), black-and-yellow chevron stripes, the rim of a riot shield, a small mounted spotlight lamp, scuffed but well maintained.`,
-    marker: "small yellow chevrons", markerEins: "small yellow chevron"
+    datei: "Salvants", titel: "Salvants (Vanguard Salvation Group)",
+    warum: "Schwarzer Lack und mattes, angelaufenes Gold: Paradepanzer und Orden einer Befreiungsarmee, die heute für Geld Ordnung hält. Das alte Befreiungszeichen sitzt halb unter einem amtlich angeschraubten Siegel, dazu Torgitter und ein Überwachungsauge — Macht und Kontrolle statt Baustelle. Marker: goldene Rangsterne. Keine Warnstreifen, keine Lampen. (Überarbeitet 25.11.2026. Das Logo der VSG ist im Kanon noch offen; die gesprengte Kette ist nur ein Vorschlag.)",
+    text: `Faction: the Vanguard Salvation Group, called the Salvants — once the liberation army that freed the city, today a disciplined militia for hire that controls the gates and keeps order for whoever pays. Main colors: tarnished gold (around #C9A227) and glossy black lacquer, with cold white glints like a searchlight. Material: black armored plates in the style of parade armor and riot gear, polished but scratched; a worn gold medallion with the old liberation emblem, a broken chain, now half covered by a bolted-on official seal; segments shaped like gate bars; a small round surveillance lens; braided gold cord. Authoritative, controlled, a little hollow. No hazard stripes, no yellow-and-black warning patterns, no work lamps, no chevron stripes, no construction look.`,
+    marker: "small gold rank stars", markerEins: "small gold rank star"
   },
   {
     datei: "Syfter", titel: "Syfter",
-    warum: "Kobaltblau mit poliertem Messing; Kompassring mit Gradstrichen, Radar-Bogen — Messgerät und Navigation wie die MAVIS, für die, die regelmäßig rausgehen.",
-    text: `Faction: the Syfter — scrap hunters who venture into the wasteland outside the city, half explorers, half salvagers. Main colors: cobalt blue (around #2F6BFF) and polished brass. Material: a brass navigation instrument — compass bezel with degree ticks, nested rotating rings like a sextant, a sweeping radar arc in cobalt light, cable clamps and field-worn leather wraps.`,
-    marker: "small brass-and-cobalt compass ticks", markerEins: "small brass-and-cobalt compass tick"
+    warum: "Kobaltblau mit hellem Stahl; Kompassring mit Gradstrichen, Radar-Bogen — Messgerät und Navigation wie die MAVIS, für die, die regelmäßig rausgehen. (Stahl statt Messing, damit sich Syfter und Vanguard-Gold nicht ähneln.)",
+    text: `Faction: the Syfter — scrap hunters who venture into the wasteland outside the city, half explorers, half salvagers. Main colors: cobalt blue (around #2F6BFF) and bright brushed steel. Material: a steel navigation instrument — compass bezel with degree ticks, nested rotating rings like a sextant, a sweeping radar arc in cobalt light, cable clamps and field-worn leather wraps.`,
+    marker: "small cobalt compass ticks", markerEins: "small cobalt compass tick"
   },
   {
     datei: "NPC", titel: "Normale NPCs",
@@ -69,7 +69,7 @@ const TIERS = [
 const z = [];
 z.push(`# Token-Ringe: Prompts
 
-*Stand 25.11.2026. Für dein Bildwerkzeug (ChatGPT, Midjourney …). Erzeugt mit einem Skript aus festen Bausteinen, damit alle 32 Ringe gleich aufgebaut sind.*
+*Stand 25.11.2026 (Vanguard, Chimeras und Syfter überarbeitet). Für dein Bildwerkzeug (ChatGPT, Midjourney …). Erzeugt mit einem Skript aus festen Bausteinen, damit alle 32 Ringe gleich aufgebaut sind.*
 
 ## Das System
 
