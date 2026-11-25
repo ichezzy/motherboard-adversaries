@@ -25,7 +25,13 @@ export function findeStatblocks(text, typ = "statblock") {
   const muster = typ === "statblock" ? KOPF : new RegExp(`^>\\s*\\[!${typ}\\]\\s*(.*)$`, "i");
   const bloecke = [];
   let aktuell = null;
+  let codeblock = false;   // ```…``` – Beispiele in Leitfäden zählen nicht
+  let kommentar = false;   // %% … %% – auskommentiert zählt nicht
   for (const roh of text.split(/\r?\n/)) {
+    const ohnePrefix = roh.replace(/^(\s*>\s?)+/, "").trim();
+    if (!kommentar && /^(```|~~~)/.test(ohnePrefix)) { codeblock = !codeblock; aktuell = null; continue; }
+    if (!codeblock && (ohnePrefix.match(/%%/g) ?? []).length % 2 === 1) { kommentar = !kommentar; aktuell = null; continue; }
+    if (codeblock || kommentar) continue;
     const kopf = roh.match(muster);
     if (kopf) {
       aktuell = { kopf: kopf[1].trim(), zeilen: [] };

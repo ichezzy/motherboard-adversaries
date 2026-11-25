@@ -51,3 +51,9 @@ test("Titel und Verlinken", () => {
   assert.equal(actors[0].items[0].system.description,
     "<p>(roll on @UUID[Compendium.motherboard-adversaries.rolltables.RollTable.abcdefghijklmnop]{What the Crowd Throws})</p>");
 });
+
+test("Beispiele in Codeblöcken und %% Kommentaren zählen nicht", () => {
+  const leitfaden = "So sieht es aus:\n\n```markdown\n> [!rolltable] EXAMPLE\n> | d6 | R |\n```\n\n%%\n> [!rolltable] HIDDEN\n> | d6 | R |\n%%\n\n> [!rolltable] REAL\n> | d4 | R |\n> |---|---|\n> | 1-4 | x |";
+  const bloecke = findeStatblocks(leitfaden, "rolltable");
+  assert.deepEqual(bloecke.map(b => b.kopf), ["REAL"]);
+});
