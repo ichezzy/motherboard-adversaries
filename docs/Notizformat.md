@@ -20,7 +20,9 @@
 | Umgebungen | `0_Daggerheart Mechaniken/Environment/<Name> (DH).md` | Ordner „Environments“ |
 | Roll Tables | in **jeder** Notiz unter `0_Daggerheart Mechaniken/` | Kompendium „Motherboard: Roll Tables“ |
 
-- Der **Name im Kompendium** ist der Dateiname ohne ` (DH)`. Der Text hinter `[!statblock]` zählt beim ersten Stat Block einer Notiz nicht.
+- Der **Name in Foundry** ist die **Überschrift des Callouts**: `> [!statblock] SCREECHER` wird „Screecher“. So kann der Gegner in Foundry englisch heißen, während die Notiz deutsch bleibt (`Kreischer (DH).md`). Steht in der Überschrift nur der Notizname in Großbuchstaben, übernimmt der Build die Schreibweise der Notiz (mit ä, ö, ü, ß).
+- Der **Dateiname** ist der feste Anker: Daraus entsteht die ID. Wer die Überschrift ändert, benennt den Gegner in Foundry um — er wird ersetzt, nicht verdoppelt, und die Zusammenfassung zeigt „umbenannt: Kreischer → Screecher“. Wer die **Datei** umbenennt, bekommt einen neuen Eintrag.
+- Großbuchstaben in der Überschrift werden zu normaler Schreibung (*Wings of the Storm*, *Arena-Treiberin*). Wer eine besondere Schreibung braucht, schreibt die Überschrift gemischt: `> [!statblock] Three-Claw`.
 - Notizen **ohne** `[!statblock]` (Übersichten wie *Gutter-Crews*) werden übersprungen.
 
 ## 2. Stat Block für Gegner
@@ -45,7 +47,7 @@
 
 | Zeile | Regel |
 |---|---|
-| Kopf | `> [!statblock] NAME` in Großbuchstaben. |
+| Kopf | `> [!statblock] NAME` in Großbuchstaben — der englische Name, wie er in Foundry erscheinen soll. |
 | Tier-Zeile | `***Tier <1–4> <Typ>***`. Typ: Bruiser, Horde, Leader, Minion, Ranged, Skulk, Social, Solo, Standard, Support. |
 | Horde | `***Tier 1 Horde (2/HP)***` — und ein Feature `***Horde (1d4+2) - Passive:***`. Der Würfel in Klammern ist der Horden-Schaden ab halben HP; Foundry schaltet ihn automatisch um. |
 | Minion | `**Thresholds:** None`, fester Schaden `2 phy`, Feature `***Minion (3) - Passive:***`. |
@@ -62,9 +64,9 @@
 | Formatierung | `**fett**`, `*kursiv*`. Links `[[Ziel\|Anzeige]]` werden zu „Anzeige“, `[[Ziel (DH)]]` zu „Ziel“. |
 | Größe | Folgt dem Typ: Solo → huge (3×3), Bruiser → large (2×2), sonst medium. Ausnahmen in `einstellungen.json`. |
 
-**Zwei Stat Blocks in einer Notiz** (Bossphasen, Tier 2): Der zweite Kopf bekommt einen Zusatz nach dem Gedankenstrich — `> [!statblock] NACHRUFER — SIRENE` wird „Nachrufer — Sirene“, `> [!statblock] SYFTER BULWARK — TIER 2` wird „Syfter Bulwark — Tier 2“. Zwischen zwei Callouts steht eine Zeile **ohne** `>`.
+**Zwei Stat Blocks in einer Notiz** (Bossphasen, Tier 2, Varianten): Der zweite Kopf bekommt einen Zusatz nach dem Gedankenstrich — `> [!statblock] NACHRUFER — SIRENE` wird „Nachrufer — Sirene“, `> [!statblock] SYFTER BULWARK — TIER 2` wird „Syfter Bulwark — Tier 2“. Der feste Anker ist hier *Notizname + Zusatz*; wer den **Zusatz** ändert, bekommt einen neuen Eintrag, wer nur den Namen davor ändert (`CALLBACK — SIRENE`), benennt um. Zwischen zwei Callouts steht eine Zeile **ohne** `>`.
 
-**Varianten im Fließtext** (wie Dreiklaue in *Grubenbär*) liest der Build nicht. Sie stehen als Liste in `einstellungen.json`. Besser: der Variante einen eigenen Stat Block geben.
+**Varianten** bekommen einen eigenen Stat Block in derselben Notiz (wie *Grubenbär — Dreiklaue*). Varianten im Fließtext liest der Build nicht.
 
 ## 3. Stat Block für Umgebungen
 

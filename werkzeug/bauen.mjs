@@ -35,12 +35,18 @@ export function sammeln(einst, quelle = einst.quelle) {
   else throw new Error(`In einstellungen.json steht "quelle": "${quelle}" – erlaubt sind "notizen" oder "json".`);
   const { probleme, hinweise } = gelesen;
 
-  // Doppelte Namen: der erste gewinnt, der zweite wird gemeldet.
+  // Doppelte Namen oder Schlüssel: der erste gewinnt, der zweite wird gemeldet.
   const eintraege = [];
   const namen = new Set();
+  const schluessel = new Set();
   for (const e of gelesen.eintraege) {
-    if (namen.has(e.name)) { probleme.push({ wo: e.herkunft, was: `„${e.name}“ gibt es doppelt – nur der erste ist im Kompendium` }); continue; }
+    e.schluessel ??= e.name;
+    if (namen.has(e.name) || schluessel.has(e.schluessel)) {
+      probleme.push({ wo: e.herkunft, was: `„${e.name}“ gibt es doppelt – nur der erste ist im Kompendium` });
+      continue;
+    }
     namen.add(e.name);
+    schluessel.add(e.schluessel);
     eintraege.push(e);
   }
 
@@ -57,7 +63,7 @@ export function sammeln(einst, quelle = einst.quelle) {
   const actors = [];
   for (const e of eintraege) {
     const { actor, hinweise: h } = fertigmachen(e.actor, {
-      name: e.name, ordnerId: ordnerId[e.gruppe], hordenSchadenAutomatisch: einst.hordenSchadenAutomatisch
+      name: e.name, idName: e.schluessel, ordnerId: ordnerId[e.gruppe], hordenSchadenAutomatisch: einst.hordenSchadenAutomatisch
     });
     actors.push(actor);
     for (const was of h) hinweise.push({ wo: e.name, was });
@@ -117,9 +123,10 @@ export function zusammenfassung(r) {
     z.push("Noch nichts veröffentlicht – alle Einträge sind neu.");
   } else {
     z.push(`Gegenüber der veröffentlichten Version ${r.letzte}:`);
-    z.push(`  neu: ${v.neu.length} · geändert: ${v.geaendert.length} · entfernt: ${v.entfernt.length} · unverändert: ${v.gleich.length}`);
+    z.push(`  neu: ${v.neu.length} · geändert: ${v.geaendert.length} · umbenannt: ${v.umbenannt.length} · entfernt: ${v.entfernt.length} · unverändert: ${v.gleich.length}`);
     for (const n of v.neu) z.push(`  + neu:       ${n}`);
     for (const g of v.geaendert) z.push(`  ~ geändert:  ${g.name} (${g.bereiche.slice(0, 4).join(", ")}${g.bereiche.length > 4 ? ", …" : ""})`);
+    for (const u of v.umbenannt) z.push(`  > umbenannt: ${u.von} → ${u.nach}`);
     for (const n of v.entfernt) z.push(`  - entfernt:  ${n}`);
   }
   z.push("");

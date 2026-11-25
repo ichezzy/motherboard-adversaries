@@ -253,10 +253,10 @@ function mitRohtext(item, f) {
 }
 
 /** Hängt an passende Features eine Aktion des Systems (Kosten, Save, Schaden). */
-function automatikAnwenden(actor, einst, protokoll) {
+function automatikAnwenden(actor, einst, protokoll, schluessel = actor.name) {
   const a = einst.automatik ?? {};
   if (!a.an) return;
-  if (Array.isArray(a.nurFuer) && !a.nurFuer.includes(actor.name)) return;
+  if (Array.isArray(a.nurFuer) && !a.nurFuer.includes(actor.name) && !a.nurFuer.includes(schluessel)) return;
   for (const item of actor.items) {
     const roh = ROHTEXT.get(item);
     if (!roh) continue;
@@ -276,18 +276,46 @@ function automatikAnwenden(actor, einst, protokoll) {
   }
 }
 
-/** Name eines Stat Blocks: der erste heißt wie die Notiz, weitere bekommen den Zusatz nach dem Gedankenstrich. */
+/**
+ * Schlüssel eines Stat Blocks (daraus entstehen die festen IDs): der erste heißt wie die Notiz,
+ * weitere bekommen den Zusatz nach dem Gedankenstrich. Ändert sich nur, wenn die Notiz umbenannt wird.
+ */
 export function blockName(notizName, kopf, index) {
   if (index === 0) return notizName;
   const zusatz = kopf.split(/\s+[—–-]\s+/).slice(1).join(" — ");
   return `${notizName} — ${normaleSchreibung(zusatz || kopf)}`;
 }
 
-/** Gesinnung und Größe aus den Einstellungen (Gruppe, Ausnahmen je Gegner). */
-function regelnAnwenden(actor, gruppe, einst) {
+const KLEINE_WOERTER = new Set(["a", "an", "the", "and", "or", "of", "on", "in", "to", "for", "at", "by", "with", "from"]);
+const vergleichbar = t => t.toLocaleLowerCase("de").replace(/ß/g, "ss").replace(/[^\p{L}\p{N}]+/gu, "");
+
+/** „SCREECHER“ → „Screecher“, „WINGS OF THE STORM“ → „Wings of the Storm“, „ARENA-TREIBERIN“ → „Arena-Treiberin“. */
+export function titelSchreibung(text) {
+  const t = text.trim();
+  if (t !== t.toLocaleUpperCase("de")) return t;   // gemischt geschrieben: so übernehmen
+  const woerter = t.toLocaleLowerCase("de").split(/\s+/);
+  return woerter.map((w, i) => {
+    const vorher = woerter[i - 1];
+    if (i > 0 && KLEINE_WOERTER.has(w) && !/^[—–-]$/.test(vorher)) return w;
+    return w.replace(/(^|[-–(/])(\p{L})/gu, (_, vor, b) => vor + b.toLocaleUpperCase("de"));
+  }).join(" ");
+}
+
+/**
+ * Name in Foundry: die Überschrift des Callouts (so kann sie englisch sein, während die Notiz
+ * deutsch heißt). Steht dort nur der Notizname in Großbuchstaben, bleibt die Schreibweise der Notiz.
+ */
+export function anzeigeName(kopf, schluessel) {
+  if (!kopf?.trim()) return schluessel;
+  if (vergleichbar(kopf) === vergleichbar(schluessel)) return schluessel;
+  return titelSchreibung(kopf);
+}
+
+/** Gesinnung und Größe aus den Einstellungen (Gruppe, Ausnahmen je Gegner – über Namen oder Notiznamen). */
+function regelnAnwenden(actor, gruppe, einst, schluessel = actor.name) {
   if (actor.type !== "adversary") return;
   const t = actor.prototypeToken;
-  const ausnahme = einst.ausnahmen?.[actor.name] ?? {};
+  const ausnahme = einst.ausnahmen?.[actor.name] ?? einst.ausnahmen?.[schluessel] ?? {};
   if (t.disposition === null || ausnahme.gesinnung) {
     const wort = ausnahme.gesinnung ?? einst.gesinnungProGruppe?.[gruppe] ?? "feindlich";
     if (!(wort in GESINNUNG)) throw new StatblockFehler(`Unbekannte Gesinnung „${wort}“ in den Einstellungen (möglich: feindlich, neutral, freundlich)`);
@@ -357,14 +385,16 @@ export function ausNotizen(einst, notizen) {
   for (const notiz of notizen.filter(n => n.hatStatblock)) {
     const datei = path.basename(notiz.datei);
     findeStatblocks(notiz.text).forEach((block, index) => {
-      const name = blockName(notiz.name, block.kopf, index);
+      const schluessel = blockName(notiz.name, block.kopf, index);
+      const name = anzeigeName(block.kopf, schluessel);
       try {
         const { actor, hinweise: h, umgebung } = statblockZuActor(block, name);
         if (umgebung !== notiz.umgebung) h.push(umgebung ? "Sieht aus wie eine Umgebung, liegt aber bei den Gegnern" : "Sieht aus wie ein Gegner, liegt aber bei den Umgebungen");
-        if (umgebung && umgebungsNotizen.has(name)) actor.system.notes = umgebungsNotizen.get(name);
-        regelnAnwenden(actor, notiz.gruppe, einst);
+        const notes = umgebungsNotizen.get(name) ?? umgebungsNotizen.get(schluessel);
+        if (umgebung && notes) actor.system.notes = notes;
+        regelnAnwenden(actor, notiz.gruppe, einst, schluessel);
         for (const was of h) hinweise.push({ wo: `${datei} → ${name}`, was });
-        eintraege.push({ name, gruppe: notiz.gruppe, actor, herkunft: datei });
+        eintraege.push({ name, schluessel, gruppe: notiz.gruppe, actor, herkunft: datei, notizName: notiz.name });
       } catch (fehler) {
         if (!(fehler instanceof StatblockFehler)) throw fehler;
         probleme.push({ wo: `${datei} → [!statblock] ${block.kopf}`, was: fehler.message });
@@ -372,27 +402,28 @@ export function ausNotizen(einst, notizen) {
     });
   }
 
+  const passt = (e, n) => e.name === n || e.schluessel === n;
   for (const v of einst.varianten) {
-    const basis = eintraege.find(e => e.name === v.basis);
+    const basis = eintraege.find(e => passt(e, v.basis));
     if (!basis) { probleme.push({ wo: `Variante ${v.name}`, was: `Basis-Gegner „${v.basis}“ nicht gefunden` }); continue; }
     try {
       const actor = varianteBauen(basis.actor, v);
       regelnAnwenden(actor, basis.gruppe, einst);
-      eintraege.push({ name: v.name, gruppe: basis.gruppe, actor, herkunft: `Variante von ${v.basis}` });
+      eintraege.push({ name: v.name, schluessel: v.name, gruppe: basis.gruppe, actor, herkunft: `Variante von ${v.basis}`, notizName: basis.notizName });
     } catch (fehler) {
       if (!(fehler instanceof StatblockFehler)) throw fehler;
       probleme.push({ wo: `Variante ${v.name}`, was: fehler.message });
     }
   }
   for (const name of Object.keys(einst.ausnahmen ?? {})) {
-    if (!eintraege.some(e => e.name === name)) hinweise.push({ wo: "einstellungen.json", was: `Ausnahme für „${name}“, aber diesen Gegner gibt es nicht` });
+    if (!eintraege.some(e => passt(e, name))) hinweise.push({ wo: "einstellungen.json", was: `Ausnahme für „${name}“, aber diesen Gegner gibt es nicht` });
   }
 
   // Automatik erst am Ende, damit Varianten sie genauso bekommen wie ihre Basis
   const automatik = [];
-  for (const e of eintraege) automatikAnwenden(e.actor, einst, automatik);
+  for (const e of eintraege) automatikAnwenden(e.actor, einst, automatik, e.schluessel);
   for (const name of einst.automatik?.nurFuer ?? []) {
-    if (!eintraege.some(e => e.name === name)) hinweise.push({ wo: "einstellungen.json", was: `Automatik für „${name}“, aber diesen Gegner gibt es nicht` });
+    if (!eintraege.some(e => passt(e, name))) hinweise.push({ wo: "einstellungen.json", was: `Automatik für „${name}“, aber diesen Gegner gibt es nicht` });
   }
   return { eintraege, probleme, hinweise, automatik };
 }

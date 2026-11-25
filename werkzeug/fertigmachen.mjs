@@ -57,13 +57,13 @@ function geheimIds(html, actorName, featureName) {
 
 /**
  * @param {object} actor   Actor-Daten (werden nicht verändert; es wird eine Kopie zurückgegeben)
- * @param {object} opts    { name, ordnerId, hordenSchadenAutomatisch }
+ * @param {object} opts    { name (Anzeige), idName (Schlüssel für die festen IDs, Standard: name), ordnerId, hordenSchadenAutomatisch }
  * @returns {{ actor: object, hinweise: string[] }}
  */
-export function fertigmachen(actor, { name, ordnerId, hordenSchadenAutomatisch = true }) {
+export function fertigmachen(actor, { name, idName = name, ordnerId, hordenSchadenAutomatisch = true }) {
   const a = structuredClone(actor);
   const hinweise = [];
-  const actorId = festeId("actor", name);
+  const actorId = festeId("actor", idName);
 
   a.name = name;
   a._id = actorId;
@@ -79,24 +79,24 @@ export function fertigmachen(actor, { name, ordnerId, hordenSchadenAutomatisch =
   if (a.system?.experiences) {
     const zaehler = idZaehler();
     a.system.experiences = Object.fromEntries(
-      Object.values(a.system.experiences).map(exp => [festeId("experience", name, exp.name, zaehler(exp.name)), exp])
+      Object.values(a.system.experiences).map(exp => [festeId("experience", idName, exp.name, zaehler(exp.name)), exp])
     );
   }
   // Standardangriff
-  if (a.system?.attack) a.system.attack._id = festeId("angriff", name);
+  if (a.system?.attack) a.system.attack._id = festeId("angriff", idName);
 
   // Potenzielle Gegner bei Umgebungen
   if (a.system?.potentialAdversaries) {
     const zaehler = idZaehler();
     a.system.potentialAdversaries = Object.fromEntries(
-      Object.values(a.system.potentialAdversaries).map(g => [festeId("potenziell", name, g.label, zaehler(g.label)), g])
+      Object.values(a.system.potentialAdversaries).map(g => [festeId("potenziell", idName, g.label, zaehler(g.label)), g])
     );
   }
 
   // Features
   const zaehler = idZaehler();
   a.items = (a.items ?? []).map((item, index) => {
-    const itemId = festeId("feature", name, item.name, zaehler(item.name));
+    const itemId = festeId("feature", idName, item.name, zaehler(item.name));
     const i = {
       ...item,
       _id: itemId,
@@ -107,16 +107,16 @@ export function fertigmachen(actor, { name, ordnerId, hordenSchadenAutomatisch =
       _stats: stats(),
       _key: `!actors.items!${actorId}.${itemId}`
     };
-    i.system = { ...item.system, description: geheimIds(item.system?.description ?? "", name, item.name) };
+    i.system = { ...item.system, description: geheimIds(item.system?.description ?? "", idName, item.name) };
     // Aktionen (Automatik): feste IDs, Schlüssel = _id
     if (item.system?.actions && Object.keys(item.system.actions).length) {
       i.system.actions = Object.fromEntries(Object.values(item.system.actions).map((akt, n) => {
-        const aktId = festeId("aktion", name, item.name, n);
+        const aktId = festeId("aktion", idName, item.name, n);
         return [aktId, { ...akt, _id: aktId }];
       }));
     }
     i.effects = (item.effects ?? []).map((eff, n) => {
-      const effId = festeId("effekt", name, item.name, n);
+      const effId = festeId("effekt", idName, item.name, n);
       return { ...eff, _id: effId, _stats: stats(), _key: `!actors.items.effects!${actorId}.${itemId}.${effId}` };
     });
     return i;
@@ -129,7 +129,7 @@ export function fertigmachen(actor, { name, ordnerId, hordenSchadenAutomatisch =
       hinweise.push("Horde ohne Feature „Horde (…)“ – der halbe Schaden ab halben HP greift nicht automatisch.");
     } else if (!horde.effects.length) {
       horde.flags = { ...horde.flags, daggerheart: { ...(horde.flags.daggerheart ?? {}), hordeFeature: true } };
-      const effId = festeId("effekt", name, horde.name, "horde");
+      const effId = festeId("effekt", idName, horde.name, "horde");
       horde.effects = [{ ...hordenEffekt(effId), _key: `!actors.items.effects!${actorId}.${horde._id}.${effId}` }];
     }
   }

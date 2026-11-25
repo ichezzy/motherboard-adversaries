@@ -131,3 +131,30 @@ test("Schaden und Markdown", () => {
   assert.throws(() => schaden("viel phy"));
   assert.equal(inlineHtml("***Wichtig*** und *kursiv* und [[Ziel (DH)]]"), "<strong><em>Wichtig</em></strong> und <em>kursiv</em> und Ziel");
 });
+
+import { anzeigeName, titelSchreibung } from "../werkzeug/aus-notizen.mjs";
+import { vergleiche } from "../werkzeug/stand.mjs";
+import { fertigmachen } from "../werkzeug/fertigmachen.mjs";
+
+test("Englischer Name aus der Überschrift, Notizname bleibt Schlüssel", () => {
+  assert.equal(anzeigeName("KREISCHER", "Kreischer"), "Kreischer");
+  assert.equal(anzeigeName("HYÄNEN-REISSER", "Hyänen-Reißer"), "Hyänen-Reißer", "ß/ss und Schreibweise der Notiz bleiben");
+  assert.equal(anzeigeName("NACHRUFER — SIRENE", "Nachrufer — Sirene"), "Nachrufer — Sirene");
+  assert.equal(anzeigeName("SCREECHER", "Kreischer"), "Screecher");
+  assert.equal(anzeigeName("CALLBACK — THE SIREN", "Nachrufer — Sirene"), "Callback — The Siren");
+  assert.equal(anzeigeName("Three-Claw", "Grubenbär — Dreiklaue"), "Three-Claw", "gemischte Schreibung bleibt");
+  assert.equal(titelSchreibung("WINGS OF THE STORM"), "Wings of the Storm");
+  assert.equal(titelSchreibung("ARENA-TREIBERIN"), "Arena-Treiberin");
+});
+
+test("Umbenennen behält die ID und wird als „umbenannt“ erkannt", () => {
+  const basis = { type: "adversary", system: { experiences: {}, attack: {} }, items: [], prototypeToken: { name: "" } };
+  const alt = fertigmachen(basis, { name: "Kreischer", ordnerId: "o".repeat(16) }).actor;
+  const neu = fertigmachen(basis, { name: "Screecher", idName: "Kreischer", ordnerId: "o".repeat(16) }).actor;
+  assert.equal(neu._id, alt._id);
+  const v = vergleiche({ Kreischer: alt }, [neu]);
+  assert.deepEqual(v.umbenannt, [{ von: "Kreischer", nach: "Screecher" }]);
+  assert.deepEqual(v.neu, []);
+  assert.deepEqual(v.entfernt, []);
+  assert.deepEqual(v.geaendert, []);
+});

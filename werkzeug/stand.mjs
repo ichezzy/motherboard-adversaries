@@ -61,23 +61,27 @@ function bereich(pfad) {
 }
 
 /**
- * @returns {{ neu: string[], geaendert: {name, bereiche: string[]}[], entfernt: string[], gleich: string[] }}
+ * Vergleich über die festen IDs – so wird ein umbenannter Gegner als „umbenannt“ erkannt,
+ * nicht als „entfernt“ plus „neu“.
+ * @returns {{ neu: string[], geaendert: {name, bereiche: string[]}[], umbenannt: {von, nach}[], entfernt: string[], gleich: string[] }}
  */
 export function vergleiche(stand, actors) {
-  const ergebnis = { neu: [], geaendert: [], entfernt: [], gleich: [] };
-  const alt = stand ?? {};
+  const ergebnis = { neu: [], geaendert: [], umbenannt: [], entfernt: [], gleich: [] };
+  const alt = new Map(Object.values(stand ?? {}).map(a => [a._id, a]));
   for (const a of actors) {
-    if (!(a.name in alt)) { ergebnis.neu.push(a.name); continue; }
-    const vorher = flach(alt[a.name]);
-    const jetzt = flach(a);
+    const vorher = alt.get(a._id);
+    if (!vorher) { ergebnis.neu.push(a.name); continue; }
+    if (vorher.name !== a.name) ergebnis.umbenannt.push({ von: vorher.name, nach: a.name });
+    const fv = flach({ ...vorher, name: a.name, prototypeToken: vorher.prototypeToken && { ...vorher.prototypeToken, name: a.prototypeToken?.name } });
+    const fj = flach(a);
     const bereiche = new Set();
-    for (const k of new Set([...Object.keys(vorher), ...Object.keys(jetzt)])) {
-      if (vorher[k] !== jetzt[k]) bereiche.add(bereich(k));
+    for (const k of new Set([...Object.keys(fv), ...Object.keys(fj)])) {
+      if (fv[k] !== fj[k]) bereiche.add(bereich(k));
     }
     if (bereiche.size) ergebnis.geaendert.push({ name: a.name, bereiche: [...bereiche] });
-    else ergebnis.gleich.push(a.name);
+    else if (vorher.name === a.name) ergebnis.gleich.push(a.name);
   }
-  const namen = new Set(actors.map(a => a.name));
-  ergebnis.entfernt = Object.keys(alt).filter(n => !namen.has(n));
+  const ids = new Set(actors.map(a => a._id));
+  ergebnis.entfernt = [...alt.values()].filter(a => !ids.has(a._id)).map(a => a.name);
   return ergebnis;
 }

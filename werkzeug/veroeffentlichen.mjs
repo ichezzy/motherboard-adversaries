@@ -28,6 +28,7 @@ function releaseText(r) {
   else {
     if (v.neu.length) zeilen.push("", "**New:** " + v.neu.join(", "));
     if (v.geaendert.length) zeilen.push("", "**Changed:** " + v.geaendert.map(g => g.name).join(", "));
+    if (v.umbenannt.length) zeilen.push("", "**Renamed:** " + v.umbenannt.map(u => `${u.von} → ${u.nach}`).join(", "));
     if (v.entfernt.length) zeilen.push("", "**Removed:** " + v.entfernt.join(", "));
   }
   return zeilen.join("\n");
@@ -46,7 +47,7 @@ async function main() {
   if (!r.einst.github) throw new Error("In einstellungen.json fehlt „github“ (z. B. \"ichezzy/motherboard-adversaries\").");
 
   const v = r.vergleich;
-  const nichtsNeu = r.letzte && !v.neu.length && !v.geaendert.length && !v.entfernt.length;
+  const nichtsNeu = r.letzte && !v.neu.length && !v.geaendert.length && !v.umbenannt.length && !v.entfernt.length;
   console.log("");
   if (nichtsNeu) console.log("Gegenüber der letzten Version hat sich nichts geändert.");
   if (r.probleme.length) console.log(`Achtung: ${r.probleme.length} Einträge konnten nicht gelesen werden (siehe oben).`);
