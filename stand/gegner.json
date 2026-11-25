@@ -756,7 +756,7 @@
         "_id": "FoPldy59w8hWHeHi",
         "img": "icons/svg/aura.svg",
         "system": {
-          "description": "<p><strong>Mark a Stress</strong> to make an attack against a target within Melee range. On a success, deal <strong>3d4+8</strong> physical damage. If the target carries Cyware, a Karnex or a charged device, the Grubenbär drinks from it as it bites: it clears 1 HP, and the target <strong>marks a Stress</strong> as the charge drains out of them.</p>",
+          "description": "<p><strong>Mark a Stress</strong> to make an attack against a target within Melee range. On a success, deal <strong>3d4+8</strong> physical damage. If the target carries Cyware, a Karnex or a charged device, the Grubenbär drinks from it as it bites: it clears 1 HP, and the target marks a Stress as the charge drains out of them.</p>",
           "resource": null,
           "actions": {
             "NySatm0nLhR5QefI": {
@@ -1128,7 +1128,7 @@
         "_id": "Cb16QhjrMvOtiImU",
         "img": "icons/svg/aura.svg",
         "system": {
-          "description": "<p>When the Flackerer marks its last HP, it collapses in a flash. All targets within Very Close range must succeed on an Agility Reaction Roll (12) or <strong>mark a Stress</strong>.</p>",
+          "description": "<p>When the Flackerer marks its last HP, it collapses in a flash. All targets within Very Close range must succeed on an Agility Reaction Roll (12) or mark a Stress.</p>",
           "resource": null,
           "actions": {
             "r71zxOIHyMzhIUQi": {
@@ -1539,7 +1539,7 @@
         "_id": "LR6m0Py41W5AU0DG",
         "img": "icons/svg/aura.svg",
         "system": {
-          "description": "<p><strong>Mark a Stress</strong> to make an attack against a target within Melee range. On a success, deal <strong>3d4+8</strong> physical damage. If the target carries Cyware, a Karnex or a charged device, the Grubenbär drinks from it as it bites: it clears 1 HP, and the target <strong>marks a Stress</strong> as the charge drains out of them.</p>",
+          "description": "<p><strong>Mark a Stress</strong> to make an attack against a target within Melee range. On a success, deal <strong>3d4+8</strong> physical damage. If the target carries Cyware, a Karnex or a charged device, the Grubenbär drinks from it as it bites: it clears 1 HP, and the target marks a Stress as the charge drains out of them.</p>",
           "resource": null,
           "actions": {
             "hrqZ9TmB3TBAfACF": {
@@ -1644,6 +1644,445 @@
     "folder": "jVLQCkOiiIPanPtu",
     "sort": 0,
     "_key": "!actors!y0y5QiEje0riP3dn"
+  },
+  "Grubenbär — Dreiklaue": {
+    "name": "Grubenbär — Dreiklaue",
+    "img": "systems/daggerheart/assets/icons/documents/actors/dragon-head.svg",
+    "type": "adversary",
+    "system": {
+      "difficulty": 14,
+      "damageThresholds": {
+        "major": 9,
+        "severe": 17
+      },
+      "resources": {
+        "hitPoints": {
+          "value": 0,
+          "max": 10
+        },
+        "stress": {
+          "value": 0,
+          "max": 4
+        }
+      },
+      "motivesAndTactics": "Dig in, break the ground beneath the prey, maul, drink the charge",
+      "resistance": {
+        "physical": {
+          "resistance": false,
+          "immunity": false,
+          "reduction": 0
+        },
+        "magical": {
+          "resistance": false,
+          "immunity": false,
+          "reduction": 0
+        }
+      },
+      "type": "bruiser",
+      "notes": "",
+      "experiences": {
+        "Ra1YjlUWNfbDPtRU": {
+          "name": "Dig",
+          "value": 3,
+          "description": ""
+        },
+        "L4rcchVL55iC3Raa": {
+          "name": "Keen Senses",
+          "value": 2,
+          "description": ""
+        }
+      },
+      "tier": 1,
+      "description": "<p>The Grubenbär the Syfter know by name: one digging claw is missing, and its track shows three furrows where others leave four.</p>",
+      "attack": {
+        "name": "Digging Claws",
+        "roll": {
+          "bonus": "1",
+          "type": "attack",
+          "trait": null,
+          "difficulty": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "damage": {
+          "main": {
+            "value": {
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              },
+              "dice": "d10",
+              "bonus": 3,
+              "multiplier": "flat",
+              "flatMultiplier": 1
+            },
+            "applyTo": "hitPoints",
+            "type": [
+              "physical"
+            ],
+            "resultBased": false,
+            "valueAlt": {
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "bonus": null,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "base": false,
+            "includeBase": false,
+            "direct": false,
+            "fullRestore": false,
+            "itemId": null
+          },
+          "resources": {}
+        },
+        "img": "icons/skills/melee/blood-slash-foam-red.webp",
+        "type": "attack",
+        "range": "melee",
+        "chatDisplay": false,
+        "_id": "ZFkhOg1odHZs03hH",
+        "systemPath": "attack",
+        "baseAction": false,
+        "description": "",
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "triggers": [],
+        "areas": [],
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": null,
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "effects": [],
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      },
+      "attribution": {
+        "source": "White Signal (Homebrew)",
+        "page": null,
+        "artist": ""
+      },
+      "size": "large",
+      "advantageSources": [],
+      "disadvantageSources": [],
+      "criticalThreshold": 20,
+      "typeData": null,
+      "subTypes": {}
+    },
+    "flags": {},
+    "prototypeToken": {
+      "name": "Grubenbär — Dreiklaue",
+      "displayName": 0,
+      "actorLink": false,
+      "width": 2,
+      "height": 2,
+      "texture": {
+        "src": "systems/daggerheart/assets/icons/documents/actors/dragon-head.svg",
+        "fit": "contain",
+        "scaleX": 1,
+        "scaleY": 1
+      },
+      "disposition": -1,
+      "displayBars": 0,
+      "bar1": {
+        "attribute": "resources.hitPoints"
+      },
+      "bar2": {
+        "attribute": "resources.stress"
+      }
+    },
+    "items": [
+      {
+        "name": "Relentless (2)",
+        "type": "feature",
+        "_id": "4uhfpx6B46UJh2KT",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p>It can be spotlighted up to two times per GM turn. <strong>Spend a Fear</strong> as usual to spotlight it.</p>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "passive",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 0,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!fDyuEWdYBlw7nYrr.4uhfpx6B46UJh2KT"
+      },
+      {
+        "name": "Overwhelming Force",
+        "type": "feature",
+        "_id": "97BGuuvTQU2tQAVp",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p>Targets who mark HP from the Grubenbär's standard attack are knocked back to Very Close range.</p>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "passive",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 100000,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!fDyuEWdYBlw7nYrr.97BGuuvTQU2tQAVp"
+      },
+      {
+        "name": "Burrow",
+        "type": "feature",
+        "_id": "A5pwgDM8XY5krr2H",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p><strong>Mark a Stress</strong> to dig into the ground and become <em>Hidden</em>. On its next spotlight, it bursts up within Close range of where it went down: all targets within Very Close range must succeed on an Agility Reaction Roll (14) or become <em>Vulnerable</em> until they next act, and the ground there is broken.</p>",
+          "resource": null,
+          "actions": {
+            "mPNySGQV4OkYutzc": {
+              "type": "attack",
+              "_id": "mPNySGQV4OkYutzc",
+              "systemPath": "actions",
+              "description": "",
+              "chatDisplay": true,
+              "actionType": "action",
+              "cost": [
+                {
+                  "scalable": false,
+                  "key": "stress",
+                  "value": 1,
+                  "step": null,
+                  "itemId": null,
+                  "consumeOnSuccess": false
+                }
+              ],
+              "uses": {
+                "value": null,
+                "max": "",
+                "recovery": null,
+                "consumeOnSuccess": false
+              },
+              "target": {
+                "type": "any",
+                "amount": null
+              },
+              "effects": [],
+              "name": "Mark Stress",
+              "img": "icons/svg/aura.svg",
+              "range": "veryClose",
+              "areas": [
+                {
+                  "name": "Burrow",
+                  "type": "placed",
+                  "shape": "emanation",
+                  "size": "veryClose",
+                  "effects": [],
+                  "hasHole": false
+                }
+              ],
+              "baseAction": false,
+              "originItem": {
+                "type": "itemCollection"
+              },
+              "triggers": [],
+              "damage": {
+                "main": null,
+                "resources": {}
+              },
+              "roll": {
+                "type": null,
+                "trait": null,
+                "difficulty": null,
+                "bonus": null,
+                "advState": "neutral",
+                "diceRolling": {
+                  "multiplier": "prof",
+                  "flatMultiplier": 1,
+                  "dice": "d6",
+                  "compare": null,
+                  "treshold": null
+                },
+                "useDefault": false
+              },
+              "save": {
+                "trait": "agility",
+                "difficulty": 14,
+                "damageMod": "none"
+              }
+            }
+          },
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "action",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 200000,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!fDyuEWdYBlw7nYrr.A5pwgDM8XY5krr2H"
+      },
+      {
+        "name": "Drinking Bite",
+        "type": "feature",
+        "_id": "U4DByhOAvqtPyFIK",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p><strong>Mark a Stress</strong> to make an attack against a target within Melee range. On a success, deal <strong>3d4+8</strong> physical damage. If the target carries Cyware, a Karnex or a charged device, the Grubenbär drinks from it as it bites: it clears 1 HP, and the target marks a Stress as the charge drains out of them.</p>",
+          "resource": null,
+          "actions": {
+            "MVDK5YdRvxak19N0": {
+              "type": "effect",
+              "_id": "MVDK5YdRvxak19N0",
+              "systemPath": "actions",
+              "description": "",
+              "chatDisplay": true,
+              "actionType": "action",
+              "cost": [
+                {
+                  "scalable": false,
+                  "key": "stress",
+                  "value": 1,
+                  "step": null,
+                  "itemId": null,
+                  "consumeOnSuccess": false
+                }
+              ],
+              "uses": {
+                "value": null,
+                "max": "",
+                "recovery": null,
+                "consumeOnSuccess": false
+              },
+              "target": {
+                "type": "any",
+                "amount": null
+              },
+              "effects": [],
+              "name": "Mark Stress",
+              "img": "icons/svg/aura.svg",
+              "range": "",
+              "areas": [],
+              "baseAction": false,
+              "originItem": {
+                "type": "itemCollection"
+              },
+              "triggers": []
+            }
+          },
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "action",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 300000,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!fDyuEWdYBlw7nYrr.U4DByhOAvqtPyFIK"
+      },
+      {
+        "name": "Momentum",
+        "type": "feature",
+        "_id": "CX609jEnYCYD8QvB",
+        "img": "icons/svg/aura.svg",
+        "system": {
+          "description": "<p>When the Grubenbär makes a successful attack against a PC, you gain a Fear.</p>",
+          "resource": null,
+          "actions": {},
+          "attribution": {},
+          "gmNotes": "",
+          "featureForm": "reaction",
+          "granter": null,
+          "actorResources": []
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 400000,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "ownership": {
+          "default": 0
+        },
+        "_key": "!actors.items!fDyuEWdYBlw7nYrr.CX609jEnYCYD8QvB"
+      }
+    ],
+    "effects": [],
+    "_stats": {
+      "coreVersion": "14.365",
+      "systemId": "daggerheart",
+      "systemVersion": "2.12.9"
+    },
+    "ownership": {
+      "default": 0
+    },
+    "_id": "fDyuEWdYBlw7nYrr",
+    "folder": "jVLQCkOiiIPanPtu",
+    "sort": 0,
+    "_key": "!actors!fDyuEWdYBlw7nYrr"
   },
   "Gutter Boss": {
     "name": "Gutter Boss",
@@ -1887,7 +2326,7 @@
         "_id": "3JvURUegyrG8RK0C",
         "img": "icons/svg/aura.svg",
         "system": {
-          "description": "<p><strong>Mark a Stress</strong> to strike one of his own crew within Melee range — a Minion is defeated, any other ally <strong>marks a Stress</strong> — then spotlight up to three allies within Far range. They have advantage on their next attack.</p>",
+          "description": "<p><strong>Mark a Stress</strong> to strike one of his own crew within Melee range — a Minion is defeated, any other ally marks a Stress — then spotlight up to three allies within Far range. They have advantage on their next attack.</p>",
           "resource": null,
           "actions": {
             "h7mdhudHx5cAlXY5": {
@@ -2636,7 +3075,7 @@
         "_id": "PTUA5npcqwiNt8NR",
         "img": "icons/svg/aura.svg",
         "system": {
-          "description": "<p><strong>Mark a Stress</strong> to make an attack against a <em>Restrained</em> target within Melee range. On a success, deal <strong>1d6+2</strong> physical damage and the target must <strong>mark a Stress</strong>.</p>",
+          "description": "<p><strong>Mark a Stress</strong> to make an attack against a <em>Restrained</em> target within Melee range. On a success, deal <strong>1d6+2</strong> physical damage and the target must mark a Stress.</p>",
           "resource": null,
           "actions": {
             "7HF0taAhVXI5p9sy": {
@@ -2882,7 +3321,7 @@
         "_id": "AQeBXHC8X0ARnZ9v",
         "img": "icons/svg/aura.svg",
         "system": {
-          "description": "<p>No Funk works within Far range of the Jammer. A PC within Close range of the Jammer must <strong>mark a Stress</strong> to use a feature that relies on Karnex, Cyware, an Arx, or a Leech.</p>",
+          "description": "<p>No Funk works within Far range of the Jammer. A PC within Close range of the Jammer must mark a Stress to use a feature that relies on Karnex, Cyware, an Arx, or a Leech.</p>",
           "resource": null,
           "actions": {},
           "attribution": {},
@@ -5096,7 +5535,7 @@
         "_id": "NSOjjiwBRkrI5BRa",
         "img": "icons/svg/aura.svg",
         "system": {
-          "description": "<p>When the Harpunier's standard attack succeeds, the harpoon stays in the target on a line: they are <em>Restrained</em> until they or an ally within Melee range cut the line with a successful Finesse or Strength Roll. While the line holds, each time the Harpunier is spotlighted, the target must <strong>mark a Stress</strong> as the tap drains their Aether.</p>",
+          "description": "<p>When the Harpunier's standard attack succeeds, the harpoon stays in the target on a line: they are <em>Restrained</em> until they or an ally within Melee range cut the line with a successful Finesse or Strength Roll. While the line holds, each time the Harpunier is spotlighted, the target must mark a Stress as the tap drains their Aether.</p>",
           "resource": null,
           "actions": {},
           "attribution": {},
@@ -5588,7 +6027,7 @@
       "notes": "",
       "difficulty": 14,
       "tier": 2,
-      "description": "<p>A hollow in the grey steppe where Äther wells up and pools. Everything charges here on its own — gear, vehicles, people. It is rarer than anything else in the Deadband, and someone usually got here first.</p>",
+      "description": "<p>A hollow in the grey steppe where Aether wells up and pools. Everything charges here on its own — gear, vehicles, people. It is rarer than anything else in the Deadband, and someone usually got here first.</p>",
       "type": "exploration",
       "impulses": "Restore whoever rests, draw whoever needs it, hide from those who would sell it",
       "attribution": {
@@ -5600,12 +6039,12 @@
     "flags": {},
     "items": [
       {
-        "name": "Living Äther",
+        "name": "Living Aether",
         "type": "feature",
-        "_id": "nFnwTlVR374vPy40",
+        "_id": "JY5yxlDV2huzeIqZ",
         "img": "icons/svg/aura.svg",
         "system": {
-          "description": "<p>Everything within the green charges without a connection: gear, Arx, Cyware, a vehicle's buffer. The PCs can take a short or long rest here, and when they do, each PC clears an additional Stress.</p><section id=\"secret-Da5eeKFDAjHx3fvY\" class=\"secret\"><p><em>What does the Äther feel like on the skin? Who rested here before them?</em></p></section>",
+          "description": "<p>Everything within the green charges without a connection: gear, Arx, Cyware, a vehicle's buffer. The PCs can take a short or long rest here, and when they do, each PC clears an additional Stress.</p><section id=\"secret-cU3GhL2GCUHPVNMG\" class=\"secret\"><p><em>What does the Aether feel like on the skin? Who rested here before them?</em></p></section>",
           "resource": null,
           "actions": {},
           "attribution": {},
@@ -5626,7 +6065,7 @@
         "ownership": {
           "default": 0
         },
-        "_key": "!actors.items!UAVnVndQoKOiuhmk.nFnwTlVR374vPy40"
+        "_key": "!actors.items!UAVnVndQoKOiuhmk.JY5yxlDV2huzeIqZ"
       },
       {
         "name": "Bloom",
@@ -6548,48 +6987,9 @@
         "_id": "woViudfVdLAgBfrN",
         "img": "icons/svg/aura.svg",
         "system": {
-          "description": "<p>When the Matriarchin is defeated, the clan fights over who leads. Until the end of the scene, each hyena that is spotlighted attacks the nearest other hyena instead of a PC, unless you <strong>spend a Fear</strong>.</p>",
+          "description": "<p>When the Matriarchin is defeated, the clan fights over who leads. Until the end of the scene, each hyena that is spotlighted attacks the nearest other hyena instead of a PC, unless you spend a Fear.</p>",
           "resource": null,
-          "actions": {
-            "r5hJaEN644ldSmBL": {
-              "type": "effect",
-              "_id": "r5hJaEN644ldSmBL",
-              "systemPath": "actions",
-              "description": "",
-              "chatDisplay": true,
-              "actionType": "action",
-              "cost": [
-                {
-                  "scalable": false,
-                  "key": "fear",
-                  "value": 1,
-                  "step": null,
-                  "itemId": null,
-                  "consumeOnSuccess": false
-                }
-              ],
-              "uses": {
-                "value": null,
-                "max": "",
-                "recovery": null,
-                "consumeOnSuccess": false
-              },
-              "target": {
-                "type": "any",
-                "amount": null
-              },
-              "effects": [],
-              "name": "Spend Fear",
-              "img": "icons/svg/aura.svg",
-              "range": "",
-              "areas": [],
-              "baseAction": false,
-              "originItem": {
-                "type": "itemCollection"
-              },
-              "triggers": []
-            }
-          },
+          "actions": {},
           "attribution": {},
           "gmNotes": "",
           "featureForm": "reaction",
@@ -7195,7 +7595,7 @@
         "_id": "5X7icZRzdvsWL52m",
         "img": "icons/svg/aura.svg",
         "system": {
-          "description": "<p>The pack circles whoever it surrounds. A PC within Melee range of the pack must <strong>mark a Stress</strong> to move out of Melee range.</p>",
+          "description": "<p>The pack circles whoever it surrounds. A PC within Melee range of the pack must mark a Stress to move out of Melee range.</p>",
           "resource": null,
           "actions": {},
           "attribution": {},
@@ -7293,7 +7693,7 @@
           "adversaries": []
         }
       },
-      "notes": "<h3>When a Pit Fires (all rolls 14)</h3><table><tr><th>Pit</th><th>What happens</th><th>Dodge</th><th>Against the adversaries</th></tr><tr><td><strong>Acid</strong></td><td>Acid sprays from the pipes. Anyone not standing on a stone: <strong>1d6+2</strong> phy and mark an Armor Slot — the acid eats the armor.</td><td>onto the <strong>stones</strong></td><td>also eats the Restlinge's plating · no more Rohrmolch crawl out of a clogged pipe</td></tr><tr><td><strong>Spikes</strong></td><td>Spikes shoot up from the pits — only the brown <strong>or</strong> only the black ones, alternating. Agility Reaction Roll; on a failure: <strong>1d8+2</strong> phy and <em>Restrained</em> until they tear free with a Strength Roll.</td><td>onto the other color</td><td>Restlinge don't know the pattern: lure or push an adversary onto the wrong color — adversaries in the pit take the same damage</td></tr><tr><td><strong>Fire</strong></td><td>The furnaces open and fire runs along the hot lanes. Anyone standing in a hot lane: Agility Reaction Roll; on a failure <strong>1d8+3</strong> phy, on a success half.</td><td>into a cold lane — the scorch marks show which one is hot · a knocked-over <strong>water barrel</strong> douses a lane until the pit fires again</td><td>push an adversary into a hot lane · light a <strong>torch</strong> at the furnace — the CTC's Chimären are animals and fear fire</td></tr><tr><td><strong>Current</strong></td><td>All metal goes live, Cyware and Karnex stutter. Anyone standing on metal: Instinct Reaction Roll; on a failure: lose a Hope.</td><td>onto <strong>pallets</strong> or old <strong>tires</strong> — islands that don't conduct</td><td><strong>Restlinge on the metal are <em>Vulnerable</em></strong> until their next spotlight · a knocked-over water barrel makes a puddle that conducts too</td></tr></table><h3>Shutting a Pit Down</h3><table><tr><th>Pit</th><th>Kill switch — quick, no roll</th><th>Station 1</th><th>Station 2</th><th>Rolls (examples)</th></tr><tr><td><strong>Acid</strong></td><td>deep inside the pit 《spot on the map》</td><td>the valve on the north wall</td><td>the valve on the west wall</td><td>Strength — rusted and seized · or clog a pipe (Strength)</td></tr><tr><td><strong>Spikes</strong></td><td>deep inside the pit 《spot on the map》</td><td>the hatch above the <strong>brown</strong> shaft</td><td>the hatch above the <strong>black</strong> shaft</td><td>Finesse — jam a pipe into the gear; whoever has none gives up their weapon until after the fight</td></tr><tr><td><strong>Fire</strong></td><td>deep inside the pit 《spot on the map》</td><td>the row of furnaces on the east wall</td><td>the row of furnaces on the south wall</td><td>Strength — throw a water barrel in · or set a blast barrel in front of the pipes (Finesse)</td></tr><tr><td><strong>Current</strong></td><td>deep inside the pit 《spot on the map》</td><td>the batteries — all four on one line</td><td>the console on the south wall</td><td>Batteries: attack or Strength · Console: hack (Knowledge) or smash (Strength)</td></tr></table><h3>Cheat Sheet</h3><table><tr><th>Countdown</th><th>Start</th><th>Ticks when</th><th>At 0</th></tr><tr><td><strong>Show</strong></td><td>3 · Showtime 4 · after the Boos 2</td><td>a PC makes an action roll</td><td>all armed pits fire, start again</td></tr><tr><td><strong>Cheers</strong></td><td>6</td><td>success playing to the crowd, something spectacular (crit: 2) — each tick, the crowd throws something</td><td>each PC +1 Hope · no more Showtime · Boos end</td></tr><tr><td><strong>Boos</strong></td><td>6</td><td>an armed pit fires with nobody inside · Failure with Fear playing to the crowd</td><td><em>The Show</em> starts at 2 from now on · Cheers end</td></tr><tr><td><strong>Kronenbrecher</strong></td><td>6, once he wakes</td><td>a PC makes an action roll · rope cut: +2</td><td>the crown bursts: Agility Reaction, <strong>2d8+2</strong> phy, half on a success → escape</td></tr></table><p><strong>Fear:</strong> arm one pit 1 · each additional pit at the same time +1 · Showtime 3, once per wave · Shock the Pillar 1.</p><p><strong>Stations:</strong> Acid ☐☐ · Spikes ☐☐ · Fire ☐☐ · Current ☐☐ — both marked: pit dead, crystal dark.</p><p><strong>Three endings:</strong> Wave 3 begins → he wakes · someone reaches the crown (2 × Agility) → he wakes · the fourth crystal goes dark → the dome falls, he drinks in peace, no explosion.</p><p><strong>What the Crowd Throws</strong> (d6): 1 half a Pressling · 2 a pipe, good for hitting things · 3 a NeuroStim · 4 a cable · 5 a piece of scrap (one Shard) · 6 a bottle that shatters on impact — and a whistle that someone in the crowd answers.</p>",
+      "notes": "<h3>When a Pit Fires (all rolls 14)</h3><table><tr><th>Pit</th><th>What happens</th><th>Dodge</th><th>Against the adversaries</th></tr><tr><td><strong>Acid</strong></td><td>Acid sprays from the pipes. Anyone not standing on a stone: <strong>1d6+2</strong> phy and mark an Armor Slot — the acid eats the armor.</td><td>onto the <strong>stones</strong></td><td>also eats the Restlinge's plating · no more Rohrmolch crawl out of a clogged pipe</td></tr><tr><td><strong>Spikes</strong></td><td>Spikes shoot up from the pits — only the brown <strong>or</strong> only the black ones, alternating. Agility Reaction Roll; on a failure: <strong>1d8+2</strong> phy and <em>Restrained</em> until they tear free with a Strength Roll.</td><td>onto the other color</td><td>Restlinge don't know the pattern: lure or push an adversary onto the wrong color — adversaries in the pit take the same damage</td></tr><tr><td><strong>Fire</strong></td><td>The furnaces open and fire runs along the hot lanes. Anyone standing in a hot lane: Agility Reaction Roll; on a failure <strong>1d8+3</strong> phy, on a success half.</td><td>into a cold lane — the scorch marks show which one is hot · a knocked-over <strong>water barrel</strong> douses a lane until the pit fires again</td><td>push an adversary into a hot lane · light a <strong>torch</strong> at the furnace — the CTC's Chimären are animals and fear fire</td></tr><tr><td><strong>Current</strong></td><td>All metal goes live, Cyware and Karnex stutter. Anyone standing on metal: Instinct Reaction Roll; on a failure: lose a Hope.</td><td>onto <strong>pallets</strong> or old <strong>tires</strong> — islands that don't conduct</td><td><strong>Restlinge on the metal are <em>Vulnerable</em></strong> until their next spotlight · a knocked-over water barrel makes a puddle that conducts too</td></tr></table><h3>Shutting a Pit Down</h3><table><tr><th>Pit</th><th>Kill switch — quick, no roll</th><th>Station 1</th><th>Station 2</th><th>Rolls (examples)</th></tr><tr><td><strong>Acid</strong></td><td>deep inside the pit 《spot on the map》</td><td>the valve on the north wall</td><td>the valve on the west wall</td><td>Strength — rusted and seized · or clog a pipe (Strength)</td></tr><tr><td><strong>Spikes</strong></td><td>deep inside the pit 《spot on the map》</td><td>the hatch above the <strong>brown</strong> shaft</td><td>the hatch above the <strong>black</strong> shaft</td><td>Finesse — jam a pipe into the gear; whoever has none gives up their weapon until after the fight</td></tr><tr><td><strong>Fire</strong></td><td>deep inside the pit 《spot on the map》</td><td>the row of furnaces on the east wall</td><td>the row of furnaces on the south wall</td><td>Strength — throw a water barrel in · or set a blast barrel in front of the pipes (Finesse)</td></tr><tr><td><strong>Current</strong></td><td>deep inside the pit 《spot on the map》</td><td>the batteries — all four on one line</td><td>the console on the south wall</td><td>Batteries: attack or Strength · Console: hack (Knowledge) or smash (Strength)</td></tr></table><h3>Cheat Sheet</h3><table><tr><th>Countdown</th><th>Start</th><th>Ticks when</th><th>At 0</th></tr><tr><td><strong>Show</strong></td><td>3 · Showtime 4 · after the Boos 2</td><td>a PC makes an action roll</td><td>all armed pits fire, start again</td></tr><tr><td><strong>Cheers</strong></td><td>6</td><td>success playing to the crowd, something spectacular (crit: 2) — each tick, the crowd throws something</td><td>each PC +1 Hope · no more Showtime · Boos end</td></tr><tr><td><strong>Boos</strong></td><td>6</td><td>an armed pit fires with nobody inside · Failure with Fear playing to the crowd</td><td><em>The Show</em> starts at 2 from now on · Cheers end</td></tr><tr><td><strong>Kronenbrecher</strong></td><td>6, once he wakes</td><td>a PC makes an action roll · rope cut: +2</td><td>the crown bursts: Agility Reaction, <strong>2d8+2</strong> phy, half on a success → escape</td></tr></table><p><strong>Fear:</strong> arm one pit 1 · each additional pit at the same time +1 · Showtime 3, once per wave · Shock the Pillar 1.</p><p><strong>Stations:</strong> Acid ☐☐ · Spikes ☐☐ · Fire ☐☐ · Current ☐☐ — both marked: pit dead, crystal dark.</p><p><strong>Three endings:</strong> Wave 3 begins → he wakes · someone reaches the crown (2 × Agility) → he wakes · the fourth crystal goes dark → the dome falls, he drinks in peace, no explosion.</p><p>@UUID[Compendium.motherboard-adversaries.rolltables.RollTable.TAhtCWmLKZqfz1jH]{What the Crowd Throws} (d6): 1 half a Pressling · 2 a pipe, good for hitting things · 3 a NeuroStim · 4 a cable · 5 a piece of scrap (one Shard) · 6 a bottle that shatters on impact — and a whistle that someone in the crowd answers.</p>",
       "difficulty": 14,
       "tier": 1,
       "description": "<p>Junker's show beneath the city: a square pit under a dome of light, four pits that wake one by one, and a crowd that pays to watch you sweat.</p>",
@@ -7371,11 +7771,11 @@
         "_id": "Wt6iOwCuvMTO2sE0",
         "img": "icons/svg/aura.svg",
         "system": {
-          "description": "<p><strong>Spend a Fear</strong> to arm a pit, plus a Fear for each additional pit at the same time. An Aether current rises along its catwalk edges and seals it. A PC on one of those catwalks makes an Agility or Strength Reaction Roll (14); on a failure, push them into an armed pit of your choice and they take <strong>1d4</strong> magic damage. A creature that touches a sealed edge takes <strong>1d4</strong> magic damage and is pushed back. The seal holds until the kill switch is pressed or the pit is shut down. <strong>Showtime:</strong> once per wave, <strong>spend 3 Fear</strong> to arm all four pits at once and set <em>The Show</em> to 4.</p><section id=\"secret-ouUyoXJgH5MX5rsn\" class=\"secret\"><p><em>What does Junker call the pit as it lights up?</em></p></section>",
+          "description": "<p><strong>Spend a Fear</strong> to arm a pit, plus a Fear for each additional pit at the same time. An Aether current rises along its catwalk edges and seals it. A PC on one of those catwalks makes an Agility Reaction Roll (14); on a failure, push them into an armed pit of your choice and they take <strong>1d4</strong> magic damage. A creature that touches a sealed edge takes <strong>1d4</strong> magic damage and is pushed back. The seal holds until the kill switch is pressed or the pit is shut down. <strong>Showtime:</strong> once per wave, <strong>spend 3 Fear</strong> to arm all four pits at once and set <em>The Show</em> to 4.</p><section id=\"secret-ouUyoXJgH5MX5rsn\" class=\"secret\"><p><em>What does Junker call the pit as it lights up?</em></p></section>",
           "resource": null,
           "actions": {
             "1ueGrSxCVTfnmlyn": {
-              "type": "effect",
+              "type": "attack",
               "_id": "1ueGrSxCVTfnmlyn",
               "systemPath": "actions",
               "description": "",
@@ -7410,7 +7810,54 @@
               "originItem": {
                 "type": "itemCollection"
               },
-              "triggers": []
+              "triggers": [],
+              "damage": {
+                "main": {
+                  "value": {
+                    "custom": {
+                      "enabled": false,
+                      "formula": ""
+                    },
+                    "flatMultiplier": 1,
+                    "dice": "d4",
+                    "bonus": null,
+                    "multiplier": "flat"
+                  },
+                  "applyTo": "hitPoints",
+                  "type": [
+                    "magical"
+                  ],
+                  "base": false,
+                  "resultBased": false,
+                  "valueAlt": null,
+                  "includeBase": false,
+                  "direct": false,
+                  "groupAttack": "",
+                  "fullRestore": false,
+                  "itemId": null
+                },
+                "resources": {}
+              },
+              "roll": {
+                "type": null,
+                "trait": null,
+                "difficulty": null,
+                "bonus": null,
+                "advState": "neutral",
+                "diceRolling": {
+                  "multiplier": "prof",
+                  "flatMultiplier": 1,
+                  "dice": "d6",
+                  "compare": null,
+                  "treshold": null
+                },
+                "useDefault": false
+              },
+              "save": {
+                "trait": "agility",
+                "difficulty": 14,
+                "damageMod": "none"
+              }
             }
           },
           "attribution": {},
@@ -7468,7 +7915,7 @@
         "_id": "bvx8X9Qn8tXs0a2h",
         "img": "icons/svg/aura.svg",
         "system": {
-          "description": "<p>The screens show every fighter's Stress, live. At the gong, start two countdowns: <strong>Cheers</strong>, a Progress Countdown (6), and <strong>Boos</strong>, a Consequence Countdown (6). When one triggers, the other ends.</p><ul><li><strong>Cheers</strong> tick down when a PC succeeds on a roll to play to the crowd or does something spectacular; a critical success ticks 2. Each tick, something comes through the bars (roll on <em>What the Crowd Throws</em>). When Cheers trigger, the crowd claims the PCs as its favorites: each PC gains a Hope, and Junker can no longer use <em>Showtime</em>.</li><li><strong>Boos</strong> tick down when an armed pit fires with no PC inside it, or when a PC fails with Fear while playing to the crowd. When Boos trigger, Junker speeds up the show: from now on, <em>The Show</em> starts at 2.</li></ul><section id=\"secret-CNeWwBLoLJFVGMma\" class=\"secret\"><p><em>Whose name is on the screen — and who shows up as UNKNOWN?</em></p></section>",
+          "description": "<p>The screens show every fighter's Stress, live. At the gong, start two countdowns: <strong>Cheers</strong>, a Progress Countdown (6), and <strong>Boos</strong>, a Consequence Countdown (6). When one triggers, the other ends.</p><ul><li><strong>Cheers</strong> tick down when a PC succeeds on a roll to play to the crowd or does something spectacular; a critical success ticks 2. Each tick, something comes through the bars (roll on @UUID[Compendium.motherboard-adversaries.rolltables.RollTable.TAhtCWmLKZqfz1jH]{What the Crowd Throws}). When Cheers trigger, the crowd claims the PCs as its favorites: each PC gains a Hope, and Junker can no longer use <em>Showtime</em>.</li><li><strong>Boos</strong> tick down when an armed pit fires with no PC inside it, or when a PC fails with Fear while playing to the crowd. When Boos trigger, Junker speeds up the show: from now on, <em>The Show</em> starts at 2.</li></ul><section id=\"secret-CNeWwBLoLJFVGMma\" class=\"secret\"><p><em>Whose name is on the screen — and who shows up as UNKNOWN?</em></p></section>",
           "resource": null,
           "actions": {},
           "attribution": {},
@@ -8190,7 +8637,7 @@
         "_id": "U3GFBCcBxHIFFGkV",
         "img": "icons/svg/aura.svg",
         "system": {
-          "description": "<p><strong>Mark a Stress</strong>. All PCs within Close range of a point within Far range must succeed on an Instinct Reaction Roll (12) or lose a Hope and <strong>mark a Stress</strong>.</p>",
+          "description": "<p><strong>Mark a Stress</strong>. All PCs within Close range of a point within Far range must succeed on an Instinct Reaction Roll (12) or lose a Hope and mark a Stress.</p>",
           "resource": null,
           "actions": {
             "wFBSnTLkdTP433So": {
@@ -8607,7 +9054,7 @@
         "_id": "Go5Be5Y3y0wKgiRa",
         "img": "icons/svg/aura.svg",
         "system": {
-          "description": "<p>Hundreds of sparking filaments hang beneath its bell. A PC who moves within Very Close range of the Kronenbrecher or makes a melee attack against it must succeed on an Agility Reaction Roll (15) or take <strong>1d10+3</strong> magic damage and <strong>mark a Stress</strong>.</p>",
+          "description": "<p>Hundreds of sparking filaments hang beneath its bell. A PC who moves within Very Close range of the Kronenbrecher or makes a melee attack against it must succeed on an Agility Reaction Roll (15) or take <strong>1d10+3</strong> magic damage and mark a Stress.</p>",
           "resource": null,
           "actions": {},
           "attribution": {},
@@ -9179,7 +9626,7 @@
         "_id": "VNmGw4egaPlOwUib",
         "img": "icons/svg/aura.svg",
         "system": {
-          "description": "<p><strong>Spend a Fear</strong> to seize a PC or a vehicle within Very Close range. A PC must succeed on a Strength Reaction Roll (14) or take <strong>2d10+2</strong> physical damage and become <em>Vulnerable</em>; on a success, they <strong>mark a Stress</strong>. A vehicle is torn open: its cargo spills, and it can't move until someone repairs it.</p>",
+          "description": "<p><strong>Spend a Fear</strong> to seize a PC or a vehicle within Very Close range. A PC must succeed on a Strength Reaction Roll (14) or take <strong>2d10+2</strong> physical damage and become <em>Vulnerable</em>; on a success, they mark a Stress. A vehicle is torn open: its cargo spills, and it can't move until someone repairs it.</p>",
           "resource": null,
           "actions": {
             "Yqbv2pukMnl9CBzS": {
@@ -10853,7 +11300,7 @@
         "_id": "E8oCU7JmBZ8RA6Do",
         "img": "icons/svg/aura.svg",
         "system": {
-          "description": "<p><strong>Spend a Fear</strong> to scream on every frequency at once. All PCs within Close range of a point within Far range must make an Instinct Reaction Roll (18). Targets who fail take <strong>3d8+3</strong> magic damage, lose a Hope and <strong>mark a Stress</strong>. Targets who succeed take half damage.</p>",
+          "description": "<p><strong>Spend a Fear</strong> to scream on every frequency at once. All PCs within Close range of a point within Far range must make an Instinct Reaction Roll (18). Targets who fail take <strong>3d8+3</strong> magic damage, lose a Hope and mark a Stress. Targets who succeed take half damage.</p>",
           "resource": null,
           "actions": {
             "VcpocqwMnm27wNan": {
@@ -11425,7 +11872,7 @@
         "_id": "PEwZiM5jFJx5Un31",
         "img": "icons/svg/aura.svg",
         "system": {
-          "description": "<p><strong>Mark a Stress</strong> to swarm a vehicle or a PC within Melee range. A PC must succeed on an Agility Reaction Roll (10) or <strong>mark a Stress</strong> as the drones cut into their gear. A vehicle loses its charge instead and can't move until it's recharged at a mast or with a Leech.</p>",
+          "description": "<p><strong>Mark a Stress</strong> to swarm a vehicle or a PC within Melee range. A PC must succeed on an Agility Reaction Roll (10) or mark a Stress as the drones cut into their gear. A vehicle loses its charge instead and can't move until it's recharged at a mast or with a Leech.</p>",
           "resource": null,
           "actions": {
             "Zm4qZzKmIycxcU06": {
@@ -11546,9 +11993,9 @@
       "notes": "",
       "difficulty": 14,
       "tier": 2,
-      "description": "<p>A lattice mast of the old world on a stepped base half-sunk in the dust. Äther gathers around it, and its crown hums; its struts carry the Äther down, and a Leech hooked into them charges your gear. At its foot sits a terminal older than anyone alive, and no one knows how to use it. Everything that runs on Äther comes here sooner or later.</p>",
+      "description": "<p>A lattice mast of the old world on a stepped base half-sunk in the dust. Aether gathers around it, and its crown hums; its struts carry the Aether down, and a Leech hooked into them charges your gear. At its foot sits a terminal older than anyone alive, and no one knows how to use it. Everything that runs on Aether comes here sooner or later.</p>",
       "type": "exploration",
-      "impulses": "Draw everything that runs on Äther, give power at a price, broadcast and listen, remember who passed",
+      "impulses": "Draw everything that runs on Aether, give power at a price, broadcast and listen, remember who passed",
       "attribution": {
         "source": "White Signal (Homebrew)",
         "page": null,
@@ -13147,7 +13594,7 @@
         "_id": "KooDuJahKOWBist1",
         "img": "icons/svg/aura.svg",
         "system": {
-          "description": "<p><strong>Spend a Fear</strong> to drill into the ground. The floor within Very Close range collapses: all targets there must succeed on an Agility Reaction Roll (13) or be <em>Restrained</em>, one leg stuck in the hole, until they break free with a Strength Roll.</p>",
+          "description": "<p><strong>Spend a Fear</strong> to drill into the ground. The floor within Very Close range collapses: all targets within Very Close range must succeed on an Agility Reaction Roll (13) or be <em>Restrained</em>, one leg stuck in the hole, until they break free with a Strength Roll.</p>",
           "resource": null,
           "actions": {
             "NhICY7WXDDCviP2d": {
@@ -13181,7 +13628,16 @@
               "name": "Spend Fear",
               "img": "icons/svg/aura.svg",
               "range": "veryClose",
-              "areas": [],
+              "areas": [
+                {
+                  "name": "Bore Hole",
+                  "type": "placed",
+                  "shape": "emanation",
+                  "size": "veryClose",
+                  "effects": [],
+                  "hasHole": false
+                }
+              ],
               "baseAction": false,
               "originItem": {
                 "type": "itemCollection"
@@ -13995,6 +14451,578 @@
     "sort": 0,
     "_key": "!actors!7dvAEYZC2sVtbZSW"
   },
+  "Roll Table: Components": {
+    "name": "Roll Table: Components",
+    "img": "icons/svg/d20-grey.svg",
+    "description": "",
+    "results": [
+      {
+        "_id": "bfNpHW55UNHsd7Tq",
+        "type": "text",
+        "name": "Fuse",
+        "img": "icons/svg/d20-black.svg",
+        "description": "",
+        "weight": 1,
+        "range": [
+          1,
+          2
+        ],
+        "drawn": false,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "_key": "!tables.results!lRH3XlIZcjwTRZtl.bfNpHW55UNHsd7Tq"
+      },
+      {
+        "_id": "9tfZidkJzP1ENLXV",
+        "type": "text",
+        "name": "Circuit",
+        "img": "icons/svg/d20-black.svg",
+        "description": "",
+        "weight": 1,
+        "range": [
+          3,
+          5
+        ],
+        "drawn": false,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "_key": "!tables.results!lRH3XlIZcjwTRZtl.9tfZidkJzP1ENLXV"
+      },
+      {
+        "_id": "USX6VJHqDI8QX0eT",
+        "type": "text",
+        "name": "Disc",
+        "img": "icons/svg/d20-black.svg",
+        "description": "",
+        "weight": 1,
+        "range": [
+          6,
+          7
+        ],
+        "drawn": false,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "_key": "!tables.results!lRH3XlIZcjwTRZtl.USX6VJHqDI8QX0eT"
+      },
+      {
+        "_id": "py3POLC32ApSLlrM",
+        "type": "text",
+        "name": "Relay",
+        "img": "icons/svg/d20-black.svg",
+        "description": "",
+        "weight": 1,
+        "range": [
+          8,
+          8
+        ],
+        "drawn": false,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "_key": "!tables.results!lRH3XlIZcjwTRZtl.py3POLC32ApSLlrM"
+      },
+      {
+        "_id": "gTqRiOWhxnez9sEV",
+        "type": "text",
+        "name": "Capacitor",
+        "img": "icons/svg/d20-black.svg",
+        "description": "",
+        "weight": 1,
+        "range": [
+          9,
+          9
+        ],
+        "drawn": false,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "_key": "!tables.results!lRH3XlIZcjwTRZtl.gTqRiOWhxnez9sEV"
+      },
+      {
+        "_id": "LuPreIO96im8M1yl",
+        "type": "text",
+        "name": "Battery",
+        "img": "icons/svg/d20-black.svg",
+        "description": "",
+        "weight": 1,
+        "range": [
+          10,
+          10
+        ],
+        "drawn": false,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "_key": "!tables.results!lRH3XlIZcjwTRZtl.LuPreIO96im8M1yl"
+      }
+    ],
+    "formula": "1d10",
+    "replacement": true,
+    "displayRoll": true,
+    "folder": null,
+    "sort": 0,
+    "ownership": {
+      "default": 0
+    },
+    "flags": {},
+    "_stats": {
+      "coreVersion": "14.365",
+      "systemId": "daggerheart",
+      "systemVersion": "2.12.9"
+    },
+    "_id": "lRH3XlIZcjwTRZtl",
+    "_key": "!tables!lRH3XlIZcjwTRZtl"
+  },
+  "Roll Table: Metals": {
+    "name": "Roll Table: Metals",
+    "img": "icons/svg/d20-grey.svg",
+    "description": "",
+    "results": [
+      {
+        "_id": "nlUUSWivizfoE7ow",
+        "type": "text",
+        "name": "Aluminum",
+        "img": "icons/svg/d20-black.svg",
+        "description": "",
+        "weight": 1,
+        "range": [
+          1,
+          2
+        ],
+        "drawn": false,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "_key": "!tables.results!JS8SDYmlWS9qgLZk.nlUUSWivizfoE7ow"
+      },
+      {
+        "_id": "IsZlykM9pfzCDIY6",
+        "type": "text",
+        "name": "Copper",
+        "img": "icons/svg/d20-black.svg",
+        "description": "",
+        "weight": 1,
+        "range": [
+          3,
+          4
+        ],
+        "drawn": false,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "_key": "!tables.results!JS8SDYmlWS9qgLZk.IsZlykM9pfzCDIY6"
+      },
+      {
+        "_id": "T21eZmGzePIiKw74",
+        "type": "text",
+        "name": "Cobalt",
+        "img": "icons/svg/d20-black.svg",
+        "description": "",
+        "weight": 1,
+        "range": [
+          5,
+          5
+        ],
+        "drawn": false,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "_key": "!tables.results!JS8SDYmlWS9qgLZk.T21eZmGzePIiKw74"
+      },
+      {
+        "_id": "jClpxDog8MS8kUko",
+        "type": "text",
+        "name": "Silver",
+        "img": "icons/svg/d20-black.svg",
+        "description": "",
+        "weight": 1,
+        "range": [
+          6,
+          6
+        ],
+        "drawn": false,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "_key": "!tables.results!JS8SDYmlWS9qgLZk.jClpxDog8MS8kUko"
+      },
+      {
+        "_id": "QV7JQg5Oa3AyiBEo",
+        "type": "text",
+        "name": "Platinum",
+        "img": "icons/svg/d20-black.svg",
+        "description": "",
+        "weight": 1,
+        "range": [
+          7,
+          7
+        ],
+        "drawn": false,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "_key": "!tables.results!JS8SDYmlWS9qgLZk.QV7JQg5Oa3AyiBEo"
+      },
+      {
+        "_id": "b2DJo3yEWJtZBIx7",
+        "type": "text",
+        "name": "Gold",
+        "img": "icons/svg/d20-black.svg",
+        "description": "",
+        "weight": 1,
+        "range": [
+          8,
+          8
+        ],
+        "drawn": false,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "_key": "!tables.results!JS8SDYmlWS9qgLZk.b2DJo3yEWJtZBIx7"
+      }
+    ],
+    "formula": "1d8",
+    "replacement": true,
+    "displayRoll": true,
+    "folder": null,
+    "sort": 0,
+    "ownership": {
+      "default": 0
+    },
+    "flags": {},
+    "_stats": {
+      "coreVersion": "14.365",
+      "systemId": "daggerheart",
+      "systemVersion": "2.12.9"
+    },
+    "_id": "JS8SDYmlWS9qgLZk",
+    "_key": "!tables!JS8SDYmlWS9qgLZk"
+  },
+  "Roll Table: Shards": {
+    "name": "Roll Table: Shards",
+    "img": "icons/svg/d20-grey.svg",
+    "description": "",
+    "results": [
+      {
+        "_id": "eQTAfFWHiAnWhwvN",
+        "type": "text",
+        "name": "Gear",
+        "img": "icons/svg/d20-black.svg",
+        "description": "",
+        "weight": 1,
+        "range": [
+          1,
+          1
+        ],
+        "drawn": false,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "_key": "!tables.results!WsheyNCrvTodi483.eQTAfFWHiAnWhwvN"
+      },
+      {
+        "_id": "kGjH192N7NrASKLq",
+        "type": "text",
+        "name": "Coil",
+        "img": "icons/svg/d20-black.svg",
+        "description": "",
+        "weight": 1,
+        "range": [
+          2,
+          2
+        ],
+        "drawn": false,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "_key": "!tables.results!WsheyNCrvTodi483.kGjH192N7NrASKLq"
+      },
+      {
+        "_id": "LPhhju5L8FMkcfVF",
+        "type": "text",
+        "name": "Wire",
+        "img": "icons/svg/d20-black.svg",
+        "description": "",
+        "weight": 1,
+        "range": [
+          3,
+          3
+        ],
+        "drawn": false,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "_key": "!tables.results!WsheyNCrvTodi483.LPhhju5L8FMkcfVF"
+      },
+      {
+        "_id": "pH2jnvSKYO3rOJCw",
+        "type": "text",
+        "name": "Trigger",
+        "img": "icons/svg/d20-black.svg",
+        "description": "",
+        "weight": 1,
+        "range": [
+          4,
+          4
+        ],
+        "drawn": false,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "_key": "!tables.results!WsheyNCrvTodi483.pH2jnvSKYO3rOJCw"
+      },
+      {
+        "_id": "vDuUfPJZvnMBVP4s",
+        "type": "text",
+        "name": "Lens",
+        "img": "icons/svg/d20-black.svg",
+        "description": "",
+        "weight": 1,
+        "range": [
+          5,
+          5
+        ],
+        "drawn": false,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "_key": "!tables.results!WsheyNCrvTodi483.vDuUfPJZvnMBVP4s"
+      },
+      {
+        "_id": "V6pKOCcSWvHmJUfN",
+        "type": "text",
+        "name": "Crystal",
+        "img": "icons/svg/d20-black.svg",
+        "description": "",
+        "weight": 1,
+        "range": [
+          6,
+          6
+        ],
+        "drawn": false,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "_key": "!tables.results!WsheyNCrvTodi483.V6pKOCcSWvHmJUfN"
+      }
+    ],
+    "formula": "1d6",
+    "replacement": true,
+    "displayRoll": true,
+    "folder": null,
+    "sort": 0,
+    "ownership": {
+      "default": 0
+    },
+    "flags": {},
+    "_stats": {
+      "coreVersion": "14.365",
+      "systemId": "daggerheart",
+      "systemVersion": "2.12.9"
+    },
+    "_id": "WsheyNCrvTodi483",
+    "_key": "!tables!WsheyNCrvTodi483"
+  },
+  "Roll Table: What the Crowd Throws": {
+    "name": "Roll Table: What the Crowd Throws",
+    "img": "icons/svg/d20-grey.svg",
+    "description": "<p>Each tick of Cheers, something comes through the bars.</p>",
+    "results": [
+      {
+        "_id": "CgBYgKVYC53X5NtA",
+        "type": "text",
+        "name": "Half a Pressling",
+        "img": "icons/svg/d20-black.svg",
+        "description": "",
+        "weight": 1,
+        "range": [
+          1,
+          1
+        ],
+        "drawn": false,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "_key": "!tables.results!TAhtCWmLKZqfz1jH.CgBYgKVYC53X5NtA"
+      },
+      {
+        "_id": "xLTQvPEU2UElemxc",
+        "type": "text",
+        "name": "A pipe, good for hitting things",
+        "img": "icons/svg/d20-black.svg",
+        "description": "",
+        "weight": 1,
+        "range": [
+          2,
+          2
+        ],
+        "drawn": false,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "_key": "!tables.results!TAhtCWmLKZqfz1jH.xLTQvPEU2UElemxc"
+      },
+      {
+        "_id": "dYFP0ZE7hP7sBUnG",
+        "type": "text",
+        "name": "A NeuroStim",
+        "img": "icons/svg/d20-black.svg",
+        "description": "",
+        "weight": 1,
+        "range": [
+          3,
+          3
+        ],
+        "drawn": false,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "_key": "!tables.results!TAhtCWmLKZqfz1jH.dYFP0ZE7hP7sBUnG"
+      },
+      {
+        "_id": "AbkDhccggAEmTjc5",
+        "type": "text",
+        "name": "A cable",
+        "img": "icons/svg/d20-black.svg",
+        "description": "",
+        "weight": 1,
+        "range": [
+          4,
+          4
+        ],
+        "drawn": false,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "_key": "!tables.results!TAhtCWmLKZqfz1jH.AbkDhccggAEmTjc5"
+      },
+      {
+        "_id": "3Vg9f1Xhli33KzAQ",
+        "type": "text",
+        "name": "A piece of scrap (one Shard)",
+        "img": "icons/svg/d20-black.svg",
+        "description": "",
+        "weight": 1,
+        "range": [
+          5,
+          5
+        ],
+        "drawn": false,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "_key": "!tables.results!TAhtCWmLKZqfz1jH.3Vg9f1Xhli33KzAQ"
+      },
+      {
+        "_id": "N9kpr1gHWt0VrS7z",
+        "type": "text",
+        "name": "A bottle that shatters on impact — and a whistle that someone in the crowd answers",
+        "img": "icons/svg/d20-black.svg",
+        "description": "",
+        "weight": 1,
+        "range": [
+          6,
+          6
+        ],
+        "drawn": false,
+        "flags": {},
+        "_stats": {
+          "coreVersion": "14.365",
+          "systemId": "daggerheart",
+          "systemVersion": "2.12.9"
+        },
+        "_key": "!tables.results!TAhtCWmLKZqfz1jH.N9kpr1gHWt0VrS7z"
+      }
+    ],
+    "formula": "1d6",
+    "replacement": true,
+    "displayRoll": true,
+    "folder": null,
+    "sort": 0,
+    "ownership": {
+      "default": 0
+    },
+    "flags": {},
+    "_stats": {
+      "coreVersion": "14.365",
+      "systemId": "daggerheart",
+      "systemVersion": "2.12.9"
+    },
+    "_id": "TAhtCWmLKZqfz1jH",
+    "_key": "!tables!TAhtCWmLKZqfz1jH"
+  },
   "Sable": {
     "name": "Sable",
     "img": "systems/daggerheart/assets/icons/documents/actors/dragon-head.svg",
@@ -14628,7 +15656,7 @@
         "_id": "tEpYtAB6drzj8Vqx",
         "img": "icons/svg/aura.svg",
         "system": {
-          "description": "<p>When the Gatekeeper scans a Kennung from before the Untergang, the system waves it through. The GM can <strong>spend a Fear</strong>: the Gatekeeper noticed it took a moment too long — and will remember the face.</p>",
+          "description": "<p>When the Gatekeeper scans a Kennung from before the Untergang, you can <strong>spend a Fear</strong>: the Gatekeeper noticed it took a moment too long — and will remember the face. The system waves it through either way.</p>",
           "resource": null,
           "actions": {
             "NcEBk2dEijb2pmqU": {
@@ -15714,7 +16742,7 @@
       "notes": "",
       "difficulty": 17,
       "tier": 3,
-      "description": "<p>A small Äther storm, out of nowhere: a grey-white front with violet veins, an hour of wind, light and noise. Not the Whiteout — but enough to strand a convoy.</p>",
+      "description": "<p>A small Aether storm, out of nowhere: a grey-white front with violet veins, an hour of wind, light and noise. Not the Whiteout — but enough to strand a convoy.</p>",
       "type": "event",
       "impulses": "Strike without warning, scatter the convoy, wake the Restlinge, drown out every signal",
       "attribution": {
@@ -15760,7 +16788,7 @@
         "_id": "K3nPEcAvYxpSgZB7",
         "img": "icons/svg/aura.svg",
         "system": {
-          "description": "<p>Light and Äther in the air blind everyone. PCs can't see beyond Close range.</p><section id=\"secret-SXIvqH0NOmu770PZ\" class=\"secret\"><p><em>What moves at the edge of sight? Whose voice is suddenly on the Funk?</em></p></section>",
+          "description": "<p>Light and Aether in the air blind everyone. PCs can't see beyond Close range.</p><section id=\"secret-SXIvqH0NOmu770PZ\" class=\"secret\"><p><em>What moves at the edge of sight? Whose voice is suddenly on the Funk?</em></p></section>",
           "resource": null,
           "actions": {},
           "attribution": {},
@@ -15842,17 +16870,17 @@
         "_key": "!actors.items!hko1hPk5FBN99P68.GJJsbZR9wOXv2d4o"
       },
       {
-        "name": "Äther Gust",
+        "name": "Aether Gust",
         "type": "feature",
-        "_id": "DvQqTOvP1Z7V4L8n",
+        "_id": "e3Z0cgsEU1aQ1yEH",
         "img": "icons/svg/aura.svg",
         "system": {
-          "description": "<p><strong>Spend a Fear</strong> to drive a gust of visible Äther through a point within Far range. Each target within Very Close range of that point must succeed on a Strength Reaction Roll or take <strong>3d8+3</strong> magic damage and be pushed back to Close range. Targets who succeed must <strong>mark a Stress</strong>.</p><section id=\"secret-UcPyiMwAeJ3gnLcG\" class=\"secret\"><p><em>What does it tear loose? What lands where it passed?</em></p></section>",
+          "description": "<p><strong>Spend a Fear</strong> to drive a gust of visible Aether: each target within Very Close range of a point within Far range must succeed on a Strength Reaction Roll or take <strong>3d8+3</strong> magic damage and be pushed back to Close range. Targets who succeed must mark a Stress.</p><section id=\"secret-sDQZfSa8BdZo5HYU\" class=\"secret\"><p><em>What does it tear loose? What lands where it passed?</em></p></section>",
           "resource": null,
           "actions": {
-            "kI0QBXdyut22L2wW": {
+            "DTBeBrDSvsJeA70V": {
               "type": "attack",
-              "_id": "kI0QBXdyut22L2wW",
+              "_id": "DTBeBrDSvsJeA70V",
               "systemPath": "actions",
               "description": "",
               "chatDisplay": true,
@@ -15880,10 +16908,10 @@
               "effects": [],
               "name": "Spend Fear",
               "img": "icons/svg/aura.svg",
-              "range": "veryClose",
+              "range": "far",
               "areas": [
                 {
-                  "name": "Äther Gust",
+                  "name": "Aether Gust",
                   "type": "placed",
                   "shape": "emanation",
                   "size": "veryClose",
@@ -15969,7 +16997,7 @@
         "ownership": {
           "default": 0
         },
-        "_key": "!actors.items!hko1hPk5FBN99P68.DvQqTOvP1Z7V4L8n"
+        "_key": "!actors.items!hko1hPk5FBN99P68.e3Z0cgsEU1aQ1yEH"
       },
       {
         "name": "Arc",
@@ -15977,7 +17005,7 @@
         "_id": "pSLWvxqz2I5TQgPv",
         "img": "icons/svg/aura.svg",
         "system": {
-          "description": "<p><strong>Spend a Fear</strong> to choose a PC who carries a charged Arx, a Bake or Cyware. They must succeed on a Knowledge Reaction Roll or take <strong>3d10+1</strong> magic damage as the device arcs. On a success, they must <strong>mark a Stress</strong>.</p><section id=\"secret-V5EHBNqGLK7hcQqw\" class=\"secret\"><p><em>What smells like burning? What does the arc light up for a moment?</em></p></section>",
+          "description": "<p><strong>Spend a Fear</strong> to choose a PC who carries a charged Arx, a Bake or Cyware. They must succeed on a Knowledge Reaction Roll or take <strong>3d10+1</strong> magic damage as the device arcs. On a success, they must mark a Stress.</p><section id=\"secret-V5EHBNqGLK7hcQqw\" class=\"secret\"><p><em>What smells like burning? What does the arc light up for a moment?</em></p></section>",
           "resource": null,
           "actions": {
             "7kMyLmqLcKx08aRj": {
@@ -19845,7 +20873,7 @@
         "_id": "iXkVdR8uSUDMHYCU",
         "img": "icons/svg/aura.svg",
         "system": {
-          "description": "<p><strong>Spend a Fear</strong> to hammer out a foreign beat. Every PC within Close range who carries Cyware or an active Arx must succeed on an Instinct Reaction Roll (13) or <strong>mark 2 Stress</strong> as the device stutters in the wrong rhythm. On a success, they <strong>mark a Stress</strong>.</p>",
+          "description": "<p><strong>Spend a Fear</strong> to hammer out a foreign beat. Every PC within Close range who carries Cyware or an active Arx must succeed on an Instinct Reaction Roll (13) or mark 2 Stress as the device stutters in the wrong rhythm. On a success, they mark a Stress.</p>",
           "resource": null,
           "actions": {
             "asZ4Un2QAnr7L6hx": {
@@ -20007,7 +21035,7 @@
       "notes": "",
       "difficulty": 15,
       "tier": 2,
-      "description": "<p>Flat, cracked grey steppe under a smog sky, littered with half-buried machines of the old world. Beyond a kilometer, everything drowns in a wall of smog, Äther and dust; the only things to follow are the cables strung from mast to mast — and the fields no one can see.</p>",
+      "description": "<p>Flat, cracked grey steppe under a smog sky, littered with half-buried machines of the old world. Beyond a kilometer, everything drowns in a wall of smog, Aether and dust; the only things to follow are the cables strung from mast to mast — and the fields no one can see.</p>",
       "type": "traversal",
       "impulses": "Drain the unready, hide old dangers under the dust, cut travelers off, punish those who go without a guide",
       "attribution": {
@@ -20169,7 +21197,7 @@
         "_id": "bLR4GAvRUYUxcJPT",
         "img": "icons/svg/aura.svg",
         "system": {
-          "description": "<p><strong>Spend a Fear</strong> to make the field give out beneath a vehicle. Its driver must succeed on an Instinct Reaction Roll. On a failure, the vehicle sinks into the dust and stalls; freeing it takes a Strength Roll, and the scene's Consequence Countdown ticks down 1. On a success, the driver catches the edge of the field but must <strong>mark a Stress</strong>.</p><section id=\"secret-kkPgWaoJsjAowW4d\" class=\"secret\"><p><em>What lies in the dust where the field died? Who else got stranded here?</em></p></section>",
+          "description": "<p><strong>Spend a Fear</strong> to make the field give out beneath a vehicle. Its driver must succeed on an Instinct Reaction Roll. On a failure, the vehicle sinks into the dust and stalls; freeing it takes a Strength Roll, and the scene's Consequence Countdown ticks down 1. On a success, the driver catches the edge of the field but must mark a Stress.</p><section id=\"secret-kkPgWaoJsjAowW4d\" class=\"secret\"><p><em>What lies in the dust where the field died? Who else got stranded here?</em></p></section>",
           "resource": null,
           "actions": {
             "fp2CFaRyHF6ekJmz": {
@@ -22958,7 +23986,7 @@
         "_id": "7VLWpz2tsTbwjyrk",
         "img": "icons/svg/aura.svg",
         "system": {
-          "description": "<p>The light and the Äther in the air blind everyone. PCs can't see beyond Close range, and they can't move as part of an action roll without succeeding on an Agility Reaction Roll.</p><section id=\"secret-GIZ6xLNKFM7c3vJc\" class=\"secret\"><p><em>What shapes move in the light? Whose voice calls from inside it?</em></p></section>",
+          "description": "<p>The light and the Aether in the air blind everyone. PCs can't see beyond Close range, and they can't move as part of an action roll without succeeding on an Agility Reaction Roll.</p><section id=\"secret-GIZ6xLNKFM7c3vJc\" class=\"secret\"><p><em>What shapes move in the light? Whose voice calls from inside it?</em></p></section>",
           "resource": null,
           "actions": {},
           "attribution": {},
@@ -23069,17 +24097,17 @@
         "_key": "!actors.items!Dqb9DmG97o4lVL0j.MT79uF8XIkwhVIvb"
       },
       {
-        "name": "Äther Gust",
+        "name": "Aether Gust",
         "type": "feature",
-        "_id": "rfjNgNVs646H8Hcg",
+        "_id": "EFZzkUKTT8XbBClp",
         "img": "icons/svg/aura.svg",
         "system": {
-          "description": "<p><strong>Spend a Fear</strong> to drive a gust of visible Äther through a point within Far range. Each target within Close range of that point must succeed on a Strength Reaction Roll or take <strong>4d8+8</strong> magic damage and be thrown up to Far range. Targets who succeed must <strong>mark a Stress</strong>.</p><section id=\"secret-tA7gjNr2Xf1I2yob\" class=\"secret\"><p><em>What does the Äther feel like on the skin? What does it tear loose?</em></p></section>",
+          "description": "<p><strong>Spend a Fear</strong> to drive a gust of visible Aether: each target within Close range of a point within Far range must succeed on a Strength Reaction Roll or take <strong>4d8+8</strong> magic damage and be thrown up to Far range. Targets who succeed must mark a Stress.</p><section id=\"secret-A57frS47tYkorLGg\" class=\"secret\"><p><em>What does the Aether feel like on the skin? What does it tear loose?</em></p></section>",
           "resource": null,
           "actions": {
-            "AgIFFfw6y7LbWRP4": {
+            "LiSaCr3OGKBTEEVQ": {
               "type": "attack",
-              "_id": "AgIFFfw6y7LbWRP4",
+              "_id": "LiSaCr3OGKBTEEVQ",
               "systemPath": "actions",
               "description": "",
               "chatDisplay": true,
@@ -23107,10 +24135,10 @@
               "effects": [],
               "name": "Spend Fear",
               "img": "icons/svg/aura.svg",
-              "range": "close",
+              "range": "far",
               "areas": [
                 {
-                  "name": "Äther Gust",
+                  "name": "Aether Gust",
                   "type": "placed",
                   "shape": "emanation",
                   "size": "close",
@@ -23196,7 +24224,7 @@
         "ownership": {
           "default": 0
         },
-        "_key": "!actors.items!Dqb9DmG97o4lVL0j.rfjNgNVs646H8Hcg"
+        "_key": "!actors.items!Dqb9DmG97o4lVL0j.EFZzkUKTT8XbBClp"
       },
       {
         "name": "Overload",
@@ -23728,7 +24756,7 @@
         "_id": "EKv8CkOZjXEU0vhE",
         "img": "icons/svg/aura.svg",
         "system": {
-          "description": "<p>When the Wurm takes Severe damage while it has tokens, Aether vents from the wound: all targets within Close range must <strong>mark a Stress</strong>.</p>",
+          "description": "<p>When the Wurm takes Severe damage while it has tokens, Aether vents from the wound: all targets within Close range must mark a Stress.</p>",
           "resource": null,
           "actions": {},
           "attribution": {},
@@ -24185,7 +25213,7 @@
         "_id": "1IkhCBTB3T13eQIG",
         "img": "icons/svg/aura.svg",
         "system": {
-          "description": "<p>When the herd marks HP from an attack within Melee range, a flank window shatters and liquid Aether splashes out. The attacker <strong>marks a Stress</strong> — unless they catch it with a Leech, in which case they recharge one device or vehicle as if at a mast.</p>",
+          "description": "<p>When the herd marks HP from an attack within Melee range, a flank window shatters and liquid Aether splashes out. The attacker marks a Stress — unless they catch it with a Leech, in which case they recharge one device or vehicle as if at a mast.</p>",
           "resource": null,
           "actions": {},
           "attribution": {},
