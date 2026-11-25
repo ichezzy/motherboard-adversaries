@@ -13,7 +13,7 @@ import { ausNotizen } from "./aus-notizen.mjs";
 import { fertigmachen, ordnerDokument } from "./fertigmachen.mjs";
 import { bauePaket, MODUL_ID, TABELLEN_PACK } from "./paket.mjs";
 import { findeTabellen, tabellenVerlinken } from "./tabellen.mjs";
-import { findeBilder, bildFuer } from "./bilder.mjs";
+import { findeBilder, bildFuer, findeTokens, tokenFuer } from "./bilder.mjs";
 import { ladeStand, vergleiche, letzteVersion, naechsteVersion } from "./stand.mjs";
 
 export const DIST = path.join(PROJEKT, "dist");
@@ -61,29 +61,42 @@ export function sammeln(einst, quelle = einst.quelle) {
   const ordner = gruppen.map((g, i) => ordnerDokument(g, i));
   const ordnerId = Object.fromEntries(ordner.map(o => [o.name, o._id]));
 
-  // Bilder (Stufe 3): aus _Anhänge/Artwork, je Gegner eins, ins Modul unter assets/artwork/
+  // Bilder: Splash-Artwork (Bogen) und fertige Token-Bilder – beide kommen ins Modul (assets/),
+  // damit es frisch installiert in jeder Welt funktioniert.
   const bilder = findeBilder(einst.pfade.artwork);
-  const bildDateien = new Map();   // Dateiname → Quellpfad
+  const tokens = findeTokens(path.join(einst.pfade.artwork, "Token"), einst.pfade.artwork);
+  const assets = new Map();   // Pfad im Modul → Quellpfad
+  const modulPfad = rel => `modules/${MODUL_ID}/${rel}`;
 
   const actors = [];
   for (const e of eintraege) {
     const { actor, hinweise: h } = fertigmachen(e.actor, {
       name: e.name, idName: e.schluessel, ordnerId: ordnerId[e.gruppe], hordenSchadenAutomatisch: einst.hordenSchadenAutomatisch
     });
+    // Frühere Namen ("alias" in einstellungen.json), damit alte Bild- und Token-Dateien weiter passen
+    const alias = einst.alias?.[e.name] ?? einst.alias?.[e.schluessel];
+    e.alias = alias ? [].concat(alias) : [];
     const bild = bildFuer(bilder, e);
     if (bild) {
-      const pfad = `modules/${MODUL_ID}/assets/artwork/${bild}`;
-      actor.img = pfad;
-      if (actor.prototypeToken && einst.bilder?.token === "splash") actor.prototypeToken.texture.src = pfad;
-      bildDateien.set(bild, path.join(einst.pfade.artwork, bild));
+      const rel = `assets/artwork/${bild}`;
+      actor.img = modulPfad(rel);
+      assets.set(rel, path.join(einst.pfade.artwork, bild));
+    }
+    const token = actor.prototypeToken ? tokenFuer(tokens, e) : null;
+    if (token) {
+      const rel = `assets/tokens/${token.datei}`;
+      actor.prototypeToken.texture.src = modulPfad(rel);
+      if (!bild) actor.img = modulPfad(rel);   // ohne Splash zeigt der Bogen das Token
+      assets.set(rel, token.pfad);
+    } else if (bild && actor.prototypeToken && einst.bilder?.token === "splash") {
+      actor.prototypeToken.texture.src = actor.img;
     }
     actors.push(actor);
     for (const was of h) hinweise.push({ wo: e.name, was });
   }
-  if (bilder) {
-    const benutzt = new Set(bildDateien.keys());
-    for (const f of bilder.dateien) if (!benutzt.has(f)) hinweise.push({ wo: `Artwork/${f}`, was: "Bild passt zu keinem Gegner – nicht im Modul" });
-  }
+  const benutzt = new Set([...assets.keys()].map(k => path.basename(k)));
+  for (const f of bilder?.dateien ?? []) if (!benutzt.has(f)) hinweise.push({ wo: `Artwork/${f}`, was: "Bild passt zu keinem Gegner – nicht im Modul" });
+  for (const f of tokens?.dateien.keys() ?? []) if (!benutzt.has(f)) hinweise.push({ wo: `Artwork/Token/${f}`, was: "Token passt zu keinem Gegner – nicht im Modul" });
   const proGruppe = gruppen.map(g => [g, eintraege.filter(e => e.gruppe === g).length]);
 
   // Roll Tables ([!rolltable]) – und ihre Namen in Feature-Texten werden zu Links
@@ -98,7 +111,7 @@ export function sammeln(einst, quelle = einst.quelle) {
   }
   // Für Vergleich und Stand: Gegner und Tabellen gemeinsam (Tabellen mit Vorsilbe, damit Namen nicht kollidieren)
   const alles = [...actors, ...tabellen.map(t => ({ ...t, name: `Roll Table: ${t.name}` }))];
-  return { quelle, actors, ordner, proGruppe, probleme, hinweise, automatik: gelesen.automatik ?? [], tabellen, links, alles, bildDateien };
+  return { quelle, actors, ordner, proGruppe, probleme, hinweise, automatik: gelesen.automatik ?? [], tabellen, links, alles, assets };
 }
 
 /**
@@ -111,7 +124,7 @@ export async function bauen({ version } = {}) {
   const neueVersion = version ?? naechsteVersion(letzte);
   const vergleich = vergleiche(ladeStand(), s.alles);
   const paket = await bauePaket({
-    dokumente: [...s.ordner, ...s.actors], tabellen: s.tabellen, bilder: s.bildDateien, version: neueVersion, einst, ziel: DIST
+    dokumente: [...s.ordner, ...s.actors], tabellen: s.tabellen, assets: s.assets, version: neueVersion, einst, ziel: DIST
   });
   // Liste aller automatisierten Features zum Nachlesen
   const liste = s.automatik.map(a => `${a.gegner} → ${a.feature}: ${a.was}`).join("\n");
@@ -135,10 +148,12 @@ export function zusammenfassung(r) {
     z.push(`Roll Tables: ${r.tabellen.map(t => t.name).join(", ")} (${r.links} Verweise in Features verlinkt)`);
     z.push("");
   }
-  const mitBild = r.actors.filter(a => a.img?.includes("/assets/artwork/")).length;
-  if (r.bildDateien.size) {
-    const mb = [...r.bildDateien.values()].reduce((s, p) => s + fs.statSync(p).size, 0) / 1024 / 1024;
-    z.push(`Bilder: ${mitBild} von ${r.actors.length} Einträgen haben ein Bild (${r.bildDateien.size} Dateien, ${mb.toFixed(1)} MB).`);
+  if (r.assets.size) {
+    const mitBild = r.actors.filter(a => a.img?.includes("/assets/artwork/")).length;
+    const mitToken = r.actors.filter(a => a.prototypeToken?.texture?.src?.includes("/assets/tokens/")).length;
+    const mitTokenOrt = r.actors.filter(a => a.prototypeToken).length;
+    const mb = [...r.assets.values()].reduce((s, p) => s + fs.statSync(p).size, 0) / 1024 / 1024;
+    z.push(`Bilder: ${mitBild} von ${r.actors.length} Einträgen haben ein Bild · Tokens: ${mitToken} von ${mitTokenOrt} Gegnern haben ein eigenes Token (${r.assets.size} Dateien, ${mb.toFixed(1)} MB).`);
     z.push("");
   }
 

@@ -44,17 +44,66 @@ export function findeBilder(ordner) {
 
 /**
  * Sucht das Bild für einen Eintrag.
- * @param {{name: string, schluessel: string, notizName?: string}} e
+ * @param {{name: string, schluessel: string, notizName?: string, alias?: string[]}} e
+ *        alias: frühere Namen aus "alias" in einstellungen.json (z. B. „Dreiklaue“ für „Devourer — Three-Claw“)
  */
 export function bildFuer(bilder, e) {
   if (!bilder) return null;
-  const kandidaten = [e.schluessel, e.name];
+  const kandidaten = [e.schluessel, e.name, ...(e.alias ?? [])];
   const zusatz = e.schluessel.split(" — ")[1];
   if (zusatz && !/^tier\s*\d/i.test(zusatz)) kandidaten.push(zusatz);   // „Grubenbär — Dreiklaue“ → „Dreiklaue“
   if (e.notizName) kandidaten.push(e.notizName);                         // Tier 2 → Bild der Notiz
   for (const k of kandidaten) {
     const datei = bilder.nachName.get(bildSchluessel(k));
     if (datei) return datei;
+  }
+  return null;
+}
+
+/* -------------------------------------------- */
+/*  Token-Bilder                                 */
+/* -------------------------------------------- */
+
+const TOKEN = /^MB_([^_]+)_(.+)_Token\.(png|webp)$/i;
+
+/**
+ * Fertige Token-Bilder (mit Ring), selbst gebaut: `MB_<Gruppe>_<Name>_Token.png` oder `.webp`
+ * im Ordner `_Anhänge/Artwork/Token/` (oder direkt in `_Anhänge/Artwork/`).
+ * @returns {{ nachName: Map<string, {datei, pfad}>, dateien: Map<string, string> } | null}  dateien: Dateiname → Pfad
+ */
+export function findeTokens(...ordnerListe) {
+  const nachName = new Map();
+  const dateien = new Map();
+  for (const ordner of ordnerListe) {
+    if (!ordner || !fs.existsSync(ordner)) continue;
+    for (const f of fs.readdirSync(ordner).sort()) {
+      const m = f.match(TOKEN);
+      if (!m) continue;
+      const k = bildSchluessel(m[2]);
+      if (nachName.has(k)) continue;   // gleiche Datei in beiden Ordnern: die erste zählt
+      nachName.set(k, { datei: f, pfad: path.join(ordner, f) });
+      dateien.set(f, path.join(ordner, f));
+    }
+  }
+  return dateien.size ? { nachName, dateien } : null;
+}
+
+/**
+ * Token für einen Eintrag – nur der eigene: deutscher oder englischer Name, oder der Zusatz
+ * („Grubenbär — Dreiklaue“ → „Dreiklaue“). Kein Erben von der Notiz: Ein Tier-2-Gegner soll
+ * nicht den Tier-1-Ring tragen.
+ */
+export function tokenFuer(tokens, e) {
+  if (!tokens) return null;
+  const kandidaten = [e.name, e.schluessel, ...(e.alias ?? [])];
+  const zusatz = e.schluessel.split(" — ")[1];
+  if (zusatz && !/^tier\s*\d/i.test(zusatz)) kandidaten.push(zusatz);
+  // „Devourer — Three-Claw“ → auch „Three-Claw“ (der Teil nach dem Gedankenstrich im Namen)
+  const zusatzName = e.name.split(" — ")[1];
+  if (zusatzName && !/^tier\s*\d/i.test(zusatzName)) kandidaten.push(zusatzName);
+  for (const k of kandidaten) {
+    const t = tokens.nachName.get(bildSchluessel(k));
+    if (t) return t;
   }
   return null;
 }

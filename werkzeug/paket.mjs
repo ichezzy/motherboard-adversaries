@@ -78,7 +78,7 @@ async function packen(dokumente, quelle, ziel) {
  * @param {object}   p.einst
  * @param {string}   p.ziel       dist-Ordner (wird komplett neu geschrieben)
  */
-export async function bauePaket({ dokumente, tabellen = [], bilder = new Map(), version, einst, ziel }) {
+export async function bauePaket({ dokumente, tabellen = [], assets = new Map(), version, einst, ziel }) {
   fs.rmSync(ziel, { recursive: true, force: true });
   const quelle = path.join(ziel, "quelle", PACK_NAME);
   const modul = path.join(ziel, MODUL_ID);
@@ -89,10 +89,11 @@ export async function bauePaket({ dokumente, tabellen = [], bilder = new Map(), 
     await packen(tabellen, path.join(ziel, "quelle", TABELLEN_PACK), path.join(modul, "packs", TABELLEN_PACK));
   }
   fs.cpSync(CODE, modul, { recursive: true });
-  if (bilder.size) {
-    const ordner = path.join(modul, "assets", "artwork");
-    fs.mkdirSync(ordner, { recursive: true });
-    for (const [datei, herkunft] of bilder) fs.copyFileSync(herkunft, path.join(ordner, datei));
+  // Bilder und Tokens (Pfad im Modul → Quelldatei im Vault)
+  for (const [rel, herkunft] of assets) {
+    const zielDatei = path.join(modul, ...rel.split("/"));
+    fs.mkdirSync(path.dirname(zielDatei), { recursive: true });
+    fs.copyFileSync(herkunft, zielDatei);
   }
 
   const manifest = JSON.stringify(modulManifest(version, einst, { mitTabellen: tabellen.length > 0 }), null, 2) + "\n";

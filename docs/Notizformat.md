@@ -141,7 +141,21 @@ Nach dem Build steht in `dist/automatik.txt`, welches Feature was bekommen hat.
 | Platz | eigener Callout, durch eine Zeile **ohne** `>` vom Stat Block getrennt. Gern direkt unter dem Stat Block, der die Tabelle benutzt. |
 | Verweis | Den Namen im Feature **kursiv oder fett** und genau wie die Tabelle schreiben: `(roll on *What the Crowd Throws*)`. In Foundry wird das ein Link, der die Tabelle öffnet. |
 
-## 6. Prüfliste vor dem Speichern
+## 6. Bilder und Tokens
+
+Keine Callouts, sondern Dateien — der Build findet sie über den Namen und packt sie ins Modul.
+
+| Was | Ordner | Dateiname |
+|---|---|---|
+| Bild im Bogen (Splash) | `_Anhänge/Artwork/` | wie die Prompt-Datei `<Name> (Prompt).md` es unter **Bilddatei:** nennt, z. B. `MB_Restling_Grubenbaer_ActionSplash_3x4.jpg` |
+| Token-Bild (mit Ring) | `_Anhänge/Artwork/Token/` | `MB_<Gruppe>_<Name>_Token.png` oder `.webp`, quadratisch, durchsichtiger Hintergrund |
+
+- **Name:** der Name in Foundry (englisch) oder der deutsche Notizname; Umlaute als ae/oe/ue/ss, Leerzeichen als Bindestrich: `MB_Restling_Screecher_Token.png`, `MB_Syfter_Syfter-Bulwark-Tier-2_Token.png`.
+- **Zweite Stat Blocks:** Ein Splash-Bild darf vom ersten Stat Block der Notiz kommen. Ein **Token** nicht — ein Tier-2-Gegner trägt einen anderen Ring und braucht sein eigenes.
+- **Umbenannt?** Liegt eine Datei noch unter dem alten Namen, trägt `alias` in `einstellungen.json` den alten Namen nach (`"Devourer — Three-Claw": "Dreiklaue"`).
+- Die Ringe je Kategorie und Tier: `docs/Token-Ringe (Prompts).md` im Modul-Repo.
+
+## 7. Prüfliste vor dem Speichern
 
 - [ ] Callout-Kopf richtig (`[!statblock]` / `[!rolltable]`), alles darin Englisch.
 - [ ] Tier-Zeile mit gültigem Typ; Horde mit `(n/HP)` und Feature `Horde (Würfel)`.

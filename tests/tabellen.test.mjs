@@ -69,3 +69,19 @@ test("Bilder: Umlaute, Zusatz, Tier 2 erbt das Bild der Notiz", () => {
   assert.equal(bildFuer(bilder, { name: "Syfter Bulwark — Tier 2", schluessel: "Syfter Bulwark — Tier 2", notizName: "Syfter Bulwark" }), "MB_Syfter_Bulwark.jpg");
   assert.equal(bildFuer(bilder, { name: "Screecher", schluessel: "Kreischer", notizName: "Kreischer" }), null);
 });
+
+import { tokenFuer } from "../werkzeug/bilder.mjs";
+
+test("Tokens: deutscher oder englischer Name, Zweitname, kein Erben von Tier 1", () => {
+  const tokens = { nachName: new Map([
+    ["kreischer", { datei: "MB_Restling_Kreischer_Token.png" }],
+    ["threeclaw", { datei: "MB_Restling_Three-Claw_Token.png" }],
+    ["syfterbulwark", { datei: "MB_Syfter_Syfter-Bulwark_Token.png" }],
+    ["dreiklaue", { datei: "MB_Restling_Dreiklaue_Token.png" }]
+  ]) };
+  assert.equal(tokenFuer(tokens, { name: "Screecher", schluessel: "Kreischer" }).datei, "MB_Restling_Kreischer_Token.png");
+  assert.equal(tokenFuer(tokens, { name: "Devourer — Three-Claw", schluessel: "Grubenbär — Three-Claw" }).datei, "MB_Restling_Three-Claw_Token.png");
+  tokens.nachName.delete("threeclaw");
+  assert.equal(tokenFuer(tokens, { name: "Devourer — Three-Claw", schluessel: "Grubenbär — Three-Claw", alias: ["Dreiklaue"] }).datei, "MB_Restling_Dreiklaue_Token.png");
+  assert.equal(tokenFuer(tokens, { name: "Syfter Bulwark — Tier 2", schluessel: "Syfter Bulwark — Tier 2", notizName: "Syfter Bulwark" }), null);
+});

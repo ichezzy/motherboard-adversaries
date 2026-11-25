@@ -25,7 +25,14 @@ Diese Anleitung ist für Chezzy. Fachwörter stehen nur da, wo sie nötig sind, 
 
 **Horden** würfeln ab halben HP automatisch den kleineren Horden-Schaden.
 
-**Bilder.** Gibt es im Vault ein Bild für einen Gegner, steht es im Bogen.
+**Bilder und Tokens.** Gibt es im Vault ein Bild für einen Gegner, steht es im Bogen; gibt es ein fertiges Token-Bild, bekommt sein Token es. Beides liegt **im Modul selbst** — es funktioniert in jeder Welt und bei jedem, der das Modul frisch installiert.
+
+| Was | Wo im Vault | Dateiname |
+|---|---|---|
+| Bild für den Bogen (Splash) | `_Anhänge/Artwork/` | wie in der Prompt-Datei des Gegners, z. B. `MB_Restling_Grubenbaer_ActionSplash_3x4.jpg` |
+| Token-Bild (mit Ring) | `_Anhänge/Artwork/Token/` | `MB_<Gruppe>_<Name>_Token.png` (oder `.webp`), Name wie in Foundry oder der deutsche, Umlaute als ae/oe/ue/ss — z. B. `MB_Restling_Screecher_Token.png` |
+
+Die Ringe dafür (je Kategorie und Tier) und wie man daraus Tokens macht: `docs/Token-Ringe (Prompts).md`. Tier-2-Fassungen brauchen ein eigenes Token.
 
 ### Einstellungen in Foundry
 
@@ -109,7 +116,8 @@ Mit einem Texteditor öffnen. Pfade mit doppeltem `\\`.
 | `quelle` | `notizen` (normal) oder `json` (alter Weg aus den Export-Dateien) |
 | `gruppen` | Unterordner im Vault → Name des Ordners in Foundry, z. B. `"Restlinge": "Rustlings"` |
 | `umgebungsGruppe` | Name des Ordners für Umgebungen |
-| `bilder.token` | `standard` (Token behält das Standard-Symbol) oder `splash` (Token zeigt das Bild des Gegners) |
+| `bilder.token` | `eigene` (Token-Bilder aus `_Anhänge/Artwork/Token/`; wer keins hat, behält das Standard-Symbol) oder `splash` (wer kein eigenes Token hat, zeigt das Splash-Bild) |
+| `alias` | Frühere Namen, unter denen Bild- oder Token-Dateien noch liegen, z. B. `"Devourer — Three-Claw": "Dreiklaue"` |
 | `hordenSchadenAutomatisch` | Horden-Schaden ab halben HP automatisch (`true`/`false`) |
 | `automatik.an` | Features automatisieren (`true`/`false`); mit `"nurFuer": ["Name", …]` nur für diese Gegner |
 | `umgebungsNotizen` | Welche Umgebung ihren Notes-Reiter aus einer Datei in `texte\` bekommt (Junkarena) |

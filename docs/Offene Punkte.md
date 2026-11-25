@@ -6,11 +6,11 @@
 
 | Punkt | Was zu tun wäre |
 |---|---|
-| **Englische Namen** | Auftrag in `docs/Auftrag Englische Namen.md`. Bis dahin heißen die Gegner in Foundry deutsch (*Kreischer, Grubenbär …*). Das Modul ist vorbereitet: Überschrift des Stat Blocks ändern genügt. |
+| **Englische Namen** | Läuft (Auftrag `docs/Auftrag Englische Namen.md`): *Screecher*, *Devourer*, *Devourer — Three-Claw* sind umgestellt. Ändert sich der Zusatz nach dem Gedankenstrich (Dreiklaue → Three-Claw), bekommt der Gegner einen neuen Eintrag; alte Bild- und Token-Dateinamen trägt `alias` in `einstellungen.json` nach. |
 | **Die Hüter des Hotspot** | In *Hotspot* steht bei den möglichen Gegnern „the keepers of the Hotspot (no stat block yet)“. Es gibt noch keinen Stat Block. |
 | **Junkarena-Notes** | Der Notes-Reiter der Junkarena (Abteile, Abschalten, Spickzettel) kommt aus meiner englischen Übersetzung in `texte\Junkarena.notes.html`, nicht aus der Notiz. Bitte die Übersetzung gegenlesen. Später könnten diese Tabellen als eigener Kasten in die Notiz (z. B. `[!gmnotes]`), dann liest der Build sie mit. |
 | **Bilder** | Erst ein Gegner hat ein Bild (Gutter Slugger). Die Prompts liegen in `_Anhänge/Artwork`; jedes neue Bild unter dem Namen aus der Prompt-Datei ablegen — der nächste Build nimmt es mit. |
-| **Token-Bilder** | Entscheidung offen: Splash-Bild als Token oder eigene Token-Bilder (siehe unten). |
+| **Token-Bilder** | ✅ Eigene Tokens mit Ring je Kategorie und Tier (25.11.2026). Ringe: `docs/Token-Ringe (Prompts).md`. Fertige Tokens als `MB_<Gruppe>_<Name>_Token.png` nach `_Anhänge/Artwork/Token/` — der Build packt sie ins Modul. Neue Kategorien (Rustdogs, Splitter Syndicate, NPCs) brauchen im Vault einen eigenen Unterordner unter `Adversary/`. |
 
 ## B. Sonderregeln, die nur in `einstellungen.json` stehen
 

@@ -12,7 +12,11 @@
   "quelle": "notizen",
 
   "bilder": {
-    "token": "standard"
+    "token": "eigene"
+  },
+
+  "alias": {
+    "Devourer — Three-Claw": "Dreiklaue"
   },
 
   "gruppen": {

@@ -31,11 +31,19 @@ So sehen Spieler auf einen Blick, wie stark ein Gegner ist — ohne Zahlen auf d
 1. **Zuerst die acht Grundformen (Tier 1)** erzeugen — eine pro Kategorie. Gib dabei das Referenzbild `MB_Gutter_Baseballschlaeger_ActionSplash_3x4.jpg` als Stilvorlage mit, wenn dein Werkzeug das kann.
 2. **Dann Tier 2 bis 4 jeweils aus der Grundform:** das Tier-1-Bild als Vorlage hochladen und den Prompt des höheren Tiers nehmen. Dann bleibt der Ring derselbe und wird nur wuchtiger.
 3. **Format:** quadratisch, 1024 × 1024.
-4. **Hintergrund und Mitte** dürfen weiß bleiben. Das Modul schneidet beim Bauen alles außerhalb des Kreises und die runde Mitte selbst aus — wichtig ist nur, dass der Ring **rund und mittig** ist und **nichts über den Kreis hinausragt**. Wenn dein Werkzeug transparente PNGs kann: umso besser.
-5. **Ablegen** im Vault unter `_Anhänge/Artwork/Token/` mit diesem Namen:
-   `MB_Ring_<Kategorie>_T<Tier>.png` — also `MB_Ring_Rustlings_T1.png`, `MB_Ring_Splitter_T4.png`, `MB_Ring_NPC_T2.png` …
-   Kategorien: `Rustlings`, `Gutters`, `Rustdogs`, `Splitter`, `Chimeras`, `Salvants`, `Syfter`, `NPC`.
+4. **Durchsichtig machen:** Für dein Token-Werkzeug muss die **Mitte** des Rings durchsichtig sein (und am besten auch der Rand außen). Kann dein Bildwerkzeug kein transparentes PNG, nimm einen Hintergrund-Entferner und lösch die weiße Mitte und den weißen Rand.
+5. **Ringe aufheben** im Vault unter `_Anhänge/Artwork/Token/Ringe/` als `MB_Ring_<Kategorie>_T<Tier>.png` — also `MB_Ring_Rustlings_T1.png`, `MB_Ring_Splitter_T4.png`, `MB_Ring_NPC_T2.png` … Kategorien: `Rustlings`, `Gutters`, `Rustdogs`, `Splitter`, `Chimeras`, `Salvants`, `Syfter`, `NPC`. (Das Modul benutzt die Ringe nicht selbst — sie sind dein Rohmaterial.)
 6. **Prüfen:** Stimmt die Zahl der Marker? Ragt nichts über den Kreis? Sonst neu erzeugen.
+
+## Vom Ring zum fertigen Token
+
+1. Im Token-Werkzeug deiner Wahl (eine Website wie ein „Token Stamp“, ein Bildprogramm …) das Porträt des Gegners mit dem passenden Ring zusammensetzen: **Kategorie** nach seiner Gruppe, **Tier** nach seinem Stat Block.
+2. Als **PNG oder WebP mit durchsichtigem Hintergrund** speichern, quadratisch (512 × 512 reicht).
+3. Ablegen im Vault unter `_Anhänge/Artwork/Token/` als **`MB_<Gruppe>_<Name>_Token.png`** — der Name wie in Foundry, Umlaute als ae/oe/ue/ss: `MB_Restling_Screecher_Token.png`, `MB_Gutter_Gutter-Slugger_Token.png`, `MB_Syfter_Syfter-Bulwark-Tier-2_Token.png`. Der deutsche Name geht auch (`MB_Restling_Kreischer_Token.png`).
+4. **„Gegner bauen“** doppelklicken: Die Zusammenfassung zeigt „Tokens: … von …“. Passt eine Datei zu keinem Gegner, steht sie unter den Hinweisen.
+5. **Veröffentlichen.** Die Tokens liegen dann **im Modul selbst** — sie funktionieren in jeder Welt und bei jedem, der das Modul frisch installiert.
+
+Tier-2-Fassungen (`… — Tier 2`) brauchen ein **eigenes** Token mit dem Tier-2-Ring; sie erben absichtlich nicht das Token von Tier 1.
 
 
 ---
@@ -402,9 +410,9 @@ Tier 4, legendary: the most elaborate version — an aggressive, jagged silhouet
 
 ---
 
-## Zusatz: Porträt für ein eigenes Token-Bild (optional)
+## Zusatz: Porträt für das Token (optional)
 
-Das Modul schneidet das Porträt für den Token normalerweise aus dem Splash-Bild aus. Wo der Ausschnitt nicht passt, kannst du ein eigenes Porträt erzeugen und als `MB_<Gruppe>_<Name>_Token.png` neben das Splash-Bild legen. Prompt (`{…}` ersetzen):
+Wenn sich aus dem Splash-Bild kein guter Ausschnitt für das Token machen lässt, erzeug ein eigenes Porträt und setz es im Token-Werkzeug in den Ring. Prompt (`{…}` ersetzen):
 
 ```text
 Token portrait for a tabletop RPG: {WHO, e.g. a ragged signal drone with whining rotors and a cracked lens eye}, head and upper body only, facing the viewer, centered, filling a circle in the middle of a square canvas with a little space around it. Gritty scrappunk illustration style — Gachiakuta manga inking fused with Borderlands cel-shading: bold black ink outlines, flat cel-shaded colors with hard shadows, scratchy hatching, dry-brush grunge texture. Muted dusty palette — sand beige, bone white, rust brown, oxidized iron grey — with one small accent in {MAIN COLOR OF THE FACTION}. Plain flat background. No frame, no ring, no text, no logos, no watermark.
